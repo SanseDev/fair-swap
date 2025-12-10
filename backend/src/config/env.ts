@@ -16,7 +16,7 @@ export const env = {
     programId: process.env.PROGRAM_ID || 'GUijjz5VNLUkPSw9KKvH5ntUNoJuSDbWQDXZSrQgx9fW',
   },
   api: {
-    port: parseInt(process.env.API_PORT || '3000', 10),
+    port: parseInt(process.env.API_PORT || '3001', 10),
   },
 } as const;
 
