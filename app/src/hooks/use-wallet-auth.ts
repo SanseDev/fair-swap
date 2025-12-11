@@ -79,6 +79,7 @@ export function useWalletAuth() {
         expiresAt: authResponse.expiresAt,
       });
       setIsAuthenticated(true);
+      setIsAuthenticating(false);
       setError(null);
     } catch (err: any) {
       console.error("Authentication failed:", err);
