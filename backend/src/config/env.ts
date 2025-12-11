@@ -9,7 +9,7 @@ config({ path: resolve(__dirname, '../../.env') });
 
 export const env = {
   database: {
-    url: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/fair_swap',
+    url: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5433/fair_swap',
   },
   solana: {
     rpcUrl: process.env.SOLANA_RPC_URL || 'http://127.0.0.1:8899',

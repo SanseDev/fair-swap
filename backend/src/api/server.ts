@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
-import { offerRoutes, proposalRoutes, swapRoutes } from './routes/index.js';
+import { offerRoutes, proposalRoutes, swapRoutes, authRoutes } from './routes/index.js';
 import { env } from '../config/env.js';
+import { db } from '../config/database.js';
 
 export async function createServer() {
   const fastify = Fastify({
@@ -14,6 +15,9 @@ export async function createServer() {
       },
     },
   });
+
+  // Add database instance to fastify
+  fastify.decorate('knex', db);
 
   // CORS
   fastify.addHook('onRequest', async (request, reply) => {
@@ -32,6 +36,7 @@ export async function createServer() {
   });
 
   // Register routes
+  await fastify.register(authRoutes, { prefix: '/api' });
   await fastify.register(offerRoutes, { prefix: '/api' });
   await fastify.register(proposalRoutes, { prefix: '/api' });
   await fastify.register(swapRoutes, { prefix: '/api' });
