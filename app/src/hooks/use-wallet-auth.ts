@@ -19,6 +19,7 @@ export function useWalletAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [session, setSession] = useState<UserSession | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [authAttempted, setAuthAttempted] = useState(false);
 
   // Check if user has a valid session on mount
   useEffect(() => {
@@ -51,6 +52,7 @@ export function useWalletAuth() {
 
     setIsAuthenticating(true);
     setError(null);
+    setAuthAttempted(true);
 
     try {
       const walletAddress = publicKey.toBase58();
@@ -77,30 +79,47 @@ export function useWalletAuth() {
         expiresAt: authResponse.expiresAt,
       });
       setIsAuthenticated(true);
+      setError(null);
     } catch (err: any) {
       console.error("Authentication failed:", err);
-      setError(err.response?.data?.error || "Authentication failed");
+      
       setIsAuthenticated(false);
-    } finally {
       setIsAuthenticating(false);
+      
+      // If user rejected the signature, disconnect the wallet immediately
+      if (err.message?.includes("User rejected") || 
+          err.message?.includes("User cancelled") ||
+          err.name === "WalletSignMessageError") {
+        await disconnect();
+      } else if (err.response?.data?.error) {
+        setError(err.response.data.error);
+        await disconnect();
+      } else {
+        setError("Authentication failed");
+        await disconnect();
+      }
     }
-  }, [publicKey, signMessage]);
+  }, [publicKey, signMessage, disconnect]);
 
   // Sync authentication state with wallet connection and auto-authenticate
   useEffect(() => {
     if (!publicKey) {
       setIsAuthenticated(false);
       setSession(null);
+      setAuthAttempted(false);
+      setError(null);
     } else if (session && session.walletAddress !== publicKey.toBase58()) {
       // Wallet changed, clear old session
       clearAuthToken();
       setIsAuthenticated(false);
       setSession(null);
-    } else if (publicKey && !isAuthenticated && !isAuthenticating) {
-      // Wallet connected but not authenticated, trigger auto-authentication
+      setAuthAttempted(false);
+      setError(null);
+    } else if (publicKey && !isAuthenticated && !isAuthenticating && !authAttempted) {
+      // Wallet connected but not authenticated yet, trigger auto-authentication only once
       authenticate();
     }
-  }, [publicKey, session, isAuthenticated, isAuthenticating, authenticate]);
+  }, [publicKey, session, isAuthenticated, isAuthenticating, authAttempted, authenticate]);
 
   const logout = useCallback(async () => {
     const token = getAuthToken();
@@ -115,6 +134,8 @@ export function useWalletAuth() {
     clearAuthToken();
     setIsAuthenticated(false);
     setSession(null);
+    setAuthAttempted(false);
+    setError(null);
     await disconnect();
   }, [disconnect]);
 
