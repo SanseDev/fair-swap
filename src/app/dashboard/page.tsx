@@ -1,6 +1,9 @@
 import { SwapStats } from "@/components/swap-stats";
 import { OfferList } from "@/components/offer-list";
 import { ProposalHistory } from "@/components/proposal-history";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -13,7 +16,15 @@ export default function DashboardPage() {
         <div className="lg:col-span-8 space-y-6">
             <div className="flex items-center justify-between">
                 <h2 className="text-lg font-medium tracking-tight">Marketplace</h2>
-                <span className="text-xs text-muted-foreground">Live Feed</span>
+                <div className="flex items-center gap-4">
+                    <span className="text-xs text-muted-foreground">Live Feed</span>
+                    <Link href="/create-offer">
+                        <Button size="sm" className="gap-2">
+                            <Plus className="h-4 w-4" />
+                            Create Offer
+                        </Button>
+                    </Link>
+                </div>
             </div>
             <OfferList />
         </div>
