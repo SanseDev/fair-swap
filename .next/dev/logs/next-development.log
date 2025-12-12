@@ -1,0 +1,353 @@
+[00:00:01.835] Server  LOG     
+[00:00:01.835] Server  LOG        We detected TypeScript in your project and reconfigured your tsconfig.json file for you. Strict-mode is set to false by default.
+[00:00:01.835] Server  LOG        The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+[00:00:01.836] Server  LOG        	- allowJs was set to true
+[00:00:01.836] Server  LOG        	- skipLibCheck was set to true
+[00:00:01.836] Server  LOG        	- strict was set to false
+[00:00:01.836] Server  LOG        	- noEmit was set to true
+[00:00:01.836] Server  LOG        	- incremental was set to true
+[00:00:01.836] Server  LOG        	- include was set to ['next-env.d.ts', '.next/types/**/*.ts', '.next/dev/types/**/*.ts', '**/*.mts', '**/*.ts', '**/*.tsx']
+[00:00:01.836] Server  LOG        	- plugins was updated to add { name: 'next' }
+[00:00:01.836] Server  LOG        	- exclude was set to ['node_modules']
+[00:00:01.836] Server  LOG     
+[00:00:01.836] Server  LOG        The following mandatory changes were made to your tsconfig.json:
+
+[00:00:01.836] Server  LOG        	- moduleResolution was set to node (to match webpack resolution)
+[00:00:01.836] Server  LOG        	- resolveJsonModule was set to true (to match webpack resolution)
+[00:00:01.836] Server  LOG        	- isolatedModules was set to true (requirement for SWC / Babel)
+[00:00:01.836] Server  LOG        	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+[00:00:01.836] Server  LOG     
+[00:00:01.905] Server  LOG      ✓ Ready in 1633ms
+[00:00:15.466] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/header'
+  3 | import "./globals.css";
+  4 | import { Providers } from "@/components/providers";
+> 5 | import { Header } from "@/components/header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/offer-list'
+  1 | import { SwapStats } from "@/components/swap-stats";
+> 2 | import { OfferList } from "@/components/offer-list";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+  5 | export default function Home() {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.tsx:3:1
+Module not found: Can't resolve '@/components/proposal-history'
+  1 | import { SwapStats } from "@/components/swap-stats";
+  2 | import { OfferList } from "@/components/offer-list";
+> 3 | import { ProposalHistory } from "@/components/proposal-history";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function Home() {
+  6 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/providers'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import { Providers } from "@/components/providers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { Header } from "@/components/header";
+  6 |
+  7 | const geistSans = Geist({
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.tsx:1:1
+Module not found: Can't resolve '@/components/swap-stats'
+> 1 | import { SwapStats } from "@/components/swap-stats";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { OfferList } from "@/components/offer-list";
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:15.471] Server  ERROR    ⨯ ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/header'
+  3 | import "./globals.css";
+  4 | import { Providers } from "@/components/providers";
+> 5 | import { Header } from "@/components/header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/offer-list'
+  1 | import { SwapStats } from "@/components/swap-stats";
+> 2 | import { OfferList } from "@/components/offer-list";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+  5 | export default function Home() {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.tsx:3:1
+Module not found: Can't resolve '@/components/proposal-history'
+  1 | import { SwapStats } from "@/components/swap-stats";
+  2 | import { OfferList } from "@/components/offer-list";
+> 3 | import { ProposalHistory } from "@/components/proposal-history";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function Home() {
+  6 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/providers'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import { Providers } from "@/components/providers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { Header } from "@/components/header";
+  6 |
+  7 | const geistSans = Geist({
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/page.tsx:1:1
+Module not found: Can't resolve '@/components/swap-stats'
+> 1 | import { SwapStats } from "@/components/swap-stats";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { OfferList } from "@/components/offer-list";
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:16.904] Browser ERROR   uncaughtError: Error: ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/header'
+  3 | import "./globals.css";
+  4 | import { Providers } from "@/components/providers";
+> 5 | import { Header } from "@/components/header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:17.197] Browser ERROR   ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/header'
+  3 | import "./globals.css";
+  4 | import { Providers } from "@/components/providers";
+> 5 | import { Header } from "@/components/header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/offer-list'
+  1 | import { SwapStats } from "@/components/swap-stats";
+> 2 | import { OfferList } from "@/components/offer-list";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+  5 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/page.tsx:3:1
+Module not found: Can't resolve '@/components/proposal-history'
+  1 | import { SwapStats } from "@/components/swap-stats";
+  2 | import { OfferList } from "@/components/offer-list";
+> 3 | import { ProposalHistory } from "@/components/proposal-history";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function Home() {
+  6 |   return (
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/providers'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import { Providers } from "@/components/providers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { Header } from "@/components/header";
+  6 |
+  7 | const geistSans = Geist({
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/page.tsx:1:1
+Module not found: Can't resolve '@/components/swap-stats'
+> 1 | import { SwapStats } from "@/components/swap-stats";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { OfferList } from "@/components/offer-list";
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/header'
+  3 | import "./globals.css";
+  4 | import { Providers } from "@/components/providers";
+> 5 | import { Header } from "@/components/header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/offer-list'
+  1 | import { SwapStats } from "@/components/swap-stats";
+> 2 | import { OfferList } from "@/components/offer-list";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+  5 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/page.tsx:3:1
+Module not found: Can't resolve '@/components/proposal-history'
+  1 | import { SwapStats } from "@/components/swap-stats";
+  2 | import { OfferList } from "@/components/offer-list";
+> 3 | import { ProposalHistory } from "@/components/proposal-history";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function Home() {
+  6 |   return (
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/providers'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import { Providers } from "@/components/providers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { Header } from "@/components/header";
+  6 |
+  7 | const geistSans = Geist({
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.197] Browser ERROR   ./src/app/page.tsx:1:1
+Module not found: Can't resolve '@/components/swap-stats'
+> 1 | import { SwapStats } from "@/components/swap-stats";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { OfferList } from "@/components/offer-list";
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.299] Browser ERROR   ./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/header'
+  3 | import "./globals.css";
+  4 | import { Providers } from "@/components/providers";
+> 5 | import { Header } from "@/components/header";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const geistSans = Geist({
+  8 |   variable: "--font-geist-sans",
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.299] Browser ERROR   ./src/app/page.tsx:2:1
+Module not found: Can't resolve '@/components/offer-list'
+  1 | import { SwapStats } from "@/components/swap-stats";
+> 2 | import { OfferList } from "@/components/offer-list";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+  5 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.299] Browser ERROR   ./src/app/page.tsx:3:1
+Module not found: Can't resolve '@/components/proposal-history'
+  1 | import { SwapStats } from "@/components/swap-stats";
+  2 | import { OfferList } from "@/components/offer-list";
+> 3 | import { ProposalHistory } from "@/components/proposal-history";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function Home() {
+  6 |   return (
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.299] Browser ERROR   ./src/app/layout.tsx:4:1
+Module not found: Can't resolve '@/components/providers'
+  2 | import { Geist, Geist_Mono } from "next/font/google";
+  3 | import "./globals.css";
+> 4 | import { Providers } from "@/components/providers";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { Header } from "@/components/header";
+  6 |
+  7 | const geistSans = Geist({
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.299] Browser ERROR   ./src/app/page.tsx:1:1
+Module not found: Can't resolve '@/components/swap-stats'
+> 1 | import { SwapStats } from "@/components/swap-stats";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { OfferList } from "@/components/offer-list";
+  3 | import { ProposalHistory } from "@/components/proposal-history";
+  4 |
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:29.792] Server  LOG      ✓ Compiled in 1382ms
+[00:02:31.730] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:32.544] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:03:26.045] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:26.152] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:03:28.255] Browser ERROR   {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletSignMessageError"} {"_events":{"connect":{"context":"[Circular]","once":false},"disconnect":[{"context":"[Circular]","once":false},{"context":"[Circular]","once":false}],"error":{"context":"[Circular]","once":false},"readyStateChange":{"context":"[Circular]","once":false}},"_eventsCount":4}
+[00:03:28.255] Browser ERROR   Authentication failed: {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletSignMessageError"}
+[00:03:29.858] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:29.996] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
