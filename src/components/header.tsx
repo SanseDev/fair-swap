@@ -1,10 +1,14 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
 import { Button } from "@/components/ui/button";
 import { Wallet, LogOut, Check, AlertCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function Header() {
+  const pathname = usePathname();
   const {
     isConnected,
     isAuthenticated,
@@ -20,11 +24,36 @@ export function Header() {
     return `${address.slice(0, 4)}...${address.slice(-4)}`;
   };
 
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/dashboard", label: "Dashboard" },
+  ];
+
   return (
     <header className="mb-8 flex items-center justify-between backdrop-blur-sm bg-background/50 p-4 rounded-xl border border-border/50">
-      <h1 className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-        FairSwap
-      </h1>
+      <div className="flex items-center gap-8">
+        <Link href="/">
+          <h1 className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 cursor-pointer hover:opacity-80 transition-opacity">
+            FairSwap
+          </h1>
+        </Link>
+        <nav className="hidden md:flex items-center gap-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary",
+                pathname === link.href
+                  ? "text-primary"
+                  : "text-muted-foreground"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
 
       <div className="flex items-center gap-3">
         {error && (
