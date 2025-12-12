@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label"; // Check if Label exists or use standard label
 import { ArrowLeftRight, Loader2 } from "lucide-react";
 
 export function CreateOfferForm() {

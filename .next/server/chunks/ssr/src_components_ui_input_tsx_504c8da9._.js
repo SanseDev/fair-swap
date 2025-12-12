@@ -1,0 +1,3 @@
+module.exports=[66718,a=>{"use strict";var b=a.i(31530),c=a.i(23991),d=a.i(68114);let e=c.forwardRef(({className:a,type:c,...e},f)=>(0,b.jsx)("input",{type:c,className:(0,d.cn)("flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",a),ref:f,...e}));e.displayName="Input",a.s(["Input",()=>e])}];
+
+//# sourceMappingURL=src_components_ui_input_tsx_504c8da9._.js.map

@@ -1,0 +1,3 @@
+module.exports=[90895,a=>{"use strict";var b=a.i(54799);let c={randomUUID:b.default.randomUUID},d=new Uint8Array(256),e=d.length,f=[];for(let a=0;a<256;++a)f.push((a+256).toString(16).slice(1));a.s(["v4",0,function(a,g,h){if(c.randomUUID&&!g&&!a)return c.randomUUID();let i=(a=a||{}).random||(a.rng||function(){return e>d.length-16&&(b.default.randomFillSync(d),e=0),d.slice(e,e+=16)})();if(i[6]=15&i[6]|64,i[8]=63&i[8]|128,g){h=h||0;for(let a=0;a<16;++a)g[h+a]=i[a];return g}return function(a,b=0){return f[a[b+0]]+f[a[b+1]]+f[a[b+2]]+f[a[b+3]]+"-"+f[a[b+4]]+f[a[b+5]]+"-"+f[a[b+6]]+f[a[b+7]]+"-"+f[a[b+8]]+f[a[b+9]]+"-"+f[a[b+10]]+f[a[b+11]]+f[a[b+12]]+f[a[b+13]]+f[a[b+14]]+f[a[b+15]]}(i)}],90895)}];
+
+//# sourceMappingURL=0875a_uuid_dist_esm-node_v4_1ad324ce.js.map
