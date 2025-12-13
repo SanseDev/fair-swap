@@ -1,3 +1,22 @@
-[00:00:01.266] Server  LOG      ✓ Ready in 896ms
-[00:00:07.843] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:08.949] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:00:01.162] Server  LOG      ✓ Ready in 942ms
+[00:00:10.562] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.703] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:00:24.451] Browser ERROR   Authentication failed: {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"data":"{\"walletAddress\":\"AQxBxaq4W1JxuzyzdLJLdqCWatkwVMTkWCU8yyeJeZjt\",\"signature\":\"2Qeysrz8voCSsfrYgkyoc91yjJVWi9U4zevRJ9oXDgFzph83e5GuwAnMHi75Chwt9GPai8MvZt8VJPLK8Rfo73as\",\"message\":\"Sign this message to authenticate with FairSwap:\\n\\nNonce: 2EpDqqMoKtQgJJNuQFk8zgusFwbn4bOg\\nWallet: AQxBxaq4W1JxuzyzdLJLdqCWatkwVMTkWCU8yyeJeZjt\\n\\nThis signature will not cost you any gas.\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"http://localhost:3001/api/auth/verify","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 401","name":"AxiosError","stack":"AxiosError: Request failed with status code 401\n    at settle (http://localhost:3000/_next/static/chunks/77b74_axios_lib_3ffa8d91._.js:1954:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/77b74_axios_lib_3ffa8d91._.js:2469:225)\n    at Axios.request (http://localhost:3000/_next/static/chunks/77b74_axios_lib_3ffa8d91._.js:3273:49)\n    at async Object.verifySignature (http://localhost:3000/_next/static/chunks/src_6346223f._.js:120:26)\n    at async useWalletAuth.useCallback[authenticate] (http://localhost:3000/_next/static/chunks/src_6346223f._.js:243:38)","status":401}
+[00:02:18.757] Server  LOG      ✓ Compiled in 1235ms
+[00:02:19.144] Server  ERROR    ⨯ Error: useWalletAuth must be used within a WalletAuthProvider
+[00:02:19.238] Browser ERROR   uncaughtError: Error: useWalletAuth must be used within a WalletAuthProvider
+[00:02:19.665] Server  LOG      ✓ Compiled in 0ms
+[00:02:19.672] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:21.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:21.872] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:03:15.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:15.230] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:03:22.550] Browser ERROR   Authentication failed: {}
+[00:03:25.011] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:25.347] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:03:59.597] Browser ERROR   Authentication failed: {}
+[00:04:01.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:01.619] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:04:30.107] Browser ERROR   Authentication failed: {}
+[00:04:32.398] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:32.523] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.

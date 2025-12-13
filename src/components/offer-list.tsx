@@ -16,6 +16,15 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Search } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
+import { OfferDetailsDialog } from "./offer-details-dialog";
+import { Offer } from "@/lib/types";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function OfferList() {
   const [filters, setFilters] = useState({
@@ -23,6 +32,8 @@ export function OfferList() {
     token_mint_a: "",
     token_mint_b: "",
   });
+  const [assetType, setAssetType] = useState<string>("all");
+  const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
 
   const { data: offers, isLoading } = useQuery({
     queryKey: ["offers", filters],
@@ -33,10 +44,24 @@ export function OfferList() {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
+  // Client-side filtering for asset type (mock implementation as we don't have type in API yet)
+  const filteredOffers = offers?.filter(offer => {
+    if (assetType === "all") return true;
+    // Simple heuristic: if type is SOL, check if mint is empty or looks like SOL (simplified)
+    // Real implementation would depend on token metadata
+    return true; 
+  });
+
+  const handleAccept = (offer: Offer) => {
+    console.log("Accepting offer:", offer.id);
+    // TODO: Implement accept logic
+    setSelectedOffer(null);
+  };
+
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-4 p-1 bg-muted/30 rounded-lg">
-        <div className="relative flex-1">
+      <div className="flex flex-col sm:flex-row items-center gap-4 p-1 bg-muted/30 rounded-lg">
+        <div className="relative flex-1 w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search seller..."
@@ -45,17 +70,31 @@ export function OfferList() {
               onChange={(e) => handleFilterChange("seller", e.target.value)}
             />
         </div>
-        <div className="h-6 w-px bg-border/50" />
+        <div className="hidden sm:block h-6 w-px bg-border/50" />
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+           <Select value={assetType} onValueChange={setAssetType}>
+            <SelectTrigger className="w-[140px] border-none shadow-none bg-transparent focus:ring-0">
+              <SelectValue placeholder="Asset Type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Assets</SelectItem>
+              <SelectItem value="sol">SOL</SelectItem>
+              <SelectItem value="spl">SPL Tokens</SelectItem>
+              <SelectItem value="nft">NFTs</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="hidden sm:block h-6 w-px bg-border/50" />
         <Input
-          placeholder="Token A"
-          className="w-[150px] border-none shadow-none bg-transparent focus-visible:ring-0"
+          placeholder="Token A Mint"
+          className="w-full sm:w-[150px] border-none shadow-none bg-transparent focus-visible:ring-0"
           value={filters.token_mint_a}
           onChange={(e) => handleFilterChange("token_mint_a", e.target.value)}
         />
-        <div className="h-6 w-px bg-border/50" />
+        <div className="hidden sm:block h-6 w-px bg-border/50" />
         <Input
-          placeholder="Token B"
-          className="w-[150px] border-none shadow-none bg-transparent focus-visible:ring-0"
+          placeholder="Token B Mint"
+          className="w-full sm:w-[150px] border-none shadow-none bg-transparent focus-visible:ring-0"
           value={filters.token_mint_b}
           onChange={(e) => handleFilterChange("token_mint_b", e.target.value)}
         />
@@ -85,15 +124,19 @@ export function OfferList() {
                   <TableCell><div className="h-8 w-full bg-muted/50 rounded animate-pulse" /></TableCell>
                 </TableRow>
               ))
-            ) : offers?.length === 0 ? (
+            ) : filteredOffers?.length === 0 ? (
                <TableRow>
                  <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
                     No active offers found.
                  </TableCell>
                </TableRow>
             ) : (
-              offers?.map((offer) => (
-                <TableRow key={offer.id} className="border-border/40 group">
+              filteredOffers?.map((offer) => (
+                <TableRow 
+                  key={offer.id} 
+                  className="border-border/40 group cursor-pointer hover:bg-muted/5"
+                  onClick={() => setSelectedOffer(offer)}
+                >
                   <TableCell className="font-mono text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                     {offer.seller.slice(0, 4)}...{offer.seller.slice(-4)}
                   </TableCell>
@@ -118,7 +161,17 @@ export function OfferList() {
                     {formatDistanceToNow(new Date(offer.created_at))}
                   </TableCell>
                   <TableCell>
-                    <Button size="sm" variant="ghost" className="w-full h-8 text-xs">View</Button>
+                    <Button 
+                        size="sm" 
+                        variant="ghost" 
+                        className="w-full h-8 text-xs"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedOffer(offer);
+                        }}
+                    >
+                        View
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))
@@ -126,6 +179,13 @@ export function OfferList() {
           </TableBody>
         </Table>
       </div>
+
+      <OfferDetailsDialog 
+        offer={selectedOffer} 
+        open={!!selectedOffer} 
+        onOpenChange={(open) => !open && setSelectedOffer(null)}
+        onAccept={handleAccept}
+      />
     </div>
   );
 }
