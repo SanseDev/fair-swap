@@ -37,18 +37,15 @@ export async function authRoutes(fastify) {
             // Get the nonce from database
             const nonceRecord = await authRepo.getNonce(walletAddress);
             if (!nonceRecord) {
-                fastify.log.error(`Nonce not found for wallet: ${walletAddress}`);
                 return reply.status(401).send({ error: "Nonce not found or expired" });
             }
             // Check if nonce is expired
             if (new Date(nonceRecord.expires_at) < new Date()) {
-                fastify.log.error(`Nonce expired for wallet: ${walletAddress}`);
                 await authRepo.deleteNonce(walletAddress);
                 return reply.status(401).send({ error: "Nonce expired" });
             }
             // Verify the message contains the nonce
             if (!message.includes(nonceRecord.nonce)) {
-                fastify.log.error(`Message does not contain nonce. Expected: ${nonceRecord.nonce}`);
                 return reply.status(401).send({ error: "Invalid message format" });
             }
             // Verify the signature using Solana's method
@@ -60,29 +57,18 @@ export async function authRoutes(fastify) {
                 publicKey = new PublicKey(walletAddress);
             }
             catch (err) {
-                fastify.log.error(`Invalid wallet address: ${walletAddress}`);
                 return reply.status(400).send({ error: "Invalid wallet address" });
             }
             const publicKeyBytes = publicKey.toBytes();
-            fastify.log.info({
-                signatureLength: signatureBytes.length,
-                messageLength: messageBytes.length,
-                publicKeyLength: publicKeyBytes.length,
-                walletAddress
-            }, 'Verifying signature');
             const isValid = nacl.sign.detached.verify(messageBytes, signatureBytes, publicKeyBytes);
             if (!isValid) {
-                fastify.log.error(`Signature verification failed for wallet: ${walletAddress}`);
                 return reply.status(401).send({ error: "Invalid signature" });
             }
-            fastify.log.info(`Signature verified successfully for wallet: ${walletAddress}`);
             // Delete the used nonce
             await authRepo.deleteNonce(walletAddress);
-            // Create JWT token
+            // Create JWT token (stateless, no DB storage needed)
             const token = jwt.sign({ walletAddress }, JWT_SECRET, { expiresIn: "7d" });
-            // Store session in database
             const sessionExpiresAt = new Date(Date.now() + SESSION_EXPIRY_MS);
-            await authRepo.createSession(walletAddress, token, sessionExpiresAt);
             return {
                 token,
                 walletAddress,
@@ -94,23 +80,11 @@ export async function authRoutes(fastify) {
             return reply.status(500).send({ error: "Authentication failed" });
         }
     });
-    // Logout and invalidate session
+    // Logout (client-side only - JWT is stateless)
     fastify.post("/auth/logout", async (request, reply) => {
-        const authHeader = request.headers.authorization;
-        if (!authHeader || !authHeader.startsWith("Bearer ")) {
-            return reply.status(401).send({ error: "No token provided" });
-        }
-        const token = authHeader.substring(7);
-        try {
-            await authRepo.deleteSession(token);
-            return { success: true };
-        }
-        catch (error) {
-            fastify.log.error(error);
-            return reply.status(500).send({ error: "Logout failed" });
-        }
+        return { success: true };
     });
-    // Verify token and get session info
+    // Verify token and get wallet info
     fastify.get("/auth/me", async (request, reply) => {
         const authHeader = request.headers.authorization;
         if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -118,15 +92,10 @@ export async function authRoutes(fastify) {
         }
         const token = authHeader.substring(7);
         try {
-            const session = await authRepo.getSession(token);
-            if (!session) {
-                return reply.status(401).send({ error: "Invalid or expired session" });
-            }
-            // Verify JWT
             const decoded = jwt.verify(token, JWT_SECRET);
             return {
-                walletAddress: session.wallet_address,
-                expiresAt: session.expires_at.toISOString(),
+                walletAddress: decoded.walletAddress,
+                expiresAt: new Date(decoded.exp * 1000).toISOString(),
             };
         }
         catch (error) {
@@ -134,11 +103,10 @@ export async function authRoutes(fastify) {
             return reply.status(401).send({ error: "Invalid token" });
         }
     });
-    // Cleanup expired nonces and sessions (called periodically)
+    // Cleanup expired nonces (called periodically)
     fastify.post("/auth/cleanup", async (request, reply) => {
         try {
             await authRepo.cleanupExpiredNonces();
-            await authRepo.cleanupExpiredSessions();
             return { success: true };
         }
         catch (error) {

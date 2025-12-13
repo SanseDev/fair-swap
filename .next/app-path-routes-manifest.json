@@ -4,5 +4,6 @@
   "/create-offer/page": "/create-offer",
   "/dashboard/page": "/dashboard",
   "/favicon.ico/route": "/favicon.ico",
+  "/marketplace/page": "/marketplace",
   "/page": "/"
 }

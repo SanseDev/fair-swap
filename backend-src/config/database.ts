@@ -9,7 +9,7 @@ export const db = knex({
     max: 10,
   },
   migrations: {
-    directory: './src/database/migrations',
+    directory: './backend-src/database/migrations',
     extension: 'ts',
   },
 });

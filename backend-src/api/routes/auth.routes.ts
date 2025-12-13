@@ -98,16 +98,14 @@ export async function authRoutes(fastify: FastifyInstance) {
       // Delete the used nonce
       await authRepo.deleteNonce(walletAddress);
 
-      // Create JWT token
+      // Create JWT token (stateless, no DB storage needed)
       const token = jwt.sign(
         { walletAddress },
         JWT_SECRET,
         { expiresIn: "7d" }
       );
 
-      // Store session in database
       const sessionExpiresAt = new Date(Date.now() + SESSION_EXPIRY_MS);
-      await authRepo.createSession(walletAddress, token, sessionExpiresAt);
 
       return {
         token,
@@ -120,28 +118,12 @@ export async function authRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // Logout and invalidate session
-  fastify.post<{
-    Headers: { authorization?: string };
-  }>("/auth/logout", async (request, reply) => {
-    const authHeader = request.headers.authorization;
-    
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return reply.status(401).send({ error: "No token provided" });
-    }
-
-    const token = authHeader.substring(7);
-
-    try {
-      await authRepo.deleteSession(token);
-      return { success: true };
-    } catch (error) {
-      fastify.log.error(error);
-      return reply.status(500).send({ error: "Logout failed" });
-    }
+  // Logout (client-side only - JWT is stateless)
+  fastify.post("/auth/logout", async (request, reply) => {
+    return { success: true };
   });
 
-  // Verify token and get session info
+  // Verify token and get wallet info
   fastify.get<{
     Headers: { authorization?: string };
   }>("/auth/me", async (request, reply) => {
@@ -154,18 +136,11 @@ export async function authRoutes(fastify: FastifyInstance) {
     const token = authHeader.substring(7);
 
     try {
-      const session = await authRepo.getSession(token);
-      
-      if (!session) {
-        return reply.status(401).send({ error: "Invalid or expired session" });
-      }
-
-      // Verify JWT
-      const decoded = jwt.verify(token, JWT_SECRET) as { walletAddress: string };
+      const decoded = jwt.verify(token, JWT_SECRET) as { walletAddress: string; exp: number };
 
       return {
-        walletAddress: session.wallet_address,
-        expiresAt: session.expires_at.toISOString(),
+        walletAddress: decoded.walletAddress,
+        expiresAt: new Date(decoded.exp * 1000).toISOString(),
       };
     } catch (error) {
       fastify.log.error(error);
@@ -173,11 +148,10 @@ export async function authRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // Cleanup expired nonces and sessions (called periodically)
+  // Cleanup expired nonces (called periodically)
   fastify.post("/auth/cleanup", async (request, reply) => {
     try {
       await authRepo.cleanupExpiredNonces();
-      await authRepo.cleanupExpiredSessions();
       return { success: true };
     } catch (error) {
       fastify.log.error(error);
