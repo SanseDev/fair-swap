@@ -13,6 +13,7 @@ import { Offer } from "@/lib/types";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
 import { Badge } from "@/components/ui/badge";
 import { formatDistanceToNow } from "date-fns";
+import { formatTokenAmount } from "@/lib/token-utils";
 
 interface OfferDetailsDialogProps {
   offer: Offer | null;
@@ -53,7 +54,7 @@ export function OfferDetailsDialog({
           <div className="grid grid-cols-4 items-center gap-4">
             <span className="font-bold text-right">Selling:</span>
             <div className="col-span-3 flex flex-col">
-              <span className="font-medium">{offer.token_amount_a} Tokens</span>
+              <span className="font-medium">{formatTokenAmount(offer.token_amount_a)} Tokens</span>
               <span className="text-xs text-muted-foreground font-mono truncate">
                 {offer.token_mint_a}
               </span>
@@ -62,7 +63,7 @@ export function OfferDetailsDialog({
           <div className="grid grid-cols-4 items-center gap-4">
             <span className="font-bold text-right">Buying:</span>
             <div className="col-span-3 flex flex-col">
-              <span className="font-medium">{offer.token_amount_b} Tokens</span>
+              <span className="font-medium">{formatTokenAmount(offer.token_amount_b)} Tokens</span>
               <span className="text-xs text-muted-foreground font-mono truncate">
                 {offer.token_mint_b}
               </span>

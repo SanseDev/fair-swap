@@ -18,6 +18,7 @@ import { Search } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { OfferDetailsDialog } from "./offer-details-dialog";
 import { Offer } from "@/lib/types";
+import { formatTokenAmount } from "@/lib/token-utils";
 import {
   Select,
   SelectContent,
@@ -134,13 +135,13 @@ export function OfferList() {
                   </TableCell>
                   <TableCell>
                     <div className="flex flex-col">
-                        <span className="font-medium">{offer.token_amount_a}</span>
+                        <span className="font-medium">{formatTokenAmount(offer.token_amount_a)}</span>
                         <span className="text-[10px] text-muted-foreground font-mono">{offer.token_mint_a.slice(0, 6)}...</span>
                     </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex flex-col">
-                        <span className="font-medium">{offer.token_amount_b}</span>
+                        <span className="font-medium">{formatTokenAmount(offer.token_amount_b)}</span>
                         <span className="text-[10px] text-muted-foreground font-mono">{offer.token_mint_b.slice(0, 6)}...</span>
                     </div>
                   </TableCell>

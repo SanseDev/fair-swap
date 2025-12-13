@@ -20,8 +20,10 @@ export class InstructionParser {
   constructor(programId: string, connection: Connection) {
     // Try multiple paths for the IDL file
     const possiblePaths = [
+      resolve(process.cwd(), 'target/idl/fair_swap.json'),
       resolve(process.cwd(), '../target/idl/fair_swap.json'),
       resolve(process.cwd(), '../../target/idl/fair_swap.json'),
+      resolve(__dirname, '../../target/idl/fair_swap.json'),
       resolve(__dirname, '../../../target/idl/fair_swap.json'),
     ];
     

@@ -62,19 +62,19 @@ export class TransactionProcessor {
     const { data, accounts } = instruction;
     
     await this.offerRepo.create({
-      offer_id: data.offerId.toString(),
+      offer_id: data.offer_id?.toString() || data.offerId?.toString(),
       seller: accounts.seller,
-      token_mint_a: accounts.tokenMintA,
-      token_amount_a: data.tokenAmountA.toString(),
-      token_mint_b: data.tokenMintB.toString(),
-      token_amount_b: data.tokenAmountB.toString(),
-      allow_alternatives: data.allowAlternatives,
+      token_mint_a: accounts.tokenMintA || accounts.token_mint_a,
+      token_amount_a: (data.token_amount_a || data.tokenAmountA)?.toString(),
+      token_mint_b: (data.token_mint_b || data.tokenMintB)?.toString(),
+      token_amount_b: (data.token_amount_b || data.tokenAmountB)?.toString(),
+      allow_alternatives: data.allow_alternatives ?? data.allowAlternatives,
       status: 'active',
       signature,
       slot,
     } as Partial<Offer>);
 
-    console.log(`✓ Indexed offer creation: ${data.offerId}`);
+    console.log(`✓ Indexed offer creation: ${data.offer_id || data.offerId}`);
   }
 
   private async handleCancelOffer(
