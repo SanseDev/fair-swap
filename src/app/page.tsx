@@ -8,8 +8,8 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden">
       <div className="fixed inset-0 z-0 w-full h-full pointer-events-none opacity-40">
         <LightPillar
-          topColor="#5227FF"
-          bottomColor="#FF9FFC"
+          topColor="#9945FF"
+          bottomColor="#14F195"
           intensity={1.0}
           rotationSpeed={0.3}
           glowAmount={0.005}
