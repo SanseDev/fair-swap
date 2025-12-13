@@ -2,7 +2,7 @@ import axios from "axios";
 import { PublicKey } from "@solana/web3.js";
 import bs58 from "bs58";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 export interface NonceResponse {
   nonce: string;
@@ -23,7 +23,7 @@ export interface UserSession {
 
 export const authApi = {
   async requestNonce(walletAddress: string): Promise<NonceResponse> {
-    const response = await axios.post(`${API_URL}/auth/nonce`, {
+    const response = await axios.post(`${API_URL}/api/auth/nonce`, {
       walletAddress,
     });
     return response.data;
@@ -34,7 +34,7 @@ export const authApi = {
     signature: string,
     message: string
   ): Promise<AuthResponse> {
-    const response = await axios.post(`${API_URL}/auth/verify`, {
+    const response = await axios.post(`${API_URL}/api/auth/verify`, {
       walletAddress,
       signature,
       message,
@@ -44,7 +44,7 @@ export const authApi = {
 
   async logout(token: string): Promise<void> {
     await axios.post(
-      `${API_URL}/auth/logout`,
+      `${API_URL}/api/auth/logout`,
       {},
       {
         headers: {
@@ -55,7 +55,7 @@ export const authApi = {
   },
 
   async getSession(token: string): Promise<UserSession> {
-    const response = await axios.get(`${API_URL}/auth/me`, {
+    const response = await axios.get(`${API_URL}/api/auth/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

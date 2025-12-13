@@ -8,11 +8,17 @@ skip-lint = false
 [programs.localnet]
 fair_swap = "GUijjz5VNLUkPSw9KKvH5ntUNoJuSDbWQDXZSrQgx9fW"
 
+[programs.devnet]
+fair_swap = "DMpk34ArT3Z8nXtZgQXftWhKNq5MAkMcieEFnUQW7oCU"
+
+[programs.mainnet]
+fair_swap = "GUijjz5VNLUkPSw9KKvH5ntUNoJuSDbWQDXZSrQgx9fW"
+
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]

@@ -9,7 +9,7 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("GUijjz5VNLUkPSw9KKvH5ntUNoJuSDbWQDXZSrQgx9fW");
+declare_id!("DMpk34ArT3Z8nXtZgQXftWhKNq5MAkMcieEFnUQW7oCU");
 
 #[program]
 pub mod fair_swap {

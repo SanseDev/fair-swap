@@ -39,3 +39,18 @@ export const getSwapStats = async () => {
   return response.data.data;
 };
 
+export const createOffer = async (offerData: {
+  offer_id: string;
+  seller: string;
+  token_mint_a: string;
+  token_amount_a: string;
+  token_mint_b: string;
+  token_amount_b: string;
+  allow_alternatives: boolean;
+  signature: string;
+  slot?: number;
+}) => {
+  const response = await api.post<{ data: Offer }>('/offers', offerData);
+  return response.data.data;
+};
+
