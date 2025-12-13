@@ -4,21 +4,19 @@ import { OfferRepository } from '../../repositories/index.js';
 export async function offerRoutes(fastify: FastifyInstance) {
   const offerRepo = new OfferRepository();
 
-  // Get all offers
+  // Get all offers with combined filters
   fastify.get('/offers', async (request, reply) => {
-    const { limit = 100, offset = 0, status, seller, token_mint_a, token_mint_b } = request.query as any;
+    const { limit = 100, offset = 0, status, seller, token_mint_a, token_mint_b, asset_type = 'all' } = request.query as any;
     
-    let offers;
-    
-    if (status) {
-      offers = await offerRepo.findByStatus(status, limit);
-    } else if (seller) {
-      offers = await offerRepo.findBySeller(seller, limit);
-    } else if (token_mint_a || token_mint_b) {
-      offers = await offerRepo.findByTokenMints(token_mint_a, token_mint_b, limit);
-    } else {
-      offers = await offerRepo.findAll(limit, offset);
-    }
+    const offers = await offerRepo.findWithFilters({
+      status,
+      seller,
+      token_mint_a,
+      token_mint_b,
+      asset_type,
+      limit: Number(limit),
+      offset: Number(offset),
+    });
     
     return { data: offers };
   });

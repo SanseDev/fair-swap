@@ -31,8 +31,8 @@ export function OfferList() {
     seller: "",
     token_mint_a: "",
     token_mint_b: "",
+    asset_type: "all",
   });
-  const [assetType, setAssetType] = useState<string>("all");
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
 
   const { data: offers, isLoading } = useQuery({
@@ -43,14 +43,6 @@ export function OfferList() {
   const handleFilterChange = (key: string, value: string) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
-
-  // Client-side filtering for asset type (mock implementation as we don't have type in API yet)
-  const filteredOffers = offers?.filter(offer => {
-    if (assetType === "all") return true;
-    // Simple heuristic: if type is SOL, check if mint is empty or looks like SOL (simplified)
-    // Real implementation would depend on token metadata
-    return true; 
-  });
 
   const handleAccept = (offer: Offer) => {
     console.log("Accepting offer:", offer.id);
@@ -72,7 +64,7 @@ export function OfferList() {
         </div>
         <div className="hidden sm:block h-6 w-px bg-border/50" />
         <div className="flex items-center gap-2 w-full sm:w-auto">
-           <Select value={assetType} onValueChange={setAssetType}>
+           <Select value={filters.asset_type} onValueChange={(value) => handleFilterChange("asset_type", value)}>
             <SelectTrigger className="w-[140px] border-none shadow-none bg-transparent focus:ring-0">
               <SelectValue placeholder="Asset Type" />
             </SelectTrigger>
@@ -124,14 +116,14 @@ export function OfferList() {
                   <TableCell><div className="h-8 w-full bg-muted/50 rounded animate-pulse" /></TableCell>
                 </TableRow>
               ))
-            ) : filteredOffers?.length === 0 ? (
+            ) : offers?.length === 0 ? (
                <TableRow>
                  <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
                     No active offers found.
                  </TableCell>
                </TableRow>
             ) : (
-              filteredOffers?.map((offer) => (
+              offers?.map((offer) => (
                 <TableRow 
                   key={offer.id} 
                   className="border-border/40 group cursor-pointer hover:bg-muted/5"
