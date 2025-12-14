@@ -137,3 +137,101 @@
 [00:12:39.957] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:27:30.523Z","wallet":"3nj8hjjG..."}
 [00:12:39.957] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
 [00:12:39.957] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:15:18.884] Server  LOG      ✓ Compiled in 321ms
+[00:15:50.023] Server  LOG      ✓ Compiled in 53ms
+[00:15:59.838] Server  LOG      ✓ Compiled in 40ms
+[00:16:32.498] Server  LOG      ✓ Compiled in 67ms
+[00:18:17.073] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:18:17.076] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[00:18:17.076] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:18:17.076] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:18:17.076] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:18:18.534] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:18:18.535] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:21:23.783] Server  LOG      ✓ Compiled in 299ms
+[00:21:25.560] Server  LOG      ✓ Compiled in 50ms
+[00:21:27.465] Server  LOG      ✓ Compiled in 16ms
+[00:23:05.054] Server  LOG      ✓ Compiled in 214ms
+[00:23:48.011] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[00:23:48.956] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:49.250] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:23:49.250] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:33:13.459Z","wallet":"T31SBBB9..."}
+[00:23:49.250] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:23:49.250] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:24:09.850] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:09.852] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[00:24:09.852] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:09.852] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:24:09.852] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:11.481] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:11.489] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:24:13.879] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:14.111] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:24:14.111] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:39:06.320Z","wallet":"3nj8hjjG..."}
+[00:24:14.111] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:14.111] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:14.111] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:24:17.961] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:18.201] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:24:18.201] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:39:06.320Z","wallet":"3nj8hjjG..."}
+[00:24:18.201] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:18.201] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:18.201] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:24:18.904] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:18.904] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:24:18.904] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:18.904] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[00:24:18.904] Browser ERROR   [WalletAuth] Authentication failed: {}
+[00:24:18.904] Browser LOG     [WalletAuth] Auth error (keeping wallet connected): adapter.signMessage is not a function
+[00:24:18.904] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[00:24:21.161] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[00:24:21.161] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:21.161] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:24:21.161] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:22.914] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:22.914] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:24:24.490] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:24.748] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:24:24.748] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:39:17.848Z","wallet":"3nj8hjjG..."}
+[00:24:24.748] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:24.748] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:24:24.748] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:24:31.732] Browser ERROR   Accept offer error: {}
+[00:24:56.539] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:24:56.540] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[00:24:56.540] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:24:56.540] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:24:56.540] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:24:58.201] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:24:58.201] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:25:52.708] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:25:52.709] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[00:25:52.709] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:25:52.709] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:25:52.709] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:25:54.077] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:25:54.077] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:25:56.511] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:56.818] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:25:56.818] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:40:49.010Z","wallet":"3nj8hjjG..."}
+[00:25:56.818] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:25:56.818] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:25:56.818] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:26:09.918] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:10.167] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:26:10.167] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:40:49.010Z","wallet":"3nj8hjjG..."}
+[00:26:10.167] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:26:10.167] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:26:10.167] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:26:35.788] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:26:35.788] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[00:26:35.788] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:26:35.788] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:26:35.788] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:26:38.212] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:26:38.212] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:26:40.696] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:40.898] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:26:40.898] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:41:33.138Z","wallet":"T31SBBB9..."}
+[00:26:40.898] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
+[00:26:40.898] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
