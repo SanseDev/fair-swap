@@ -2,6 +2,7 @@ import { OfferList } from "@/components/offer-list";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import { RecentActivity } from "@/components/recent-activity/recent-activity";
 
 export default function MarketplacePage() {
   return (
@@ -20,8 +21,15 @@ export default function MarketplacePage() {
           </Button>
         </Link>
       </div>
-      <OfferList />
+
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="lg:col-span-3">
+          <OfferList />
+        </div>
+        <div className="lg:col-span-1">
+          <RecentActivity />
+        </div>
+      </div>
     </div>
   );
 }
-

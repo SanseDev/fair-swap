@@ -235,3 +235,6 @@
 [00:26:40.898] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:41:33.138Z","wallet":"T31SBBB9..."}
 [00:26:40.898] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ"}
 [00:26:40.898] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:31:31.253] Server  LOG      ✓ Compiled in 83ms
+[00:31:42.543] Server  LOG      ✓ Compiled in 276ms
+[00:31:52.138] Server  LOG      ✓ Compiled in 2ms
