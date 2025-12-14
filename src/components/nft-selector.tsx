@@ -123,17 +123,29 @@ export function NFTSelector({ value, onChange, label = "Select NFT", excludeMint
                     )}
                   >
                     {/* NFT Image */}
-                    <div className="aspect-square rounded-t-lg overflow-hidden bg-muted">
+                    <div className="aspect-square rounded-t-lg overflow-hidden bg-gradient-to-br from-muted to-muted/50 relative">
                       {nft.image ? (
-                        <img
-                          src={nft.image}
-                          alt={nft.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                          loading="lazy"
-                        />
+                        <>
+                          <img
+                            src={nft.image}
+                            alt={nft.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                            loading="lazy"
+                            onError={(e) => {
+                              // Hide broken image and show fallback
+                              e.currentTarget.style.display = 'none';
+                              const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                              if (fallback) fallback.style.display = 'flex';
+                            }}
+                          />
+                          <div className="hidden w-full h-full absolute inset-0 items-center justify-center bg-gradient-to-br from-muted to-muted/50">
+                            <ImageIcon className="w-12 h-12 text-muted-foreground/30" />
+                          </div>
+                        </>
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <ImageIcon className="w-12 h-12 text-muted-foreground/30" />
+                        <div className="w-full h-full flex flex-col items-center justify-center p-4">
+                          <ImageIcon className="w-12 h-12 text-muted-foreground/30 mb-2" />
+                          <span className="text-xs text-muted-foreground text-center">No Image</span>
                         </div>
                       )}
                     </div>

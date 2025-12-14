@@ -18,7 +18,7 @@ import { Search } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { OfferDetailsDialog } from "./offer-details-dialog";
 import { Offer } from "@/lib/types";
-import { formatTokenAmount } from "@/lib/token-utils";
+import { AssetDisplay } from "@/components/asset-display";
 import {
   Select,
   SelectContent,
@@ -150,16 +150,18 @@ export function OfferList() {
                     {offer.seller.slice(0, 4)}...{offer.seller.slice(-4)}
                   </TableCell>
                   <TableCell>
-                    <div className="flex flex-col">
-                        <span className="font-medium">{formatTokenAmount(offer.token_amount_a)}</span>
-                        <span className="text-[10px] text-muted-foreground font-mono">{offer.token_mint_a.slice(0, 6)}...</span>
-                    </div>
+                    <AssetDisplay 
+                      mint={offer.token_mint_a}
+                      amount={offer.token_amount_a}
+                      imageSize="sm"
+                    />
                   </TableCell>
                   <TableCell>
-                    <div className="flex flex-col">
-                        <span className="font-medium">{formatTokenAmount(offer.token_amount_b)}</span>
-                        <span className="text-[10px] text-muted-foreground font-mono">{offer.token_mint_b.slice(0, 6)}...</span>
-                    </div>
+                    <AssetDisplay 
+                      mint={offer.token_mint_b}
+                      amount={offer.token_amount_b}
+                      imageSize="sm"
+                    />
                   </TableCell>
                   <TableCell>
                     <Badge variant={offer.allow_alternatives ? "secondary" : "outline"} className="text-[10px] font-normal h-5">

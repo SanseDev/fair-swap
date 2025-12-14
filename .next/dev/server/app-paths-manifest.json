@@ -1,7 +1,5 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/create-offer/page": "app/create-offer/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/marketplace/page": "app/marketplace/page.js",
-  "/page": "app/page.js"
+  "/api/proxy-metadata/route": "app/api/proxy-metadata/route.js",
+  "/create-offer/page": "app/create-offer/page.js"
 }

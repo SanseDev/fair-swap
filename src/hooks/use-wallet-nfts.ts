@@ -37,12 +37,14 @@ export function useWalletNFTs() {
 
   const fetchNFTMetadata = async (uri: string): Promise<NFTMetadata | null> => {
     try {
-      const response = await fetch(uri);
+      // Use proxy to bypass CORS
+      const proxyUrl = `/api/proxy-metadata?uri=${encodeURIComponent(uri)}`;
+      const response = await fetch(proxyUrl);
       if (!response.ok) return null;
       const metadata = await response.json();
       return metadata;
     } catch (err) {
-      console.error("[useWalletNFTs] Failed to fetch metadata:", err);
+      // Silently fail for missing/broken metadata
       return null;
     }
   };
