@@ -20,6 +20,7 @@ interface OfferDetailsDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onAccept?: (offer: Offer) => void;
+  isAccepting?: boolean;
 }
 
 export function OfferDetailsDialog({
@@ -27,6 +28,7 @@ export function OfferDetailsDialog({
   open,
   onOpenChange,
   onAccept,
+  isAccepting = false,
 }: OfferDetailsDialogProps) {
   const { walletAddress, isConnected } = useWalletAuth();
 
@@ -84,7 +86,12 @@ export function OfferDetailsDialog({
         </div>
         <DialogFooter>
           {canAccept ? (
-            <Button onClick={() => onAccept?.(offer)}>Accept Offer</Button>
+            <Button 
+              onClick={() => onAccept?.(offer)} 
+              disabled={isAccepting}
+            >
+              {isAccepting ? "Processing..." : "Accept Offer"}
+            </Button>
           ) : isSeller ? (
             <Button variant="outline" disabled>You are the seller</Button>
           ) : (

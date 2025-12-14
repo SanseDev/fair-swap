@@ -26,6 +26,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useAcceptOffer } from "@/hooks/use-accept-offer";
+import { useToast } from "@/hooks/use-toast";
 
 export function OfferList() {
   const [filters, setFilters] = useState({
@@ -35,8 +37,10 @@ export function OfferList() {
     asset_type: "all",
   });
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
+  const { acceptOffer, isLoading: isAccepting } = useAcceptOffer();
+  const { toast } = useToast();
 
-  const { data: offers, isLoading } = useQuery({
+  const { data: offers, isLoading, refetch } = useQuery({
     queryKey: ["offers", filters],
     queryFn: () => getOffers({ ...filters, status: 'active' }),
   });
@@ -45,10 +49,22 @@ export function OfferList() {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleAccept = (offer: Offer) => {
-    console.log("Accepting offer:", offer.id);
-    // TODO: Implement accept logic
-    setSelectedOffer(null);
+  const handleAccept = async (offer: Offer) => {
+    try {
+      const result = await acceptOffer(offer);
+      toast({
+        title: "Offer Accepted!",
+        description: `Transaction: ${result.signature.slice(0, 8)}...`,
+      });
+      setSelectedOffer(null);
+      refetch(); // Refresh offers list
+    } catch (error: any) {
+      toast({
+        title: "Failed to accept offer",
+        description: error.message,
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -178,6 +194,7 @@ export function OfferList() {
         open={!!selectedOffer} 
         onOpenChange={(open) => !open && setSelectedOffer(null)}
         onAccept={handleAccept}
+        isAccepting={isAccepting}
       />
     </div>
   );

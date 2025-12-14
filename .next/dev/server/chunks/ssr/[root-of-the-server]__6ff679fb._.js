@@ -622,7 +622,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$utils
 ;
 ;
 ;
-function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
+function OfferDetailsDialog({ offer, open, onOpenChange, onAccept, isAccepting = false }) {
     const { walletAddress, isConnected } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$wallet$2d$auth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useWalletAuth"])();
     if (!offer) return null;
     const isSeller = isConnected && walletAddress === offer.seller;
@@ -639,20 +639,20 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                             children: "Offer Details"
                         }, void 0, false, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 42,
+                            lineNumber: 44,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogDescription"], {
                             children: "Review the details of this offer before accepting."
                         }, void 0, false, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 43,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                    lineNumber: 41,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -666,7 +666,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: "Seller:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 49,
+                                    lineNumber: 51,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -674,13 +674,13 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: offer.seller
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 52,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 48,
+                            lineNumber: 50,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -691,7 +691,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: "Selling:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 57,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -705,7 +705,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                            lineNumber: 57,
+                                            lineNumber: 59,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -713,19 +713,19 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                             children: offer.token_mint_a
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                            lineNumber: 58,
+                                            lineNumber: 60,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 58,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 54,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -736,7 +736,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: "Buying:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 66,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -750,7 +750,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                            lineNumber: 66,
+                                            lineNumber: 68,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -758,19 +758,19 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                             children: offer.token_mint_b
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                            lineNumber: 67,
+                                            lineNumber: 69,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 65,
+                                    lineNumber: 67,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 63,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -781,7 +781,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: "Type:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 73,
+                                    lineNumber: 75,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -790,13 +790,13 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: offer.allow_alternatives ? "Negotiable" : "Fixed Price"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 74,
+                                    lineNumber: 76,
                                     columnNumber: 14
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 72,
+                            lineNumber: 74,
                             columnNumber: 12
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -807,7 +807,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     children: "Posted:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 79,
+                                    lineNumber: 81,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -818,28 +818,29 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                                    lineNumber: 80,
+                                    lineNumber: 82,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/offer-details-dialog.tsx",
-                            lineNumber: 78,
+                            lineNumber: 80,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                    lineNumber: 47,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogFooter"], {
                     children: canAccept ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: ()=>onAccept?.(offer),
-                        children: "Accept Offer"
+                        disabled: isAccepting,
+                        children: isAccepting ? "Processing..." : "Accept Offer"
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-details-dialog.tsx",
-                        lineNumber: 87,
+                        lineNumber: 89,
                         columnNumber: 13
                     }, this) : isSeller ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         variant: "outline",
@@ -847,7 +848,7 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                         children: "You are the seller"
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-details-dialog.tsx",
-                        lineNumber: 89,
+                        lineNumber: 96,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         variant: "secondary",
@@ -855,23 +856,23 @@ function OfferDetailsDialog({ offer, open, onOpenChange, onAccept }) {
                         children: "Connect Wallet to Accept"
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-details-dialog.tsx",
-                        lineNumber: 91,
+                        lineNumber: 98,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/offer-details-dialog.tsx",
-                    lineNumber: 85,
+                    lineNumber: 87,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/offer-details-dialog.tsx",
-            lineNumber: 40,
+            lineNumber: 42,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/offer-details-dialog.tsx",
-        lineNumber: 39,
+        lineNumber: 41,
         columnNumber: 5
     }, this);
 }
@@ -1076,6 +1077,221 @@ const SelectSeparator = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project
 SelectSeparator.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$radix$2d$ui$2b$react$2d$select$40$2$2e$2$2e$6_$40$types$2b$react$2d$dom$40$19$2e$2$2e$3_$40$types$2b$react$40$19$2e$2$2e$7_$5f40$types$2b$react$40$_c9708e721ec9d2eb0f1d48333ae90374$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Separator"].displayName;
 ;
 }),
+"[externals]/process [external] (process, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("process", () => require("process"));
+
+module.exports = mod;
+}),
+"[project]/src/lib/fair_swap_idl.json (json)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({"address":"DMpk34ArT3Z8nXtZgQXftWhKNq5MAkMcieEFnUQW7oCU","metadata":{"name":"fair_swap","version":"0.1.0","spec":"0.1.0","description":"FairSwap - Trustless P2P Asset Exchange on Solana"},"instructions":[{"name":"accept_proposal","discriminator":[33,190,130,178,27,12,168,238],"accounts":[{"name":"offer","writable":true},{"name":"proposal","writable":true},{"name":"offer_vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"offer"}]}},{"name":"proposal_vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"proposal"}]}},{"name":"seller_receive_account","writable":true},{"name":"buyer_receive_account","writable":true},{"name":"seller","writable":true,"signer":true},{"name":"buyer_account","writable":true},{"name":"token_program","address":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"}],"args":[]},{"name":"cancel_offer","discriminator":[92,203,223,40,92,89,53,119],"accounts":[{"name":"offer","writable":true},{"name":"vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"offer"}]}},{"name":"seller_token_account","writable":true},{"name":"seller","writable":true,"signer":true},{"name":"token_program","address":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"}],"args":[]},{"name":"execute_swap","discriminator":[56,182,124,215,155,140,157,102],"accounts":[{"name":"offer","writable":true},{"name":"vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"offer"}]}},{"name":"buyer_token_account","writable":true},{"name":"seller_token_account","writable":true},{"name":"buyer_receive_account","writable":true},{"name":"buyer","writable":true,"signer":true},{"name":"seller","writable":true},{"name":"token_program","address":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"},{"name":"system_program","address":"11111111111111111111111111111111"}],"args":[]},{"name":"initialize_offer","discriminator":[41,143,90,114,58,124,142,87],"accounts":[{"name":"offer","writable":true,"pda":{"seeds":[{"kind":"const","value":[111,102,102,101,114]},{"kind":"account","path":"seller"},{"kind":"arg","path":"offer_id"}]}},{"name":"vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"offer"}]}},{"name":"seller_token_account","writable":true},{"name":"token_mint_a"},{"name":"seller","writable":true,"signer":true},{"name":"token_program","address":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"},{"name":"system_program","address":"11111111111111111111111111111111"},{"name":"rent","address":"SysvarRent111111111111111111111111111111111"}],"args":[{"name":"offer_id","type":"u64"},{"name":"token_amount_a","type":"u64"},{"name":"token_mint_b","type":"pubkey"},{"name":"token_amount_b","type":"u64"},{"name":"allow_alternatives","type":"bool"}]},{"name":"submit_proposal","discriminator":[224,38,210,52,167,150,221,150],"accounts":[{"name":"offer"},{"name":"proposal","writable":true,"pda":{"seeds":[{"kind":"const","value":[112,114,111,112,111,115,97,108]},{"kind":"account","path":"offer"},{"kind":"account","path":"buyer"},{"kind":"arg","path":"proposal_id"}]}},{"name":"proposal_vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"proposal"}]}},{"name":"buyer_token_account","writable":true},{"name":"proposed_mint"},{"name":"buyer","writable":true,"signer":true},{"name":"token_program","address":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"},{"name":"system_program","address":"11111111111111111111111111111111"},{"name":"rent","address":"SysvarRent111111111111111111111111111111111"}],"args":[{"name":"proposal_id","type":"u64"},{"name":"proposed_amount","type":"u64"}]},{"name":"withdraw_proposal","discriminator":[135,1,185,99,36,69,15,38],"accounts":[{"name":"proposal","writable":true},{"name":"proposal_vault","writable":true,"pda":{"seeds":[{"kind":"const","value":[118,97,117,108,116]},{"kind":"account","path":"proposal"}]}},{"name":"buyer_token_account","writable":true},{"name":"buyer","writable":true,"signer":true},{"name":"token_program","address":"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"}],"args":[]}],"accounts":[{"name":"Offer","discriminator":[215,88,60,71,170,162,73,229]},{"name":"Proposal","discriminator":[26,94,189,187,116,136,53,33]}],"errors":[{"code":6000,"name":"UnauthorizedBuyer","msg":"Only buyer can withdraw proposal"}],"types":[{"name":"Offer","type":{"kind":"struct","fields":[{"name":"offer_id","type":"u64"},{"name":"seller","type":"pubkey"},{"name":"token_mint_a","type":"pubkey"},{"name":"token_amount_a","type":"u64"},{"name":"token_mint_b","type":"pubkey"},{"name":"token_amount_b","type":"u64"},{"name":"allow_alternatives","type":"bool"},{"name":"bump","type":"u8"}]}},{"name":"Proposal","type":{"kind":"struct","fields":[{"name":"proposal_id","type":"u64"},{"name":"buyer","type":"pubkey"},{"name":"offer","type":"pubkey"},{"name":"proposed_mint","type":"pubkey"},{"name":"proposed_amount","type":"u64"},{"name":"bump","type":"u8"}]}}]});}),
+"[project]/src/lib/program-config.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "FAIR_SWAP_IDL",
+    ()=>FAIR_SWAP_IDL,
+    "PROGRAM_ID",
+    ()=>PROGRAM_ID
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@solana/web3.js/lib/index.esm.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$fair_swap_idl$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/src/lib/fair_swap_idl.json (json)");
+;
+;
+const PROGRAM_ID = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"]("DMpk34ArT3Z8nXtZgQXftWhKNq5MAkMcieEFnUQW7oCU");
+const FAIR_SWAP_IDL = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$fair_swap_idl$2e$json__$28$json$29$__["default"];
+}),
+"[project]/src/lib/token-account-utils.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "checkTokenAccountExists",
+    ()=>checkTokenAccountExists,
+    "getOrCreateAssociatedTokenAccount",
+    ()=>getOrCreateAssociatedTokenAccount,
+    "getTokenBalance",
+    ()=>getTokenBalance
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$mint$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+spl-token@0.4.14_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8_fde2c4609453858c55ec40f34930ca21/node_modules/@solana/spl-token/lib/esm/state/mint.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$instructions$2f$associatedTokenAccount$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+spl-token@0.4.14_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8_fde2c4609453858c55ec40f34930ca21/node_modules/@solana/spl-token/lib/esm/instructions/associatedTokenAccount.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$account$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+spl-token@0.4.14_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8_fde2c4609453858c55ec40f34930ca21/node_modules/@solana/spl-token/lib/esm/state/account.js [app-ssr] (ecmascript)");
+;
+async function checkTokenAccountExists(connection, mint, owner) {
+    try {
+        const ata = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$mint$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssociatedTokenAddress"])(mint, owner);
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$account$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAccount"])(connection, ata);
+        return true;
+    } catch  {
+        return false;
+    }
+}
+async function getOrCreateAssociatedTokenAccount(connection, mint, owner, payer) {
+    const ata = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$mint$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssociatedTokenAddress"])(mint, owner);
+    try {
+        const account = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$account$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAccount"])(connection, ata);
+        return {
+            address: ata,
+            instruction: null,
+            exists: true
+        };
+    } catch  {
+        // Account doesn't exist, return instruction to create it
+        const instruction = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$instructions$2f$associatedTokenAccount$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createAssociatedTokenAccountInstruction"])(payer, ata, owner, mint);
+        return {
+            address: ata,
+            instruction,
+            exists: false
+        };
+    }
+}
+async function getTokenBalance(connection, mint, owner) {
+    try {
+        const ata = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$mint$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAssociatedTokenAddress"])(mint, owner);
+        const account = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$state$2f$account$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAccount"])(connection, ata);
+        return account.amount;
+    } catch  {
+        return BigInt(0);
+    }
+}
+}),
+"[project]/src/hooks/use-accept-offer.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "useAcceptOffer",
+    ()=>useAcceptOffer
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.8_@babel+core@7.28.5_react-dom@19.2.1_react@19.2.1__react@19.2.1/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$wallet$2d$adapter$2d$react$40$0$2e$15$2e$39_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript_a6f7aad762017e406de1171114c0d873$2f$node_modules$2f40$solana$2f$wallet$2d$adapter$2d$react$2f$lib$2f$esm$2f$useWallet$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+wallet-adapter-react@0.15.39_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript_a6f7aad762017e406de1171114c0d873/node_modules/@solana/wallet-adapter-react/lib/esm/useWallet.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$wallet$2d$adapter$2d$react$40$0$2e$15$2e$39_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript_a6f7aad762017e406de1171114c0d873$2f$node_modules$2f40$solana$2f$wallet$2d$adapter$2d$react$2f$lib$2f$esm$2f$useConnection$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+wallet-adapter-react@0.15.39_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript_a6f7aad762017e406de1171114c0d873/node_modules/@solana/wallet-adapter-react/lib/esm/useConnection.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@solana/web3.js/lib/index.esm.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$coral$2d$xyz$2b$anchor$40$0$2e$32$2e$1_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$coral$2d$xyz$2f$anchor$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@coral-xyz+anchor@0.32.1_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@coral-xyz/anchor/dist/esm/index.js [app-ssr] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$coral$2d$xyz$2b$anchor$40$0$2e$32$2e$1_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$coral$2d$xyz$2f$anchor$2f$dist$2f$esm$2f$program$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@coral-xyz+anchor@0.32.1_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@coral-xyz/anchor/dist/esm/program/index.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$coral$2d$xyz$2b$anchor$40$0$2e$32$2e$1_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$coral$2d$xyz$2f$anchor$2f$dist$2f$esm$2f$provider$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@coral-xyz+anchor@0.32.1_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@coral-xyz/anchor/dist/esm/provider.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$bn$2e$js$40$5$2e$2$2e$2$2f$node_modules$2f$bn$2e$js$2f$lib$2f$bn$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BN$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/bn.js@5.2.2/node_modules/bn.js/lib/bn.js [app-ssr] (ecmascript) <export default as BN>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+spl-token@0.4.14_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8_fde2c4609453858c55ec40f34930ca21/node_modules/@solana/spl-token/lib/esm/constants.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$program$2d$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/program-config.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/token-account-utils.ts [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+;
+;
+;
+function useAcceptOffer() {
+    const { publicKey, signTransaction, signAllTransactions } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$wallet$2d$adapter$2d$react$40$0$2e$15$2e$39_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript_a6f7aad762017e406de1171114c0d873$2f$node_modules$2f40$solana$2f$wallet$2d$adapter$2d$react$2f$lib$2f$esm$2f$useWallet$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useWallet"])();
+    const { connection } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$wallet$2d$adapter$2d$react$40$0$2e$15$2e$39_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript_a6f7aad762017e406de1171114c0d873$2f$node_modules$2f40$solana$2f$wallet$2d$adapter$2d$react$2f$lib$2f$esm$2f$useConnection$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useConnection"])();
+    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const acceptOffer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (offer)=>{
+        if (!publicKey || !signTransaction || !signAllTransactions) {
+            throw new Error("Wallet not connected");
+        }
+        if (publicKey.toBase58() === offer.seller) {
+            throw new Error("Cannot accept your own offer");
+        }
+        setIsLoading(true);
+        setError(null);
+        try {
+            // Setup provider and program
+            const provider = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$coral$2d$xyz$2b$anchor$40$0$2e$32$2e$1_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$coral$2d$xyz$2f$anchor$2f$dist$2f$esm$2f$provider$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnchorProvider"](connection, {
+                publicKey,
+                signTransaction,
+                signAllTransactions
+            }, {
+                commitment: "confirmed"
+            });
+            const program = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$coral$2d$xyz$2b$anchor$40$0$2e$32$2e$1_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$coral$2d$xyz$2f$anchor$2f$dist$2f$esm$2f$program$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Program"](__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$program$2d$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FAIR_SWAP_IDL"], provider);
+            // Convert addresses and amounts
+            const tokenMintA = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"](offer.token_mint_a);
+            const tokenMintB = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"](offer.token_mint_b);
+            const tokenAmountB = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$bn$2e$js$40$5$2e$2$2e$2$2f$node_modules$2f$bn$2e$js$2f$lib$2f$bn$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BN$3e$__["BN"](offer.token_amount_b);
+            const seller = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"](offer.seller);
+            const offerId = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$bn$2e$js$40$5$2e$2$2e$2$2f$node_modules$2f$bn$2e$js$2f$lib$2f$bn$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BN$3e$__["BN"](offer.offer_id);
+            // Derive PDA accounts
+            const [offerPda] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"].findProgramAddressSync([
+                Buffer.from("offer"),
+                seller.toBuffer(),
+                offerId.toArrayLike(Buffer, "le", 8)
+            ], __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$program$2d$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PROGRAM_ID"]);
+            const [vaultPda] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"].findProgramAddressSync([
+                Buffer.from("vault"),
+                offerPda.toBuffer()
+            ], __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$program$2d$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PROGRAM_ID"]);
+            // Get or create buyer's token B account (what buyer is paying with)
+            const { address: buyerTokenAccount, instruction: createBuyerTokenIx, exists: buyerTokenExists } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getOrCreateAssociatedTokenAccount"])(connection, tokenMintB, publicKey, publicKey);
+            // Check buyer has enough tokens B
+            const buyerBalance = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTokenBalance"])(connection, tokenMintB, publicKey);
+            const amountNeeded = BigInt(tokenAmountB.toString());
+            if (buyerBalance < amountNeeded) {
+                const readable = Number(buyerBalance) / 1e9;
+                const needed = Number(tokenAmountB.toString()) / 1e9;
+                throw new Error(`Insufficient balance. You have ${readable.toFixed(4)} tokens but need ${needed.toFixed(4)}`);
+            }
+            // Get or create seller's token B account (where seller receives payment)
+            const { address: sellerTokenAccount, instruction: createSellerTokenIx } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getOrCreateAssociatedTokenAccount"])(connection, tokenMintB, seller, publicKey // buyer pays for seller's ATA creation
+            );
+            // Get or create buyer's token A receive account
+            const { address: buyerReceiveAccount, instruction: createBuyerReceiveIx } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getOrCreateAssociatedTokenAccount"])(connection, tokenMintA, publicKey, publicKey);
+            // Build transaction
+            const txBuilder = program.methods.executeSwap().accounts({
+                offer: offerPda,
+                vault: vaultPda,
+                buyerTokenAccount,
+                sellerTokenAccount,
+                buyerReceiveAccount,
+                buyer: publicKey,
+                seller,
+                tokenProgram: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TOKEN_PROGRAM_ID"],
+                systemProgram: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SystemProgram"].programId
+            });
+            // Add pre-instructions to create any missing token accounts
+            const preInstructions = [];
+            if (createBuyerTokenIx) preInstructions.push(createBuyerTokenIx);
+            if (createSellerTokenIx) preInstructions.push(createSellerTokenIx);
+            if (createBuyerReceiveIx) preInstructions.push(createBuyerReceiveIx);
+            if (preInstructions.length > 0) {
+                txBuilder.preInstructions(preInstructions);
+            }
+            // Send transaction
+            const tx = await txBuilder.rpc();
+            // Wait for confirmation
+            await connection.confirmTransaction(tx, "confirmed");
+            setIsLoading(false);
+            return {
+                signature: tx,
+                offerPda: offerPda.toBase58()
+            };
+        } catch (err) {
+            console.error("Accept offer error:", err);
+            let errorMsg = err?.message || "Failed to accept offer";
+            if (errorMsg.includes("Simulation failed")) {
+                errorMsg = "Transaction simulation failed. This usually means:\n" + "1. You don't have enough SOL for transaction fees\n" + "2. You don't have enough of the required tokens\n" + "3. The offer may no longer be available\n\n" + "Original error: " + errorMsg;
+            } else if (errorMsg.includes("Transaction was not confirmed")) {
+                errorMsg = "Transaction timed out. The network may be congested. Please try again.";
+            } else if (errorMsg.includes("User rejected")) {
+                errorMsg = "Transaction was cancelled.";
+            }
+            setError(errorMsg);
+            setIsLoading(false);
+            throw new Error(errorMsg);
+        }
+    }, [
+        publicKey,
+        signTransaction,
+        signAllTransactions,
+        connection
+    ]);
+    return {
+        acceptOffer,
+        isLoading,
+        error
+    };
+}
+}),
 "[project]/src/components/offer-list.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -1096,7 +1312,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$da
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$offer$2d$details$2d$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/offer-details-dialog.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/token-utils.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/select.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$accept$2d$offer$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-accept-offer.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-toast.ts [app-ssr] (ecmascript)");
 "use client";
+;
+;
 ;
 ;
 ;
@@ -1118,7 +1338,9 @@ function OfferList() {
         asset_type: "all"
     });
     const [selectedOffer, setSelectedOffer] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const { data: offers, isLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$tanstack$2b$react$2d$query$40$5$2e$90$2e$12_react$40$19$2e$2$2e$1$2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
+    const { acceptOffer, isLoading: isAccepting } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$accept$2d$offer$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAcceptOffer"])();
+    const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useToast"])();
+    const { data: offers, isLoading, refetch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$tanstack$2b$react$2d$query$40$5$2e$90$2e$12_react$40$19$2e$2$2e$1$2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
             "offers",
             filters
@@ -1134,10 +1356,22 @@ function OfferList() {
                 [key]: value
             }));
     };
-    const handleAccept = (offer)=>{
-        console.log("Accepting offer:", offer.id);
-        // TODO: Implement accept logic
-        setSelectedOffer(null);
+    const handleAccept = async (offer)=>{
+        try {
+            const result = await acceptOffer(offer);
+            toast({
+                title: "Offer Accepted!",
+                description: `Transaction: ${result.signature.slice(0, 8)}...`
+            });
+            setSelectedOffer(null);
+            refetch(); // Refresh offers list
+        } catch (error) {
+            toast({
+                title: "Failed to accept offer",
+                description: error.message,
+                variant: "destructive"
+            });
+        }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-6",
@@ -1152,7 +1386,7 @@ function OfferList() {
                                 className: "absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/offer-list.tsx",
-                                lineNumber: 58,
+                                lineNumber: 74,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1162,20 +1396,20 @@ function OfferList() {
                                 onChange: (e)=>handleFilterChange("seller", e.target.value)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/offer-list.tsx",
-                                lineNumber: 59,
+                                lineNumber: 75,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 57,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "hidden sm:block h-6 w-px bg-border/50"
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 66,
+                        lineNumber: 82,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1190,12 +1424,12 @@ function OfferList() {
                                         placeholder: "Asset Type"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 70,
+                                        lineNumber: 86,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-list.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1205,7 +1439,7 @@ function OfferList() {
                                             children: "All Assets"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 73,
+                                            lineNumber: 89,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1213,7 +1447,7 @@ function OfferList() {
                                             children: "SOL"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 74,
+                                            lineNumber: 90,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1221,7 +1455,7 @@ function OfferList() {
                                             children: "SPL Tokens"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 75,
+                                            lineNumber: 91,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1229,31 +1463,31 @@ function OfferList() {
                                             children: "NFTs"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 76,
+                                            lineNumber: 92,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/offer-list.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 88,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/offer-list.tsx",
-                            lineNumber: 68,
+                            lineNumber: 84,
                             columnNumber: 12
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 67,
+                        lineNumber: 83,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "hidden sm:block h-6 w-px bg-border/50"
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 80,
+                        lineNumber: 96,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1263,14 +1497,14 @@ function OfferList() {
                         onChange: (e)=>handleFilterChange("token_mint_a", e.target.value)
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 81,
+                        lineNumber: 97,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "hidden sm:block h-6 w-px bg-border/50"
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 87,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1280,13 +1514,13 @@ function OfferList() {
                         onChange: (e)=>handleFilterChange("token_mint_b", e.target.value)
                     }, void 0, false, {
                         fileName: "[project]/src/components/offer-list.tsx",
-                        lineNumber: 88,
+                        lineNumber: 104,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/offer-list.tsx",
-                lineNumber: 56,
+                lineNumber: 72,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1303,7 +1537,7 @@ function OfferList() {
                                         children: "Seller"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 100,
+                                        lineNumber: 116,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1311,7 +1545,7 @@ function OfferList() {
                                         children: "Selling"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1319,7 +1553,7 @@ function OfferList() {
                                         children: "Buying"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 102,
+                                        lineNumber: 118,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1327,7 +1561,7 @@ function OfferList() {
                                         children: "Type"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 103,
+                                        lineNumber: 119,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1335,25 +1569,25 @@ function OfferList() {
                                         children: "Age"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 120,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                         className: "w-[100px]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/offer-list.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 121,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/offer-list.tsx",
-                                lineNumber: 99,
+                                lineNumber: 115,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/offer-list.tsx",
-                            lineNumber: 98,
+                            lineNumber: 114,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1367,12 +1601,12 @@ function OfferList() {
                                                 className: "h-4 w-24 bg-muted/50 rounded animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 112,
+                                                lineNumber: 128,
                                                 columnNumber: 30
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 112,
+                                            lineNumber: 128,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1380,12 +1614,12 @@ function OfferList() {
                                                 className: "h-4 w-16 bg-muted/50 rounded animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 129,
                                                 columnNumber: 30
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 113,
+                                            lineNumber: 129,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1393,12 +1627,12 @@ function OfferList() {
                                                 className: "h-4 w-16 bg-muted/50 rounded animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 130,
                                                 columnNumber: 30
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 130,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1406,12 +1640,12 @@ function OfferList() {
                                                 className: "h-4 w-12 bg-muted/50 rounded animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 115,
+                                                lineNumber: 131,
                                                 columnNumber: 30
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 115,
+                                            lineNumber: 131,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1419,12 +1653,12 @@ function OfferList() {
                                                 className: "h-4 w-12 bg-muted/50 rounded animate-pulse ml-auto"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 116,
+                                                lineNumber: 132,
                                                 columnNumber: 30
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 116,
+                                            lineNumber: 132,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1432,18 +1666,18 @@ function OfferList() {
                                                 className: "h-8 w-full bg-muted/50 rounded animate-pulse"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 117,
+                                                lineNumber: 133,
                                                 columnNumber: 30
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 117,
+                                            lineNumber: 133,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, i, true, {
                                     fileName: "[project]/src/components/offer-list.tsx",
-                                    lineNumber: 111,
+                                    lineNumber: 127,
                                     columnNumber: 17
                                 }, this)) : offers?.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1452,12 +1686,12 @@ function OfferList() {
                                     children: "No active offers found."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/offer-list.tsx",
-                                    lineNumber: 122,
+                                    lineNumber: 138,
                                     columnNumber: 18
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/offer-list.tsx",
-                                lineNumber: 121,
+                                lineNumber: 137,
                                 columnNumber: 16
                             }, this) : offers?.map((offer)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
                                     className: "border-border/40 group cursor-pointer hover:bg-muted/5",
@@ -1472,7 +1706,7 @@ function OfferList() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 133,
+                                            lineNumber: 149,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1484,7 +1718,7 @@ function OfferList() {
                                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatTokenAmount"])(offer.token_amount_a)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/offer-list.tsx",
-                                                        lineNumber: 138,
+                                                        lineNumber: 154,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1495,18 +1729,18 @@ function OfferList() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/offer-list.tsx",
-                                                        lineNumber: 139,
+                                                        lineNumber: 155,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 137,
+                                                lineNumber: 153,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 136,
+                                            lineNumber: 152,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1518,7 +1752,7 @@ function OfferList() {
                                                         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatTokenAmount"])(offer.token_amount_b)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/offer-list.tsx",
-                                                        lineNumber: 144,
+                                                        lineNumber: 160,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1529,18 +1763,18 @@ function OfferList() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/offer-list.tsx",
-                                                        lineNumber: 145,
+                                                        lineNumber: 161,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 143,
+                                                lineNumber: 159,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 142,
+                                            lineNumber: 158,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1550,12 +1784,12 @@ function OfferList() {
                                                 children: offer.allow_alternatives ? "Negotiable" : "Fixed"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 149,
+                                                lineNumber: 165,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 148,
+                                            lineNumber: 164,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1563,7 +1797,7 @@ function OfferList() {
                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$date$2d$fns$40$4$2e$1$2e$0$2f$node_modules$2f$date$2d$fns$2f$formatDistanceToNow$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatDistanceToNow"])(new Date(offer.created_at))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 153,
+                                            lineNumber: 169,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -1578,50 +1812,51 @@ function OfferList() {
                                                 children: "View"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/offer-list.tsx",
-                                                lineNumber: 157,
+                                                lineNumber: 173,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/offer-list.tsx",
-                                            lineNumber: 156,
+                                            lineNumber: 172,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, offer.id, true, {
                                     fileName: "[project]/src/components/offer-list.tsx",
-                                    lineNumber: 128,
+                                    lineNumber: 144,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/components/offer-list.tsx",
-                            lineNumber: 108,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/offer-list.tsx",
-                    lineNumber: 97,
+                    lineNumber: 113,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/offer-list.tsx",
-                lineNumber: 96,
+                lineNumber: 112,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$offer$2d$details$2d$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["OfferDetailsDialog"], {
                 offer: selectedOffer,
                 open: !!selectedOffer,
                 onOpenChange: (open)=>!open && setSelectedOffer(null),
-                onAccept: handleAccept
+                onAccept: handleAccept,
+                isAccepting: isAccepting
             }, void 0, false, {
                 fileName: "[project]/src/components/offer-list.tsx",
-                lineNumber: 176,
+                lineNumber: 192,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/offer-list.tsx",
-        lineNumber: 55,
+        lineNumber: 71,
         columnNumber: 5
     }, this);
 }
@@ -1764,4 +1999,4 @@ function ProposalHistory({ offerId, buyer }) {
 }),
 ];
 
-//# sourceMappingURL=src_c3cd58be._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__6ff679fb._.js.map

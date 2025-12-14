@@ -10,6 +10,7 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { WalletAuthProvider } from "@/components/wallet-auth-provider";
 import { PhantomWalletAdapter, SolflareWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
+import { Toaster } from "@/components/ui/toaster";
 import "@solana/wallet-adapter-react-ui/styles.css";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -43,6 +44,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <WalletAuthProvider>
             <QueryClientProvider client={queryClient}>
               {children}
+              <Toaster />
             </QueryClientProvider>
           </WalletAuthProvider>
         </WalletModalProvider>

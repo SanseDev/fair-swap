@@ -1,3 +1,4 @@
-[00:00:01.010] Server  LOG      ✓ Ready in 744ms
-[00:00:09.412] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:09.563] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:00:01.971] Server  LOG      ✓ Ready in 1569ms
+[00:00:05.627] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[00:00:06.761] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:07.008] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
