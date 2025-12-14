@@ -1,6 +1,6 @@
 import { SwapStats } from "@/components/swap-stats";
 import { OfferList } from "@/components/offer-list";
-import { ProposalHistory } from "@/components/proposal-history";
+import { RecentActivity } from "@/components/recent-activity";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -32,7 +32,7 @@ export default function DashboardPage() {
              <div className="flex items-center justify-between">
                 <h2 className="text-lg font-medium tracking-tight">Recent Activity</h2>
             </div>
-            <ProposalHistory />
+            <RecentActivity />
         </div>
       </div>
     </div>

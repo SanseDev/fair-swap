@@ -1,4 +1,5 @@
 import Fastify from 'fastify';
+import cookie from '@fastify/cookie';
 import { offerRoutes, proposalRoutes, swapRoutes, authRoutes } from './routes/index.js';
 import { env } from '../config/env.js';
 import { db } from '../config/database.js';
@@ -16,12 +17,27 @@ export async function createServer() {
     },
   });
 
+  // Register cookie plugin
+  await fastify.register(cookie);
+
   // Add database instance to fastify
   fastify.decorate('knex', db);
 
-  // CORS
+  // CORS with credentials
+  const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    process.env.FRONTEND_URL
+  ].filter(Boolean);
+
   fastify.addHook('onRequest', async (request, reply) => {
-    reply.header('Access-Control-Allow-Origin', '*');
+    const origin = request.headers.origin;
+    
+    if (origin && allowedOrigins.includes(origin)) {
+      reply.header('Access-Control-Allow-Origin', origin);
+      reply.header('Access-Control-Allow-Credentials', 'true');
+    }
+    
     reply.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     reply.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     

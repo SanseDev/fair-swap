@@ -3,18 +3,10 @@
 "use strict";
 
 __turbopack_context__.s([
-    "AUTH_TOKEN_KEY",
-    ()=>AUTH_TOKEN_KEY,
     "authApi",
     ()=>authApi,
-    "clearAuthToken",
-    ()=>clearAuthToken,
-    "getAuthToken",
-    ()=>getAuthToken,
     "isValidSolanaAddress",
-    ()=>isValidSolanaAddress,
-    "saveAuthToken",
-    ()=>saveAuthToken
+    ()=>isValidSolanaAddress
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.8_@babel+core@7.28.5_react-dom@19.2.1_react@19.2.1__react@19.2.1/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/axios@1.13.2/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
@@ -22,6 +14,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$
 ;
 ;
 const API_URL = ("TURBOPACK compile-time value", "http://localhost:3001") || "http://localhost:3001";
+// Configure axios to send cookies
+__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].defaults.withCredentials = true;
 const authApi = {
     async requestNonce (walletAddress) {
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(`${API_URL}/api/auth/nonce`, {
@@ -34,43 +28,23 @@ const authApi = {
             walletAddress,
             signature,
             message
+        }, {
+            withCredentials: true
         });
         return response.data;
     },
-    async logout (token) {
+    async logout () {
         await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(`${API_URL}/api/auth/logout`, {}, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+            withCredentials: true
         });
     },
-    async getSession (token) {
+    async getSession () {
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(`${API_URL}/api/auth/me`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+            withCredentials: true
         });
         return response.data;
     }
 };
-const AUTH_TOKEN_KEY = "fairswap_auth_token";
-function saveAuthToken(token) {
-    if ("TURBOPACK compile-time truthy", 1) {
-        localStorage.setItem(AUTH_TOKEN_KEY, token);
-    }
-}
-function getAuthToken() {
-    if ("TURBOPACK compile-time truthy", 1) {
-        return localStorage.getItem(AUTH_TOKEN_KEY);
-    }
-    //TURBOPACK unreachable
-    ;
-}
-function clearAuthToken() {
-    if ("TURBOPACK compile-time truthy", 1) {
-        localStorage.removeItem(AUTH_TOKEN_KEY);
-    }
-}
 function isValidSolanaAddress(address) {
     try {
         new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PublicKey"](address);
@@ -115,25 +89,26 @@ function WalletAuthProvider({ children }) {
     const [isAuthenticated, setIsAuthenticated] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [session, setSession] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [authAttempted, setAuthAttempted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Check if user has a valid session on mount
+    const [isCheckingSession, setIsCheckingSession] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    // Track if wallet was previously connected to distinguish disconnect from "not connected yet"
+    const wasConnectedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(false);
+    // Check for existing session on mount (cookie-based)
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "WalletAuthProvider.useEffect": ()=>{
             const checkSession = {
                 "WalletAuthProvider.useEffect.checkSession": async ()=>{
-                    const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAuthToken"])();
-                    if (!token) {
-                        setIsAuthenticated(false);
-                        return;
-                    }
                     try {
-                        const sessionData = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["authApi"].getSession(token);
+                        const sessionData = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["authApi"].getSession();
+                        console.log('[WalletAuth] ✅ Session found:', {
+                            wallet: sessionData.walletAddress.slice(0, 8) + '...',
+                            expires: sessionData.expiresAt
+                        });
                         setSession(sessionData);
                         setIsAuthenticated(true);
                     } catch (err) {
-                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAuthToken"])();
-                        setIsAuthenticated(false);
-                        setSession(null);
+                        console.log('[WalletAuth] No active session found');
+                    } finally{
+                        setIsCheckingSession(false);
                     }
                 }
             }["WalletAuthProvider.useEffect.checkSession"];
@@ -150,7 +125,6 @@ function WalletAuthProvider({ children }) {
             if (isAuthenticating) return;
             setIsAuthenticating(true);
             setError(null);
-            setAuthAttempted(true);
             try {
                 const walletAddress = publicKey.toBase58();
                 // Request nonce from backend
@@ -161,8 +135,7 @@ function WalletAuthProvider({ children }) {
                 const signature = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$bs58$40$6$2e$0$2e$0$2f$node_modules$2f$bs58$2f$src$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].encode(signatureBytes);
                 // Verify signature and get token
                 const authResponse = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["authApi"].verifySignature(walletAddress, signature, message);
-                // Save token and session
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["saveAuthToken"])(authResponse.token);
+                // Session is stored in HTTP-only cookie by the server
                 setSession({
                     walletAddress: authResponse.walletAddress,
                     expiresAt: authResponse.expiresAt
@@ -171,18 +144,18 @@ function WalletAuthProvider({ children }) {
                 setIsAuthenticating(false);
                 setError(null);
             } catch (err) {
-                console.error("Authentication failed:", err);
+                console.error("[WalletAuth] Authentication failed:", err);
                 setIsAuthenticated(false);
                 setIsAuthenticating(false);
-                // If user rejected the signature, disconnect the wallet immediately
+                // Only disconnect if user explicitly rejected - don't disconnect on network errors
                 if (err.message?.includes("User rejected") || err.message?.includes("User cancelled") || err.name === "WalletSignMessageError") {
-                    await disconnect();
-                } else if (err.response?.data?.error) {
-                    setError(err.response.data.error);
+                    console.log("[WalletAuth] User rejected signature, disconnecting");
                     await disconnect();
                 } else {
-                    setError("Authentication failed");
-                    await disconnect();
+                    // For other errors, just show the error but keep wallet connected
+                    const errorMsg = err.response?.data?.error || err.message || "Authentication failed";
+                    setError(errorMsg);
+                    console.log("[WalletAuth] Auth error (keeping wallet connected):", errorMsg);
                 }
             }
         }
@@ -192,48 +165,80 @@ function WalletAuthProvider({ children }) {
         disconnect,
         isAuthenticating
     ]);
-    // Sync authentication state with wallet connection and auto-authenticate
+    // Sync authentication state with wallet connection
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "WalletAuthProvider.useEffect": ()=>{
-            if (!publicKey) {
+            // Don't do anything until session check completes
+            if (isCheckingSession) {
+                return;
+            }
+            console.log('[WalletAuth] Sync effect:', {
+                hasPublicKey: !!publicKey,
+                hasSignMessage: !!signMessage,
+                isAuthenticated,
+                hasSession: !!session,
+                sessionWallet: session?.walletAddress,
+                walletAddress: publicKey?.toBase58()
+            });
+            if (!publicKey || !signMessage) {
+                // Wallet not ready yet or disconnected
+                if (!publicKey && wasConnectedRef.current && (isAuthenticated || session)) {
+                    // Wallet was connected before and now it's gone - user disconnected
+                    console.log('[WalletAuth] Wallet disconnected by user, clearing state');
+                    setIsAuthenticated(false);
+                    setSession(null);
+                    setError(null);
+                    wasConnectedRef.current = false;
+                }
+                // If wallet was never connected (wasConnectedRef.current === false), 
+                // don't clear session - wallet might still be connecting
+                return;
+            }
+            // Mark that wallet is now connected
+            wasConnectedRef.current = true;
+            const walletAddress = publicKey.toBase58();
+            // If session exists but for different wallet, clear and re-auth
+            if (session && session.walletAddress !== walletAddress) {
+                console.log('[WalletAuth] Wallet changed, clearing old session');
                 setIsAuthenticated(false);
                 setSession(null);
-                setAuthAttempted(false);
                 setError(null);
-            } else if (session && session.walletAddress !== publicKey.toBase58()) {
-                // Wallet changed, clear old session
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAuthToken"])();
-                setIsAuthenticated(false);
-                setSession(null);
-                setAuthAttempted(false);
-                setError(null);
-            } else if (publicKey && !isAuthenticated && !isAuthenticating && !authAttempted) {
-                // Wallet connected but not authenticated yet, trigger auto-authentication only once
+                return;
+            }
+            // If session exists and matches wallet, we're authenticated - DON'T re-authenticate
+            if (session && session.walletAddress === walletAddress) {
+                if (!isAuthenticated) {
+                    console.log('[WalletAuth] Session exists for wallet, setting authenticated');
+                    setIsAuthenticated(true);
+                } else {
+                    console.log('[WalletAuth] ✅ Session valid, already authenticated');
+                }
+                return;
+            }
+            // Only trigger authentication if: wallet ready, no session, not already authenticating
+            if (!session && !isAuthenticated && !isAuthenticating) {
+                console.log('[WalletAuth] 🔐 No session found, triggering authentication');
                 authenticate();
             }
         }
     }["WalletAuthProvider.useEffect"], [
         publicKey,
+        signMessage,
         session,
         isAuthenticated,
         isAuthenticating,
-        authAttempted,
+        isCheckingSession,
         authenticate
     ]);
     const logout = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "WalletAuthProvider.useCallback[logout]": async ()=>{
-            const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAuthToken"])();
-            if (token) {
-                try {
-                    await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["authApi"].logout(token);
-                } catch (err) {
-                    console.error("Logout failed:", err);
-                }
+            try {
+                await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["authApi"].logout();
+            } catch (err) {
+                console.error('[WalletAuth] Logout error:', err);
             }
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearAuthToken"])();
             setIsAuthenticated(false);
             setSession(null);
-            setAuthAttempted(false);
             setError(null);
             await disconnect();
         }
@@ -262,11 +267,11 @@ function WalletAuthProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/wallet-auth-provider.tsx",
-        lineNumber: 165,
+        lineNumber: 199,
         columnNumber: 5
     }, this);
 }
-_s(WalletAuthProvider, "TArzqWcbgyUA0H9oW1OSTUj5eTk=", false, function() {
+_s(WalletAuthProvider, "D3OQJbuVxuwGDS3FdCkzJ5Zfk+0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$wallet$2d$adapter$2d$react$40$0$2e$15$2e$39_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript_a6f7aad762017e406de1171114c0d873$2f$node_modules$2f40$solana$2f$wallet$2d$adapter$2d$react$2f$lib$2f$esm$2f$useWallet$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWallet"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$wallet$2d$adapter$2d$react$2d$ui$40$0$2e$9$2e$39_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescri_f272deba2287fc822b29b70eff79e502$2f$node_modules$2f40$solana$2f$wallet$2d$adapter$2d$react$2d$ui$2f$lib$2f$esm$2f$useWalletModal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useWalletModal"]

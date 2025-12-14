@@ -7,8 +7,9 @@ export declare class SwapRepository extends BaseRepository<Swap> {
     findByOfferId(offerId: string): Promise<Swap[]>;
     findRecentSwaps(limit?: number): Promise<Swap[]>;
     getSwapStats(): Promise<{
-        total: number;
-        last24h: number;
+        total_swaps: number;
+        total_volume: number;
+        active_offers: number;
     }>;
 }
 //# sourceMappingURL=swap.repository.d.ts.map

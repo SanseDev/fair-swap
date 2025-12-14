@@ -8,7 +8,8 @@ import { PublicKey } from "@solana/web3.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
 const NONCE_EXPIRY_MS = 5 * 60 * 1000; // 5 minutes
-const SESSION_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+const SESSION_EXPIRY_MS = 24 * 60 * 60 * 1000; // 24 hours
+const COOKIE_NAME = "fairswap_session";
 
 export async function authRoutes(fastify: FastifyInstance) {
   const authRepo = new AuthRepository(fastify.knex);
@@ -98,17 +99,24 @@ export async function authRoutes(fastify: FastifyInstance) {
       // Delete the used nonce
       await authRepo.deleteNonce(walletAddress);
 
-      // Create JWT token (stateless, no DB storage needed)
-      const token = jwt.sign(
-        { walletAddress },
-        JWT_SECRET,
-        { expiresIn: "7d" }
-      );
-
+      // Generate session token
+      const sessionToken = nanoid(64);
       const sessionExpiresAt = new Date(Date.now() + SESSION_EXPIRY_MS);
 
+      // Store session in database
+      await authRepo.createSession(walletAddress, sessionToken, sessionExpiresAt);
+
+      // Set HTTP-only cookie
+      reply.setCookie(COOKIE_NAME, sessionToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/",
+        expires: sessionExpiresAt,
+      });
+
       return {
-        token,
+        success: true,
         walletAddress,
         expiresAt: sessionExpiresAt.toISOString(),
       };
@@ -118,40 +126,53 @@ export async function authRoutes(fastify: FastifyInstance) {
     }
   });
 
-  // Logout (client-side only - JWT is stateless)
+  // Logout - delete session from DB and clear cookie
   fastify.post("/auth/logout", async (request, reply) => {
+    const sessionToken = request.cookies[COOKIE_NAME];
+    
+    if (sessionToken) {
+      try {
+        await authRepo.deleteSession(sessionToken);
+      } catch (err) {
+        fastify.log.error(err);
+      }
+    }
+
+    reply.clearCookie(COOKIE_NAME, { path: "/" });
     return { success: true };
   });
 
-  // Verify token and get wallet info
-  fastify.get<{
-    Headers: { authorization?: string };
-  }>("/auth/me", async (request, reply) => {
-    const authHeader = request.headers.authorization;
+  // Check session - validates cookie and returns user info
+  fastify.get("/auth/me", async (request, reply) => {
+    const sessionToken = request.cookies[COOKIE_NAME];
     
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return reply.status(401).send({ error: "No token provided" });
+    if (!sessionToken) {
+      return reply.status(401).send({ error: "No session found" });
     }
 
-    const token = authHeader.substring(7);
-
     try {
-      const decoded = jwt.verify(token, JWT_SECRET) as { walletAddress: string; exp: number };
+      const session = await authRepo.getSessionByToken(sessionToken);
+      
+      if (!session) {
+        reply.clearCookie(COOKIE_NAME, { path: "/" });
+        return reply.status(401).send({ error: "Session invalid or expired" });
+      }
 
       return {
-        walletAddress: decoded.walletAddress,
-        expiresAt: new Date(decoded.exp * 1000).toISOString(),
+        walletAddress: session.wallet_address,
+        expiresAt: session.expires_at.toISOString(),
       };
     } catch (error) {
       fastify.log.error(error);
-      return reply.status(401).send({ error: "Invalid token" });
+      return reply.status(500).send({ error: "Failed to validate session" });
     }
   });
 
-  // Cleanup expired nonces (called periodically)
+  // Cleanup expired nonces and sessions (called periodically)
   fastify.post("/auth/cleanup", async (request, reply) => {
     try {
       await authRepo.cleanupExpiredNonces();
+      await authRepo.cleanupExpiredSessions();
       return { success: true };
     } catch (error) {
       fastify.log.error(error);

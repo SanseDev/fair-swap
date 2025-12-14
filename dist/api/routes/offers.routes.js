@@ -37,5 +37,32 @@ export async function offerRoutes(fastify) {
         const offers = await offerRepo.findBySeller(seller, limit);
         return { data: offers };
     });
+    // Create new offer (manual entry, mainly used for testing or backup)
+    fastify.post('/offers', async (request, reply) => {
+        const { offer_id, seller, token_mint_a, token_amount_a, token_mint_b, token_amount_b, allow_alternatives, signature, slot = 0, } = request.body;
+        // Validate required fields
+        if (!offer_id || !seller || !token_mint_a || !token_amount_a || !token_mint_b || !token_amount_b || !signature) {
+            return reply.status(400).send({ error: 'Missing required fields' });
+        }
+        try {
+            const offer = await offerRepo.create({
+                offer_id,
+                seller,
+                token_mint_a,
+                token_amount_a: token_amount_a.toString(),
+                token_mint_b,
+                token_amount_b: token_amount_b.toString(),
+                allow_alternatives: allow_alternatives || false,
+                status: 'active',
+                signature,
+                slot,
+            });
+            return reply.status(201).send({ data: offer });
+        }
+        catch (err) {
+            console.error('Create offer error:', err);
+            return reply.status(500).send({ error: 'Failed to create offer' });
+        }
+    });
 }
 //# sourceMappingURL=offers.routes.js.map

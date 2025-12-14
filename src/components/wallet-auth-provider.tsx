@@ -1,14 +1,11 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode, useRef } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import bs58 from "bs58";
 import {
   authApi,
-  saveAuthToken,
-  getAuthToken,
-  clearAuthToken,
   type UserSession,
 } from "@/lib/auth";
 
@@ -29,29 +26,31 @@ const WalletAuthContext = createContext<WalletAuthContextType | undefined>(undef
 export function WalletAuthProvider({ children }: { children: ReactNode }) {
   const { publicKey, signMessage, disconnect } = useWallet();
   const { setVisible } = useWalletModal();
+  
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [session, setSession] = useState<UserSession | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [authAttempted, setAuthAttempted] = useState(false);
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
+  
+  // Track if wallet was previously connected to distinguish disconnect from "not connected yet"
+  const wasConnectedRef = useRef(false);
 
-  // Check if user has a valid session on mount
+  // Check for existing session on mount (cookie-based)
   useEffect(() => {
     const checkSession = async () => {
-      const token = getAuthToken();
-      if (!token) {
-        setIsAuthenticated(false);
-        return;
-      }
-
       try {
-        const sessionData = await authApi.getSession(token);
+        const sessionData = await authApi.getSession();
+        console.log('[WalletAuth] ✅ Session found:', {
+          wallet: sessionData.walletAddress.slice(0, 8) + '...',
+          expires: sessionData.expiresAt
+        });
         setSession(sessionData);
         setIsAuthenticated(true);
       } catch (err) {
-        clearAuthToken();
-        setIsAuthenticated(false);
-        setSession(null);
+        console.log('[WalletAuth] No active session found');
+      } finally {
+        setIsCheckingSession(false);
       }
     };
 
@@ -69,7 +68,6 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
 
     setIsAuthenticating(true);
     setError(null);
-    setAuthAttempted(true);
 
     try {
       const walletAddress = publicKey.toBase58();
@@ -89,8 +87,7 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
         message
       );
 
-      // Save token and session
-      saveAuthToken(authResponse.token);
+      // Session is stored in HTTP-only cookie by the server
       setSession({
         walletAddress: authResponse.walletAddress,
         expiresAt: authResponse.expiresAt,
@@ -99,60 +96,97 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
       setIsAuthenticating(false);
       setError(null);
     } catch (err: any) {
-      console.error("Authentication failed:", err);
+      console.error("[WalletAuth] Authentication failed:", err);
       
       setIsAuthenticated(false);
       setIsAuthenticating(false);
       
-      // If user rejected the signature, disconnect the wallet immediately
+      // Only disconnect if user explicitly rejected - don't disconnect on network errors
       if (err.message?.includes("User rejected") || 
           err.message?.includes("User cancelled") ||
           err.name === "WalletSignMessageError") {
-        await disconnect();
-      } else if (err.response?.data?.error) {
-        setError(err.response.data.error);
+        console.log("[WalletAuth] User rejected signature, disconnecting");
         await disconnect();
       } else {
-        setError("Authentication failed");
-        await disconnect();
+        // For other errors, just show the error but keep wallet connected
+        const errorMsg = err.response?.data?.error || err.message || "Authentication failed";
+        setError(errorMsg);
+        console.log("[WalletAuth] Auth error (keeping wallet connected):", errorMsg);
       }
     }
   }, [publicKey, signMessage, disconnect, isAuthenticating]);
 
-  // Sync authentication state with wallet connection and auto-authenticate
+  // Sync authentication state with wallet connection
   useEffect(() => {
-    if (!publicKey) {
+    // Don't do anything until session check completes
+    if (isCheckingSession) {
+      return;
+    }
+
+    console.log('[WalletAuth] Sync effect:', {
+      hasPublicKey: !!publicKey,
+      hasSignMessage: !!signMessage,
+      isAuthenticated,
+      hasSession: !!session,
+      sessionWallet: session?.walletAddress,
+      walletAddress: publicKey?.toBase58(),
+    });
+
+    if (!publicKey || !signMessage) {
+      // Wallet not ready yet or disconnected
+      if (!publicKey && wasConnectedRef.current && (isAuthenticated || session)) {
+        // Wallet was connected before and now it's gone - user disconnected
+        console.log('[WalletAuth] Wallet disconnected by user, clearing state');
+        setIsAuthenticated(false);
+        setSession(null);
+        setError(null);
+        wasConnectedRef.current = false;
+      }
+      // If wallet was never connected (wasConnectedRef.current === false), 
+      // don't clear session - wallet might still be connecting
+      return;
+    }
+
+    // Mark that wallet is now connected
+    wasConnectedRef.current = true;
+    const walletAddress = publicKey.toBase58();
+
+    // If session exists but for different wallet, clear and re-auth
+    if (session && session.walletAddress !== walletAddress) {
+      console.log('[WalletAuth] Wallet changed, clearing old session');
       setIsAuthenticated(false);
       setSession(null);
-      setAuthAttempted(false);
       setError(null);
-    } else if (session && session.walletAddress !== publicKey.toBase58()) {
-      // Wallet changed, clear old session
-      clearAuthToken();
-      setIsAuthenticated(false);
-      setSession(null);
-      setAuthAttempted(false);
-      setError(null);
-    } else if (publicKey && !isAuthenticated && !isAuthenticating && !authAttempted) {
-      // Wallet connected but not authenticated yet, trigger auto-authentication only once
+      return;
+    }
+
+    // If session exists and matches wallet, we're authenticated - DON'T re-authenticate
+    if (session && session.walletAddress === walletAddress) {
+      if (!isAuthenticated) {
+        console.log('[WalletAuth] Session exists for wallet, setting authenticated');
+        setIsAuthenticated(true);
+      } else {
+        console.log('[WalletAuth] ✅ Session valid, already authenticated');
+      }
+      return;
+    }
+
+    // Only trigger authentication if: wallet ready, no session, not already authenticating
+    if (!session && !isAuthenticated && !isAuthenticating) {
+      console.log('[WalletAuth] 🔐 No session found, triggering authentication');
       authenticate();
     }
-  }, [publicKey, session, isAuthenticated, isAuthenticating, authAttempted, authenticate]);
+  }, [publicKey, signMessage, session, isAuthenticated, isAuthenticating, isCheckingSession, authenticate]);
 
   const logout = useCallback(async () => {
-    const token = getAuthToken();
-    if (token) {
-      try {
-        await authApi.logout(token);
-      } catch (err) {
-        console.error("Logout failed:", err);
-      }
+    try {
+      await authApi.logout();
+    } catch (err) {
+      console.error('[WalletAuth] Logout error:', err);
     }
-
-    clearAuthToken();
+    
     setIsAuthenticated(false);
     setSession(null);
-    setAuthAttempted(false);
     setError(null);
     await disconnect();
   }, [disconnect]);
