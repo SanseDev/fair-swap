@@ -238,3 +238,17 @@
 [00:31:31.253] Server  LOG      ✓ Compiled in 83ms
 [00:31:42.543] Server  LOG      ✓ Compiled in 276ms
 [00:31:52.138] Server  LOG      ✓ Compiled in 2ms
+[00:36:47.055] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"T31SBBB9R2XLSTZPT17J4Tp9TgU3A4Ck9WUWK1ygvAQ","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:36:47.055] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[00:36:47.055] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:36:47.055] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[00:36:47.055] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:37:24.928] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[00:37:24.929] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[00:59:35.014] Server  LOG      ✓ Compiled in 122ms
+[01:27:54.214] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:27:54.214] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:37:58.705] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:37:58.707] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:38:04.078] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:38:04.078] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

@@ -5,12 +5,13 @@ import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, XCircle, Coins } from "lucide-react";
+import { Loader2, CheckCircle, Coins } from "lucide-react";
 import { useCreateOffer } from "@/hooks/use-create-offer";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
+import { TokenSelector } from "@/components/token-selector";
+import { WalletToken } from "@/hooks/use-wallet-tokens";
 import { toast } from "sonner";
-import { PublicKey } from "@solana/web3.js";
-import { KNOWN_TOKENS, isValidPublicKey, toTokenAmount } from "@/lib/token-utils";
+import { toTokenAmount } from "@/lib/token-utils";
 
 export function CreateOfferForm() {
   const router = useRouter();
@@ -25,18 +26,24 @@ export function CreateOfferForm() {
     allowAlternatives: false,
   });
 
+  const [selectedTokenA, setSelectedTokenA] = useState<WalletToken | null>(null);
+  const [selectedTokenB, setSelectedTokenB] = useState<WalletToken | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    // Validate token mint addresses
-    if (!formData.tokenMintA || !isValidPublicKey(formData.tokenMintA)) {
-      newErrors.tokenMintA = "Invalid token mint address";
+    // Validate token selections
+    if (!formData.tokenMintA) {
+      newErrors.tokenMintA = "Please select a token";
     }
 
-    if (!formData.tokenMintB || !isValidPublicKey(formData.tokenMintB)) {
-      newErrors.tokenMintB = "Invalid token mint address";
+    if (!formData.tokenMintB) {
+      newErrors.tokenMintB = "Please select a token";
+    }
+
+    if (formData.tokenMintA === formData.tokenMintB) {
+      newErrors.tokenMintB = "Cannot swap same token";
     }
 
     // Validate amounts
@@ -48,6 +55,11 @@ export function CreateOfferForm() {
     const amountB = parseFloat(formData.tokenAmountB);
     if (!formData.tokenAmountB || isNaN(amountB) || amountB <= 0) {
       newErrors.tokenAmountB = "Amount must be greater than 0";
+    }
+
+    // Check if user has sufficient balance for token A
+    if (selectedTokenA && amountA > parseFloat(selectedTokenA.uiAmount)) {
+      newErrors.tokenAmountA = `Insufficient balance (available: ${selectedTokenA.uiAmount})`;
     }
 
     setErrors(newErrors);
@@ -73,9 +85,11 @@ export function CreateOfferForm() {
     }
 
     try {
-      // Convert amounts to smallest unit (assuming 9 decimals for most tokens)
-      const tokenAmountA = toTokenAmount(formData.tokenAmountA, 9);
-      const tokenAmountB = toTokenAmount(formData.tokenAmountB, 9);
+      // Convert amounts to smallest unit using actual token decimals
+      const decimalsA = selectedTokenA?.decimals || 9;
+      const decimalsB = selectedTokenB?.decimals || 9;
+      const tokenAmountA = toTokenAmount(formData.tokenAmountA, decimalsA);
+      const tokenAmountB = toTokenAmount(formData.tokenAmountB, decimalsB);
 
       const result = await createOffer({
         tokenMintA: formData.tokenMintA,
@@ -114,53 +128,37 @@ export function CreateOfferForm() {
                   You Offer (Token A)
                 </label>
                 <div className="space-y-2">
-                  <div>
-                    <Input
-                      placeholder="Token Mint Address (e.g., So11111...)"
-                      value={formData.tokenMintA}
-                      onChange={(e) =>
-                        setFormData({ ...formData, tokenMintA: e.target.value })
-                      }
-                      className={errors.tokenMintA ? "border-red-500" : ""}
-                    />
-                    {errors.tokenMintA && (
-                      <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                        <XCircle className="h-3 w-3" />
-                        {errors.tokenMintA}
-                      </p>
-                    )}
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      <button
-                        type="button"
-                        onClick={() => setFormData({ ...formData, tokenMintA: KNOWN_TOKENS.TOKEN_A })}
-                        className="text-xs px-2 py-1 bg-muted hover:bg-muted/80 rounded"
-                      >
-                        Token A
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setFormData({ ...formData, tokenMintA: KNOWN_TOKENS.TOKEN_B })}
-                        className="text-xs px-2 py-1 bg-muted hover:bg-muted/80 rounded"
-                      >
-                        Token B
-                      </button>
-                    </div>
-                  </div>
+                  <TokenSelector
+                    value={formData.tokenMintA}
+                    onChange={(mint, token) => {
+                      setFormData({ ...formData, tokenMintA: mint });
+                      setSelectedTokenA(token || null);
+                      setErrors({ ...errors, tokenMintA: "" });
+                    }}
+                    label="Select Token to Offer"
+                    excludeMint={formData.tokenMintB}
+                  />
+                  {errors.tokenMintA && (
+                    <p className="text-xs text-red-500 mt-1">{errors.tokenMintA}</p>
+                  )}
                   <div>
                     <Input
                       type="number"
                       step="any"
                       placeholder="Amount (e.g., 10.5)"
                       value={formData.tokenAmountA}
-                      onChange={(e) =>
-                        setFormData({ ...formData, tokenAmountA: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setFormData({ ...formData, tokenAmountA: e.target.value });
+                        setErrors({ ...errors, tokenAmountA: "" });
+                      }}
                       className={errors.tokenAmountA ? "border-red-500" : ""}
                     />
                     {errors.tokenAmountA && (
-                      <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                        <XCircle className="h-3 w-3" />
-                        {errors.tokenAmountA}
+                      <p className="text-xs text-red-500 mt-1">{errors.tokenAmountA}</p>
+                    )}
+                    {selectedTokenA && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Available: {selectedTokenA.uiAmount} {selectedTokenA.symbol}
                       </p>
                     )}
                   </div>
@@ -174,54 +172,33 @@ export function CreateOfferForm() {
                   You Request (Token B)
                 </label>
                 <div className="space-y-2">
-                  <div>
-                    <Input
-                      placeholder="Token Mint Address (e.g., EPjFWdd...)"
-                      value={formData.tokenMintB}
-                      onChange={(e) =>
-                        setFormData({ ...formData, tokenMintB: e.target.value })
-                      }
-                      className={errors.tokenMintB ? "border-red-500" : ""}
-                    />
-                    {errors.tokenMintB && (
-                      <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                        <XCircle className="h-3 w-3" />
-                        {errors.tokenMintB}
-                      </p>
-                    )}
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      <button
-                        type="button"
-                        onClick={() => setFormData({ ...formData, tokenMintB: KNOWN_TOKENS.TOKEN_A })}
-                        className="text-xs px-2 py-1 bg-muted hover:bg-muted/80 rounded"
-                      >
-                        Token A
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setFormData({ ...formData, tokenMintB: KNOWN_TOKENS.TOKEN_B })}
-                        className="text-xs px-2 py-1 bg-muted hover:bg-muted/80 rounded"
-                      >
-                        Token B
-                      </button>
-                    </div>
-                  </div>
+                  <TokenSelector
+                    value={formData.tokenMintB}
+                    onChange={(mint, token) => {
+                      setFormData({ ...formData, tokenMintB: mint });
+                      setSelectedTokenB(token || null);
+                      setErrors({ ...errors, tokenMintB: "" });
+                    }}
+                    label="Select Token to Request"
+                    excludeMint={formData.tokenMintA}
+                  />
+                  {errors.tokenMintB && (
+                    <p className="text-xs text-red-500 mt-1">{errors.tokenMintB}</p>
+                  )}
                   <div>
                     <Input
                       type="number"
                       step="any"
                       placeholder="Amount (e.g., 100)"
                       value={formData.tokenAmountB}
-                      onChange={(e) =>
-                        setFormData({ ...formData, tokenAmountB: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setFormData({ ...formData, tokenAmountB: e.target.value });
+                        setErrors({ ...errors, tokenAmountB: "" });
+                      }}
                       className={errors.tokenAmountB ? "border-red-500" : ""}
                     />
                     {errors.tokenAmountB && (
-                      <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                        <XCircle className="h-3 w-3" />
-                        {errors.tokenAmountB}
-                      </p>
+                      <p className="text-xs text-red-500 mt-1">{errors.tokenAmountB}</p>
                     )}
                   </div>
                 </div>
