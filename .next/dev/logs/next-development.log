@@ -252,3 +252,1004 @@
 [01:37:58.707] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [01:38:04.078] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [01:38:04.078] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:09:13.529] Server  LOG      ✓ Compiled in 274ms
+[03:09:41.120] Server  LOG      ✓ Compiled in 182ms
+[03:10:12.590] Server  LOG      ✓ Compiled in 99ms
+[03:10:12.720] Browser ERROR   uncaughtError: ReferenceError: TokenSelector is not defined
+[03:10:16.202] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:10:16.218] Server  LOG      ✓ Compiled in 53ms
+[03:10:16.840] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:10:16.921] Server  ERROR    ⨯ ReferenceError: TokenSelector is not defined
+[03:10:16.930] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:16.930] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:16.930] Browser ERROR   uncaughtError: ReferenceError: TokenSelector is not defined
+[03:10:17.998] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:18.266] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:18.266] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:18.266] Browser ERROR   uncaughtError: ReferenceError: TokenSelector is not defined
+[03:10:25.535] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:10:25.560] Server  LOG      ✓ Compiled in 63ms
+[03:10:25.805] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:10:25.817] Server  ERROR    ⨯ ReferenceError: TokenSelector is not defined
+[03:10:26.634] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:26.910] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:26.910] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:26.910] Browser ERROR   uncaughtError: ReferenceError: TokenSelector is not defined
+[03:10:30.155] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:10:30.177] Server  LOG      ✓ Compiled in 61ms
+[03:10:30.443] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:10:30.453] Server  ERROR    ⨯ ReferenceError: TokenSelector is not defined
+[03:10:30.780] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:31.027] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:31.027] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:31.027] Browser ERROR   uncaughtError: ReferenceError: TokenSelector is not defined
+[03:10:42.076] Server  LOG      ✓ Compiled in 293ms
+[03:10:42.098] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:10:42.478] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:10:42.504] Server  ERROR    ⨯ ReferenceError: TokenSelector is not defined
+[03:10:42.853] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:43.129] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:43.129] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:43.129] Browser ERROR   uncaughtError: ReferenceError: TokenSelector is not defined
+[03:10:49.560] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:10:49.582] Server  LOG      ✓ Compiled in 58ms
+[03:10:50.007] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:10:50.023] Server  ERROR    ⨯ ReferenceError: formData is not defined
+[03:10:50.345] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:50.594] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:50.594] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:50.594] Browser ERROR   uncaughtError: ReferenceError: formData is not defined
+[03:10:51.879] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[03:10:51.900] Server  LOG      ✓ Compiled in 51ms
+[03:10:52.623] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:10:52.914] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:10:53.145] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:10:53.292] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:52:19.850Z","wallet":"3nj8hjjG..."}
+[03:10:53.292] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:10:53.292] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:15:33.220] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:15:33.220] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:15:35.110] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:15:35.110] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:15:37.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:15:37.314] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:15:37.314] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:52:19.850Z","wallet":"3nj8hjjG..."}
+[03:15:37.314] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:15:37.314] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:15:38.620] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:15:38.620] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:15:42.421] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:15:42.421] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:15:46.669] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:15:46.669] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:16:27.438] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:16:27.591] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:16:27.742] Browser ERROR   {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletConnectionError"} {"_events":{"connect":{"context":"[Circular]","once":false},"disconnect":[{"context":"[Circular]","once":false},{"context":"[Circular]","once":false}],"error":{"context":"[Circular]","once":false},"readyStateChange":{"context":"[Circular]","once":false}},"_eventsCount":4}
+[03:16:27.742] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T19:52:19.850Z","wallet":"3nj8hjjG..."}
+[03:16:27.742] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:16:29.535] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:16:31.175] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:16:31.175] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[03:16:31.175] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:16:31.175] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[03:16:31.175] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:16:32.872] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:16:32.873] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:16:34.938] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:16:35.177] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:16:35.177] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:16:35.177] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:16:35.177] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:16:35.177] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:16:36.618] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:16:36.618] Browser ERROR   [useWalletNFTs] Error fetching NFTs: {}
+[03:16:37.682] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:16:37.682] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:19:28.954] Server  LOG      ✓ Compiled in 182ms
+[03:19:31.649] Server  LOG      ✓ Compiled in 50ms
+[03:22:50.506] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:22:50.948] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:22:51.097] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:22:51.227] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:22:51.227] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:22:51.227] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:22:51.227] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:22:53.650] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:22:53.650] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:37:11.351] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:37:11.352] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:37:55.111] Server  LOG      ✓ Compiled in 214ms
+[03:37:55.577] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:37:55.578] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:38:04.750] Server  LOG      ✓ Compiled in 48ms
+[03:38:06.061] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:38:06.061] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:38:28.707] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:38:29.223] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:38:29.343] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:38:29.542] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:38:29.542] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:38:29.542] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:38:29.542] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:38:31.686] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:38:31.686] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:38:31.885] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:38:31.885] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:38:31.885] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:38:31.885] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:40:50.984] Server  LOG      ✓ Compiled in 441ms
+[03:40:53.194] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:40:53.194] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:42:36.630] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:42:37.713] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:42:37.877] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:42:38.062] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:42:38.062] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:42:38.062] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:42:41.389] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:42:41.390] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:42:41.390] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:42:41.390] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:42:41.802] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:42:41.802] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:42:44.340] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:42:44.340] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:42:44.340] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:42:44.340] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:42:44.743] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:42:44.743] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:43:45.380] Server  LOG      ✓ Compiled in 132ms
+[03:43:46.684] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:43:46.687] Browser LOG     [useWalletNFTs] Account 0: {"hasData":false,"hasInfo":false,"hasParsed":false}
+[03:43:46.687] Browser WARN    [useWalletNFTs] Account has no parsed data!
+[03:43:46.687] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:43:46.687] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:43:46.687] Browser LOG     [useWalletNFTs] Account 0: {"hasData":false,"hasInfo":false,"hasParsed":false}
+[03:43:46.687] Browser WARN    [useWalletNFTs] Account has no parsed data!
+[03:43:46.687] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:44:15.174] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:44:16.650] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:44:16.903] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:44:17.052] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:44:17.052] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:44:17.052] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:44:20.353] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:44:20.354] Browser LOG     [useWalletNFTs] Account 0: {"hasData":false,"hasInfo":false,"hasParsed":false}
+[03:44:20.355] Browser WARN    [useWalletNFTs] Account has no parsed data!
+[03:44:20.355] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:44:20.355] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:44:20.355] Browser LOG     [useWalletNFTs] Account 0: {"hasData":false,"hasInfo":false,"hasParsed":false}
+[03:44:20.355] Browser WARN    [useWalletNFTs] Account has no parsed data!
+[03:44:20.355] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:44:20.813] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:44:20.813] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:45:32.119] Server  LOG      ✓ Compiled in 118ms
+[03:45:33.146] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:45:33.148] Browser LOG     [useWalletNFTs] ===== Account 0 =====
+[03:45:33.148] Browser LOG     [useWalletNFTs] Has data: false
+[03:45:33.148] Browser LOG     [useWalletNFTs] Has parsed: false
+[03:45:33.148] Browser LOG     [useWalletNFTs] Has info: false
+[03:45:33.148] Browser LOG     [useWalletNFTs] Full account data: {
+  "account": {
+    "data": {
+      "parsed": {
+        "info": {
+          "isNative": false,
+          "mint": "BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy",
+          "owner": "CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY",
+          "state": "initialized",
+          "tokenAmount": {
+            "amount": "1",
+            "decimals": 0,
+            "uiAmount": 1,
+            "uiAmountString": "1"
+          }
+        },
+        "type": "account"
+      },
+      "program": "spl-token",
+      "space": 165
+    },
+    "executable": false,
+    "lamports": 2039280,
+    "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "rentEpoch": 18446744073709552000,
+    "space": 165
+  },
+  "pubkey": "HmKJGwNbjWr8uPN9j8NrzLnRBzEt4PKMcoo1746oeGw3"
+}
+[03:45:33.148] Browser LOG     [useWalletNFTs] ==================
+[03:45:33.148] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:45:55.202] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:45:56.709] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:45:56.856] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:45:57.297] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:45:57.297] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:45:57.297] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:45:58.062] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:45:58.062] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:45:58.369] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:45:58.369] Browser LOG     [useWalletNFTs] ===== Account 0 =====
+[03:45:58.369] Browser LOG     [useWalletNFTs] Has data: false
+[03:45:58.369] Browser LOG     [useWalletNFTs] Has parsed: false
+[03:45:58.369] Browser LOG     [useWalletNFTs] Has info: false
+[03:45:58.369] Browser LOG     [useWalletNFTs] Full account data: {
+  "account": {
+    "data": {
+      "parsed": {
+        "info": {
+          "isNative": false,
+          "mint": "BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy",
+          "owner": "CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY",
+          "state": "initialized",
+          "tokenAmount": {
+            "amount": "1",
+            "decimals": 0,
+            "uiAmount": 1,
+            "uiAmountString": "1"
+          }
+        },
+        "type": "account"
+      },
+      "program": "spl-token",
+      "space": 165
+    },
+    "executable": false,
+    "lamports": 2039280,
+    "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "rentEpoch": 18446744073709552000,
+    "space": 165
+  },
+  "pubkey": "HmKJGwNbjWr8uPN9j8NrzLnRBzEt4PKMcoo1746oeGw3"
+}
+[03:45:58.369] Browser LOG     [useWalletNFTs] ==================
+[03:45:58.369] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:45:58.369] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:45:58.369] Browser LOG     [useWalletNFTs] ===== Account 0 =====
+[03:45:58.369] Browser LOG     [useWalletNFTs] Has data: false
+[03:45:58.369] Browser LOG     [useWalletNFTs] Has parsed: false
+[03:45:58.369] Browser LOG     [useWalletNFTs] Has info: false
+[03:45:58.369] Browser LOG     [useWalletNFTs] Full account data: {
+  "account": {
+    "data": {
+      "parsed": {
+        "info": {
+          "isNative": false,
+          "mint": "BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy",
+          "owner": "CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY",
+          "state": "initialized",
+          "tokenAmount": {
+            "amount": "1",
+            "decimals": 0,
+            "uiAmount": 1,
+            "uiAmountString": "1"
+          }
+        },
+        "type": "account"
+      },
+      "program": "spl-token",
+      "space": 165
+    },
+    "executable": false,
+    "lamports": 2039280,
+    "owner": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "rentEpoch": 18446744073709552000,
+    "space": 165
+  },
+  "pubkey": "HmKJGwNbjWr8uPN9j8NrzLnRBzEt4PKMcoo1746oeGw3"
+}
+[03:45:58.369] Browser LOG     [useWalletNFTs] ==================
+[03:45:58.369] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:46:49.348] Server  LOG      ✓ Compiled in 91ms
+[03:46:49.891] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:46:49.891] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:46:49.891] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:46:49.891] Browser WARN    [useWalletNFTs] Skipping account with unparsed data
+[03:46:52.430] Server  LOG      ✓ Compiled in 63ms
+[03:46:52.996] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:46:52.996] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:46:52.996] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:46:52.996] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:46:53.234] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:46:53.234] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:46:53.421] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:46:53.421] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:47:11.721] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:47:13.328] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:47:13.463] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:47:13.599] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:47:13.599] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:47:13.599] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:47:18.303] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:47:18.307] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:47:18.307] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:47:18.307] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:47:18.307] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:47:18.307] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:47:18.307] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:47:18.307] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:47:18.590] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:47:18.590] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:47:18.590] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:47:18.590] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:47:18.590] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:47:18.590] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:47:18.750] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:47:18.750] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:47:18.750] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:47:18.750] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:49:43.872] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:49:43.873] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:49:49.133] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:49:49.210] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:49:49.472] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:49:49.477] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:49:49.477] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:49:50.831] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:49:50.832] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:49:54.126] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:49:54.126] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:49:54.127] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:49:54.127] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:49:54.127] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:49:54.127] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:49:54.128] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:49:54.128] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:49:54.246] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:49:54.246] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:49:54.246] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:49:54.246] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:49:54.385] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:49:54.385] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:49:54.385] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:49:54.385] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:49:56.586] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:49:56.586] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:00.849] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:50:01.135] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:50:01.136] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:50:01.136] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:50:01.136] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:50:01.930] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:01.930] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:06.394] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:50:06.395] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:50:06.395] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:50:06.395] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:50:06.395] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:50:06.395] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:50:06.395] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:50:06.395] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:50:06.516] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:50:06.517] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:50:06.517] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:50:06.517] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:50:06.694] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:50:06.694] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:50:06.694] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:50:06.694] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:50:07.038] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:07.038] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:11.302] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:50:11.534] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:50:11.534] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:50:11.534] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:50:11.534] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:50:11.534] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:50:12.763] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:50:12.763] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:50:12.763] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:50:12.763] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:50:12.763] Browser LOG     [useWalletNFTs] Total token accounts: 1
+[03:50:12.763] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy","uiAmount":1}
+[03:50:12.763] Browser LOG     [useWalletNFTs] NFT accounts found: 1
+[03:50:12.763] Browser LOG     [useWalletNFTs] Checking metadata for: BQtwiN1WVcaMWuFydvR63Bbd9GRwoRJixYngJiV2fcvy PDA: D2sJ8x5GqAiUdWb4fmMxzgUBCM1smgmScfJyV8dHqsby
+[03:50:13.257] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:50:13.257] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:50:13.257] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:50:13.257] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:50:13.257] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:50:13.257] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:50:13.257] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:50:13.257] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:50:13.450] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:13.450] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:19.717] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:50:19.717] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:51:25.442] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:51:25.442] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:51:57.073] Browser ERROR   {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletSignTransactionError"} {"_events":{"connect":{"context":"[Circular]","once":false},"disconnect":[{"context":"[Circular]","once":false},{"context":"[Circular]","once":false}],"error":{"context":"[Circular]","once":false},"readyStateChange":{"context":"[Circular]","once":false}},"_eventsCount":4}
+[03:51:57.074] Browser ERROR   Create offer error: {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletSignTransactionError"}
+[03:51:57.074] Browser ERROR   Failed to create offer: {}
+[03:52:08.342] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"3dZtVwHmCQPeYwEW4eJ28RVv3gPAXvGMDvSieFm1xucf"}
+[03:52:08.342] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[03:52:08.342] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3dZtVwHmCQPeYwEW4eJ28RVv3gPAXvGMDvSieFm1xucf"}
+[03:52:08.342] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[03:52:08.342] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3dZtVwHmCQPeYwEW4eJ28RVv3gPAXvGMDvSieFm1xucf"}
+[03:52:09.331] Browser LOG     [useWalletNFTs] Total token accounts: 2
+[03:52:09.331] Browser LOG     [useWalletNFTs] NFT accounts found: 0
+[03:52:10.033] Browser ERROR   {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletSignMessageError"} {"_events":{"connect":{"context":"[Circular]","once":false},"disconnect":[{"context":"[Circular]","once":false},{"context":"[Circular]","once":false}],"error":{"context":"[Circular]","once":false},"readyStateChange":{"context":"[Circular]","once":false}},"_eventsCount":4}
+[03:52:10.033] Browser ERROR   [WalletAuth] Authentication failed: {"error":{"code":4001,"message":"User rejected the request."},"name":"WalletSignMessageError"}
+[03:52:10.033] Browser LOG     [WalletAuth] User rejected signature, disconnecting
+[03:52:10.033] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3dZtVwHmCQPeYwEW4eJ28RVv3gPAXvGMDvSieFm1xucf"}
+[03:52:10.033] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[03:52:10.033] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3dZtVwHmCQPeYwEW4eJ28RVv3gPAXvGMDvSieFm1xucf"}
+[03:52:10.033] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[03:52:10.033] Browser ERROR   [WalletAuth] Authentication failed: {}
+[03:52:10.033] Browser LOG     [WalletAuth] Auth error (keeping wallet connected): adapter.signMessage is not a function
+[03:52:10.033] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[03:53:25.505] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:53:25.645] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:53:25.764] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T22:31:27.869Z","wallet":"CQrq8xue..."}
+[03:53:25.764] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:53:27.355] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY"}
+[03:53:27.355] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"CQrq8xuePawWMSa92wT9pPzK23uXpyHovR3QKNKZUwUY","walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:53:27.355] Browser LOG     [WalletAuth] Wallet changed, clearing old session
+[03:53:27.355] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:53:27.355] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[03:53:27.355] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:53:28.945] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h","walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:53:28.945] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:53:32.615] Browser LOG     [useWalletNFTs] Total token accounts: 24
+[03:53:32.618] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF","uiAmount":1}
+[03:53:32.619] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh","uiAmount":1}
+[03:53:32.620] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3","uiAmount":1}
+[03:53:32.621] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS","uiAmount":1}
+[03:53:32.621] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN","uiAmount":1}
+[03:53:32.621] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] NFT accounts found: 22
+[03:53:32.622] Browser LOG     [useWalletNFTs] Checking metadata for: 5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk PDA: FteYe2iKs2FbE1gKNzQJPBgNwnS9jmTJX1Jn8NxS17Gc
+[03:53:32.622] Browser LOG     [useWalletNFTs] Total token accounts: 24
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz","uiAmount":1}
+[03:53:32.622] Browser LOG     [useWalletNFTs] NFT accounts found: 22
+[03:53:32.622] Browser LOG     [useWalletNFTs] Checking metadata for: 5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk PDA: FteYe2iKs2FbE1gKNzQJPBgNwnS9jmTJX1Jn8NxS17Gc
+[03:53:34.255] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:53:34.256] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:53:34.256] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW PDA: 2k5EJpiTRLBzK2QjLxbDB4fEbGWpbqJwzw6CNq6gGhf8
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW PDA: 2k5EJpiTRLBzK2QjLxbDB4fEbGWpbqJwzw6CNq6gGhf8
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW PDA: D5xwZ4UeT5CCuwMv3SjHczVCrff44C3RWCGxTcw7WC41
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW PDA: D5xwZ4UeT5CCuwMv3SjHczVCrff44C3RWCGxTcw7WC41
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ PDA: Cr1WsaBSAWd8rB61So28ww6fz3yYVX6pzT2qZ2tM9yVE
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ PDA: Cr1WsaBSAWd8rB61So28ww6fz3yYVX6pzT2qZ2tM9yVE
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/5"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj PDA: 8V8Jux9AiDf1Xd6eVdT2REq1njnMVcDn8cgEUL4LGaP6
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/5"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj PDA: 8V8Jux9AiDf1Xd6eVdT2REq1njnMVcDn8cgEUL4LGaP6
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/5"}
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/5"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW PDA: Hz1S2ajzrwHyTk3jNgdQLqCy2FWrFhpDQASDfHfpxPXr
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW PDA: Hz1S2ajzrwHyTk3jNgdQLqCy2FWrFhpDQASDfHfpxPXr
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72 PDA: 2VhEbij93erWD3VviWYATiJ1vqVkFz1CDaz1iQvZGb8u
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72 PDA: 2VhEbij93erWD3VviWYATiJ1vqVkFz1CDaz1iQvZGb8u
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2 PDA: EzmGW378hMFtNA3oSecEzDo6YhkLYYx6Tz25amULGKtq
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2 PDA: EzmGW378hMFtNA3oSecEzDo6YhkLYYx6Tz25amULGKtq
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/6"}
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/6"}
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu PDA: JBAAt8AiPaHhEWbHtB75NrYJZfLzAdahFP1ZW1YowiL4
+[03:53:34.256] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:34.256] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:34.256] Browser LOG     [useWalletNFTs] Checking metadata for: 57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu PDA: JBAAt8AiPaHhEWbHtB75NrYJZfLzAdahFP1ZW1YowiL4
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:34.256] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:34.256] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:35.253] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:35.253] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:35.253] Browser LOG     [useWalletNFTs] Checking metadata for: 6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF PDA: 4ZUjZEPF384eAjZKk9VqHZpMnh5mGkPYEHmE4HvGfBky
+[03:53:35.253] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:35.253] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:35.253] Browser LOG     [useWalletNFTs] Checking metadata for: 6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF PDA: 4ZUjZEPF384eAjZKk9VqHZpMnh5mGkPYEHmE4HvGfBky
+[03:53:35.420] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:35.420] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:53:35.420] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:35.420] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:53:35.781] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:35.781] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:35.781] Browser LOG     [useWalletNFTs] Checking metadata for: 354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh PDA: EGYA8NVKkPVJeS4PkUMXwwwPRKCxV3MJcbUCP41W2b3P
+[03:53:35.781] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:35.781] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:35.781] Browser LOG     [useWalletNFTs] Checking metadata for: 354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh PDA: EGYA8NVKkPVJeS4PkUMXwwwPRKCxV3MJcbUCP41W2b3P
+[03:53:35.781] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:35.781] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"http://localhost:3000/api/metadata/7"}
+[03:53:35.781] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:35.781] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"http://localhost:3000/api/metadata/7"}
+[03:53:37.581] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:53:37.581] Browser LOG     [useWalletNFTs] Checking metadata for: HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3 PDA: 2UYTfSHq7pEewbMjHjiJyX3SEfPEBT4R4Tt5xAqpg9Hk
+[03:53:37.581] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:53:37.581] Browser LOG     [useWalletNFTs] Checking metadata for: HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3 PDA: 2UYTfSHq7pEewbMjHjiJyX3SEfPEBT4R4Tt5xAqpg9Hk
+[03:53:37.581] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:37.581] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:53:37.581] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:37.581] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:53:38.227] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:38.227] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:53:38.227] Browser LOG     [useWalletNFTs] Checking metadata for: 76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS PDA: 3VeggCbUyaB5CXx1gGrSB5QSfTuUUeHqsMS1kReq6ACA
+[03:53:38.227] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:38.227] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:53:38.227] Browser LOG     [useWalletNFTs] Checking metadata for: 76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS PDA: 3VeggCbUyaB5CXx1gGrSB5QSfTuUUeHqsMS1kReq6ACA
+[03:53:38.227] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:38.227] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/8"}
+[03:53:38.227] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:38.227] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/8"}
+[03:53:38.458] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:38.458] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:53:38.458] Browser LOG     [useWalletNFTs] Checking metadata for: EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN PDA: 55eKDJMc2o6iUTucherj6zkhnA17rYyYPfrGmqjWybtX
+[03:53:38.458] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:38.458] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:53:38.458] Browser LOG     [useWalletNFTs] Checking metadata for: EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN PDA: 55eKDJMc2o6iUTucherj6zkhnA17rYyYPfrGmqjWybtX
+[03:53:38.458] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:38.458] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:53:39.138] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:39.139] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:53:39.139] Browser LOG     [useWalletNFTs] Checking metadata for: 2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw PDA: 36M7p7wYiTXv4xXFQre8YJGB6BFHvAg2CrczMtajeUNv
+[03:53:39.139] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.139] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:53:39.139] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.139] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:39.139] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:39.139] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:53:39.139] Browser LOG     [useWalletNFTs] Checking metadata for: 2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw PDA: 36M7p7wYiTXv4xXFQre8YJGB6BFHvAg2CrczMtajeUNv
+[03:53:39.265] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.265] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:39.265] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:39.265] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:39.265] Browser LOG     [useWalletNFTs] Checking metadata for: D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW PDA: 4eLeZQM24CvMvtLwYm4Zii2CEKTyzAdgKuWrniv7E5vx
+[03:53:39.387] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:39.387] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:39.387] Browser LOG     [useWalletNFTs] Checking metadata for: D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW PDA: 4eLeZQM24CvMvtLwYm4Zii2CEKTyzAdgKuWrniv7E5vx
+[03:53:39.723] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.723] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Nintendo","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/17"}
+[03:53:39.723] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.723] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Nintendo","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/17"}
+[03:53:39.723] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:39.723] Browser LOG     [useWalletNFTs] ✅ Added NFT: Nintendo
+[03:53:39.723] Browser LOG     [useWalletNFTs] Checking metadata for: Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX PDA: 8bvs88GXmA3NdN1NusLPp6PsKF5qjCYgy4fv1VR5nX7j
+[03:53:39.723] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:39.723] Browser LOG     [useWalletNFTs] ✅ Added NFT: Nintendo
+[03:53:39.723] Browser LOG     [useWalletNFTs] Checking metadata for: Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX PDA: 8bvs88GXmA3NdN1NusLPp6PsKF5qjCYgy4fv1VR5nX7j
+[03:53:39.723] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.723] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:39.723] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:39.723] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:40.037] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.037] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:40.037] Browser LOG     [useWalletNFTs] Checking metadata for: JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK PDA: DnJjbLi9Rivp56dJ898YD2hBARsvxCuup7JLCx5TiGEZ
+[03:53:40.641] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.641] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:40.641] Browser LOG     [useWalletNFTs] Checking metadata for: JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK PDA: DnJjbLi9Rivp56dJ898YD2hBARsvxCuup7JLCx5TiGEZ
+[03:53:40.641] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:40.641] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/7"}
+[03:53:40.641] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:40.641] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/7"}
+[03:53:40.641] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.641] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:53:40.641] Browser LOG     [useWalletNFTs] Checking metadata for: 3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn PDA: 7hvSRLBiTKLu5Pk8aiqKj2zrMhSKusq4pkYQ7K3m8tH9
+[03:53:40.641] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.641] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:53:40.641] Browser LOG     [useWalletNFTs] Checking metadata for: 3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn PDA: 7hvSRLBiTKLu5Pk8aiqKj2zrMhSKusq4pkYQ7K3m8tH9
+[03:53:40.641] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:40.641] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/7"}
+[03:53:40.641] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:40.641] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/7"}
+[03:53:40.641] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.641] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:53:40.641] Browser LOG     [useWalletNFTs] Checking metadata for: 3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs PDA: 9MNyiv7EPNLCqCnCxKmEGejtFwf8LvsbvXMhNHPs1H2V
+[03:53:40.641] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.641] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:53:40.641] Browser LOG     [useWalletNFTs] Checking metadata for: 3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs PDA: 9MNyiv7EPNLCqCnCxKmEGejtFwf8LvsbvXMhNHPs1H2V
+[03:53:40.641] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:40.641] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:40.641] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:40.641] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:53:40.895] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.895] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:40.895] Browser LOG     [useWalletNFTs] Checking metadata for: CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm PDA: 5VTaAhpjpAk2GowJDUnLVYRq8rNWpe46Ld4zvF7TZF2d
+[03:53:40.895] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:40.895] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:40.895] Browser LOG     [useWalletNFTs] Checking metadata for: CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm PDA: 5VTaAhpjpAk2GowJDUnLVYRq8rNWpe46Ld4zvF7TZF2d
+[03:53:41.518] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:41.518] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:53:41.518] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:41.518] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:53:41.518] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:41.518] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:41.518] Browser LOG     [useWalletNFTs] Checking metadata for: 6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz PDA: EbeLoRBKiGshdjebfacHZufga9CwUfKxt28A6H1w8rG9
+[03:53:41.518] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:41.518] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:53:41.518] Browser LOG     [useWalletNFTs] Checking metadata for: 6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz PDA: EbeLoRBKiGshdjebfacHZufga9CwUfKxt28A6H1w8rG9
+[03:53:41.518] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:41.518] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:53:41.518] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:41.518] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:53:41.518] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:53:41.518] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:53:41.518] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:53:41.518] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:53:46.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:53:46.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:54:00.053] Browser LOG     [useWalletNFTs] Total token accounts: 24
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] NFT accounts found: 22
+[03:54:00.054] Browser LOG     [useWalletNFTs] Checking metadata for: 5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk PDA: FteYe2iKs2FbE1gKNzQJPBgNwnS9jmTJX1Jn8NxS17Gc
+[03:54:00.054] Browser LOG     [useWalletNFTs] Total token accounts: 24
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] ✅ Found NFT candidate: {"amount":"1","decimals":0,"mint":"6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz","uiAmount":1}
+[03:54:00.054] Browser LOG     [useWalletNFTs] NFT accounts found: 22
+[03:54:00.054] Browser LOG     [useWalletNFTs] Checking metadata for: 5gRS6H3vFhH3oaK1QJZwNN2bEyVMTTsSQ9bhR9sSc2Mk PDA: FteYe2iKs2FbE1gKNzQJPBgNwnS9jmTJX1Jn8NxS17Gc
+[03:54:00.054] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.054] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:54:00.054] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.054] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW PDA: 2k5EJpiTRLBzK2QjLxbDB4fEbGWpbqJwzw6CNq6gGhf8
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: zXBNAm4Nvw9uSWvpCrPxCi2BNXmkzLZirkhACXFzujW PDA: 2k5EJpiTRLBzK2QjLxbDB4fEbGWpbqJwzw6CNq6gGhf8
+[03:54:00.831] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.831] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:54:00.831] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.831] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple Store","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/15"}
+[03:54:00.831] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:54:00.831] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW PDA: D5xwZ4UeT5CCuwMv3SjHczVCrff44C3RWCGxTcw7WC41
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple Store
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: HjcHH9PPagT4X6AzCXcQmUViVYxDEaZJspV6bkrJx3ZW PDA: D5xwZ4UeT5CCuwMv3SjHczVCrff44C3RWCGxTcw7WC41
+[03:54:00.831] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.831] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ PDA: Cr1WsaBSAWd8rB61So28ww6fz3yYVX6pzT2qZ2tM9yVE
+[03:54:00.831] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.831] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:54:00.831] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:00.831] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/5"}
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj PDA: 8V8Jux9AiDf1Xd6eVdT2REq1njnMVcDn8cgEUL4LGaP6
+[03:54:00.831] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:00.831] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:54:00.831] Browser LOG     [useWalletNFTs] Checking metadata for: Hukq3D471n8xEvfknoBmVfV3EhKyBa3ZKzhVkarYw3pQ PDA: Cr1WsaBSAWd8rB61So28ww6fz3yYVX6pzT2qZ2tM9yVE
+[03:54:01.777] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:01.777] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/5"}
+[03:54:01.777] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:01.777] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/5"}
+[03:54:01.777] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:01.777] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:54:01.777] Browser LOG     [useWalletNFTs] Checking metadata for: 9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW PDA: Hz1S2ajzrwHyTk3jNgdQLqCy2FWrFhpDQASDfHfpxPXr
+[03:54:01.777] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:01.777] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:54:01.777] Browser LOG     [useWalletNFTs] Checking metadata for: FVcNAqS77NC24e5NuHuz6R9KEwTUja6GHsFwm28JTGBj PDA: 8V8Jux9AiDf1Xd6eVdT2REq1njnMVcDn8cgEUL4LGaP6
+[03:54:01.777] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:01.777] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:54:01.777] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:01.777] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Amazon","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/5"}
+[03:54:02.240] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.240] Browser LOG     [useWalletNFTs] ✅ Added NFT: Amazon
+[03:54:02.241] Browser LOG     [useWalletNFTs] Checking metadata for: 9yDkkYstafZ3kYXphEQBon9eB3Zh227MuNhV1QAxxPXW PDA: Hz1S2ajzrwHyTk3jNgdQLqCy2FWrFhpDQASDfHfpxPXr
+[03:54:02.242] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.242] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:54:02.242] Browser LOG     [useWalletNFTs] Checking metadata for: 7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72 PDA: 2VhEbij93erWD3VviWYATiJ1vqVkFz1CDaz1iQvZGb8u
+[03:54:02.664] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:02.664] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:54:02.664] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:02.664] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:54:02.664] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.664] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:54:02.664] Browser LOG     [useWalletNFTs] Checking metadata for: 7Jfw5hZSpUDLzsSsqhMJVH11MhBW9DZ4zKvPoxuMVd72 PDA: 2VhEbij93erWD3VviWYATiJ1vqVkFz1CDaz1iQvZGb8u
+[03:54:02.664] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.664] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:54:02.664] Browser LOG     [useWalletNFTs] Checking metadata for: 4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2 PDA: EzmGW378hMFtNA3oSecEzDo6YhkLYYx6Tz25amULGKtq
+[03:54:02.664] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:02.664] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test2","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/16"}
+[03:54:02.664] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.664] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test2
+[03:54:02.664] Browser LOG     [useWalletNFTs] Checking metadata for: 4zMRp4oGXAeinPjZBSwFkSaYt8KCbTe7GZnFBHoDiau2 PDA: EzmGW378hMFtNA3oSecEzDo6YhkLYYx6Tz25amULGKtq
+[03:54:02.664] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:02.664] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/6"}
+[03:54:02.664] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.664] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:02.664] Browser LOG     [useWalletNFTs] Checking metadata for: 57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu PDA: JBAAt8AiPaHhEWbHtB75NrYJZfLzAdahFP1ZW1YowiL4
+[03:54:02.664] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:02.664] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/6"}
+[03:54:02.664] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:02.664] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:02.664] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:02.664] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:02.664] Browser LOG     [useWalletNFTs] Checking metadata for: 57KaunSm5JSXvpia4pT7dRtBENz5yCtL4AwbKqXC23Cu PDA: JBAAt8AiPaHhEWbHtB75NrYJZfLzAdahFP1ZW1YowiL4
+[03:54:03.231] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:03.232] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:03.483] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:03.484] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:03.484] Browser LOG     [useWalletNFTs] Checking metadata for: 6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF PDA: 4ZUjZEPF384eAjZKk9VqHZpMnh5mGkPYEHmE4HvGfBky
+[03:54:03.484] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:03.484] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:03.484] Browser LOG     [useWalletNFTs] Checking metadata for: 6H47kshCXNa2tC8cJDHCoqRtoGiJyT9J7gHuse5uqnaF PDA: 4ZUjZEPF384eAjZKk9VqHZpMnh5mGkPYEHmE4HvGfBky
+[03:54:03.484] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:03.484] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: 354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh PDA: EGYA8NVKkPVJeS4PkUMXwwwPRKCxV3MJcbUCP41W2b3P
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: 354AAqmS4YL6Nw9ZDgpzmYwRdWKzFqgsNcVmXyVNvLLh PDA: EGYA8NVKkPVJeS4PkUMXwwwPRKCxV3MJcbUCP41W2b3P
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"http://localhost:3000/api/metadata/7"}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3 PDA: 2UYTfSHq7pEewbMjHjiJyX3SEfPEBT4R4Tt5xAqpg9Hk
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"http://localhost:3000/api/metadata/7"}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: HmBTuAyPuAyqQSp99pNut4tFR8E3wyCnzv3G3h61xHo3 PDA: 2UYTfSHq7pEewbMjHjiJyX3SEfPEBT4R4Tt5xAqpg9Hk
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: 76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS PDA: 3VeggCbUyaB5CXx1gGrSB5QSfTuUUeHqsMS1kReq6ACA
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/8"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: 76shTAZqanMan5FHwRDqaDSW4dwMe3z8PBGrsEH9tMcS PDA: 3VeggCbUyaB5CXx1gGrSB5QSfTuUUeHqsMS1kReq6ACA
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN PDA: 55eKDJMc2o6iUTucherj6zkhnA17rYyYPfrGmqjWybtX
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/8"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: EdzzZS1fV1CSk6MkyhXvxkPTeDRVNq736w5XxwHoGLrN PDA: 55eKDJMc2o6iUTucherj6zkhnA17rYyYPfrGmqjWybtX
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: 2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw PDA: 36M7p7wYiTXv4xXFQre8YJGB6BFHvAg2CrczMtajeUNv
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Netflix","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/4"}
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Netflix
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: 2LQF2SaaR2P6veTw7VBVxiB4e38CNURqa4GCHxJ1xbYw PDA: 36M7p7wYiTXv4xXFQre8YJGB6BFHvAg2CrczMtajeUNv
+[03:54:04.441] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.441] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:04.441] Browser LOG     [useWalletNFTs] Checking metadata for: D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW PDA: 4eLeZQM24CvMvtLwYm4Zii2CEKTyzAdgKuWrniv7E5vx
+[03:54:04.441] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.441] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:04.875] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.875] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:04.875] Browser LOG     [useWalletNFTs] Checking metadata for: D7KgDweU5VrDoNm4LEf9P8g6rZNmBv8kgPKEBt6gMKUW PDA: 4eLeZQM24CvMvtLwYm4Zii2CEKTyzAdgKuWrniv7E5vx
+[03:54:04.875] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.875] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Nintendo","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/17"}
+[03:54:04.875] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:04.875] Browser LOG     [useWalletNFTs] ✅ Added NFT: Nintendo
+[03:54:04.875] Browser LOG     [useWalletNFTs] Checking metadata for: Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX PDA: 8bvs88GXmA3NdN1NusLPp6PsKF5qjCYgy4fv1VR5nX7j
+[03:54:04.875] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.875] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Nintendo","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/17"}
+[03:54:04.875] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:04.875] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:05.200] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.200] Browser LOG     [useWalletNFTs] ✅ Added NFT: Nintendo
+[03:54:05.200] Browser LOG     [useWalletNFTs] Checking metadata for: Bow5uCkZXc28zRPN4qHV9674M9N7wSrDiM9QDnWREfwX PDA: 8bvs88GXmA3NdN1NusLPp6PsKF5qjCYgy4fv1VR5nX7j
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK PDA: DnJjbLi9Rivp56dJ898YD2hBARsvxCuup7JLCx5TiGEZ
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/7"}
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: 3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn PDA: 7hvSRLBiTKLu5Pk8aiqKj2zrMhSKusq4pkYQ7K3m8tH9
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: JDx5KraneBna6vZ1LzmxbH9EGHt3QdyQYwz22XcF6BYK PDA: DnJjbLi9Rivp56dJ898YD2hBARsvxCuup7JLCx5TiGEZ
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/7"}
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: 3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs PDA: 9MNyiv7EPNLCqCnCxKmEGejtFwf8LvsbvXMhNHPs1H2V
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/7"}
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: 3QgvpJa72eC9K6H7K343oGVcATj7a29QE9ocgjuKdJrn PDA: 7hvSRLBiTKLu5Pk8aiqKj2zrMhSKusq4pkYQ7K3m8tH9
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Carrefour","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/7"}
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Carrefour
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: 3RNiKW19sAdMkZw4SEsW4ix91ZDP5dxaYGjxvMB8dgrs PDA: 9MNyiv7EPNLCqCnCxKmEGejtFwf8LvsbvXMhNHPs1H2V
+[03:54:05.965] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:05.965] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:05.965] Browser LOG     [useWalletNFTs] Checking metadata for: CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm PDA: 5VTaAhpjpAk2GowJDUnLVYRq8rNWpe46Ld4zvF7TZF2d
+[03:54:05.965] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:05.965] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFTOKEN","uri":"https://picsum.photos/200"}
+[03:54:06.753] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:06.753] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:54:06.753] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:06.753] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:06.753] Browser LOG     [useWalletNFTs] Checking metadata for: 6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz PDA: EbeLoRBKiGshdjebfacHZufga9CwUfKxt28A6H1w8rG9
+[03:54:06.753] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:06.753] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:06.753] Browser LOG     [useWalletNFTs] Checking metadata for: CG4s5iAVN1nepGnCLcqdMV967z51CiFUN8bKBfDA8sKm PDA: 5VTaAhpjpAk2GowJDUnLVYRq8rNWpe46Ld4zvF7TZF2d
+[03:54:06.753] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:06.753] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Test","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app/api/metadata/6"}
+[03:54:06.753] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:06.753] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:54:06.753] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:06.753] Browser LOG     [useWalletNFTs] ✅ Added NFT: Test
+[03:54:06.753] Browser LOG     [useWalletNFTs] Checking metadata for: 6YQFxjh4XJojpA8taeZzD3gSqsCF4ZbiYbxtw56Zi9Zz PDA: EbeLoRBKiGshdjebfacHZufga9CwUfKxt28A6H1w8rG9
+[03:54:06.753] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:06.753] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:54:06.753] Browser LOG     [useWalletNFTs] Metadata account found, decoding...
+[03:54:06.753] Browser LOG     [useWalletNFTs] Decoded metadata: {"name":"Apple","symbol":"GIFT","uri":"https://giftoken-seven.vercel.app\n/api/metadata/8"}
+[03:54:06.753] Browser ERROR   [useWalletNFTs] Failed to fetch metadata: {}
+[03:54:06.753] Browser LOG     [useWalletNFTs] ✅ Added NFT: Apple
+[03:54:34.877] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[03:54:35.644] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:54:35.803] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:54:35.923] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T23:08:23.873Z","wallet":"9t9GhbiB..."}
+[03:54:35.923] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h","walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:54:35.923] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:54:36.457] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:54:36.458] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[03:54:36.458] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"9t9GhbiBrLSTizgu3Ay9nx9bJyNykr8D1vpzYobuBc3h"}
+[03:54:36.458] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[03:54:36.458] Browser ERROR   [WalletAuth] Authentication failed: {}
+[03:54:36.458] Browser LOG     [WalletAuth] Auth error (keeping wallet connected): adapter.signMessage is not a function
+[03:54:36.458] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[03:54:48.464] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false}
+[03:54:48.464] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:54:48.465] Browser LOG     [WalletAuth] 🔐 No session found, triggering authentication
+[03:54:48.465] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":false,"hasSignMessage":true,"isAuthenticated":false,"walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:54:49.806] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:54:49.806] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated
+[03:55:17.132] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:55:17.277] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[03:55:17.411] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-15T23:09:44.772Z","wallet":"3nj8hjjG..."}
+[03:55:17.411] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:55:17.411] Browser LOG     [WalletAuth] Sync effect: {"hasPublicKey":true,"hasSession":true,"hasSignMessage":true,"isAuthenticated":true,"sessionWallet":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC","walletAddress":"3nj8hjjGq7JqMoXfirbs8F7AEPHyFaw6yW4H57fkniWC"}
+[03:55:17.411] Browser LOG     [WalletAuth] ✅ Session valid, already authenticated

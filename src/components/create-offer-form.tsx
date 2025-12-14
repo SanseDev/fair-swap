@@ -8,8 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle, Coins } from "lucide-react";
 import { useCreateOffer } from "@/hooks/use-create-offer";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
-import { TokenSelector } from "@/components/token-selector";
-import { WalletToken } from "@/hooks/use-wallet-tokens";
+import { AssetSelector, SelectedAsset } from "@/components/asset-selector";
 import { toast } from "sonner";
 import { toTokenAmount } from "@/lib/token-utils";
 
@@ -18,48 +17,51 @@ export function CreateOfferForm() {
   const { isConnected, isAuthenticated, openWalletModal } = useWalletAuth();
   const { createOffer, isLoading } = useCreateOffer();
 
-  const [formData, setFormData] = useState({
-    tokenMintA: "",
-    tokenAmountA: "",
-    tokenMintB: "",
-    tokenAmountB: "",
-    allowAlternatives: false,
-  });
-
-  const [selectedTokenA, setSelectedTokenA] = useState<WalletToken | null>(null);
-  const [selectedTokenB, setSelectedTokenB] = useState<WalletToken | null>(null);
+  const [selectedAssetA, setSelectedAssetA] = useState<SelectedAsset | null>(null);
+  const [selectedAssetB, setSelectedAssetB] = useState<SelectedAsset | null>(null);
+  const [amountA, setAmountA] = useState("");
+  const [amountB, setAmountB] = useState("");
+  const [allowAlternatives, setAllowAlternatives] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    // Validate token selections
-    if (!formData.tokenMintA) {
-      newErrors.tokenMintA = "Please select a token";
+    // Validate asset A selection
+    if (!selectedAssetA) {
+      newErrors.assetA = "Please select an asset";
     }
 
-    if (!formData.tokenMintB) {
-      newErrors.tokenMintB = "Please select a token";
+    // Validate asset B selection
+    if (!selectedAssetB) {
+      newErrors.assetB = "Please select an asset";
     }
 
-    if (formData.tokenMintA === formData.tokenMintB) {
-      newErrors.tokenMintB = "Cannot swap same token";
+    if (selectedAssetA && selectedAssetB && selectedAssetA.mint === selectedAssetB.mint) {
+      newErrors.assetB = "Cannot swap the same asset";
     }
 
-    // Validate amounts
-    const amountA = parseFloat(formData.tokenAmountA);
-    if (!formData.tokenAmountA || isNaN(amountA) || amountA <= 0) {
-      newErrors.tokenAmountA = "Amount must be greater than 0";
+    // Validate amounts for tokens (NFTs are always amount = 1)
+    if (selectedAssetA?.type === "token") {
+      const parsedAmountA = parseFloat(amountA);
+      if (!amountA || isNaN(parsedAmountA) || parsedAmountA <= 0) {
+        newErrors.amountA = "Amount must be greater than 0";
+      }
+
+      // Check balance for tokens
+      if (selectedAssetA.data && "uiAmount" in selectedAssetA.data) {
+        const availableBalance = parseFloat(selectedAssetA.data.uiAmount);
+        if (parsedAmountA > availableBalance) {
+          newErrors.amountA = `Insufficient balance (available: ${selectedAssetA.data.uiAmount})`;
+        }
+      }
     }
 
-    const amountB = parseFloat(formData.tokenAmountB);
-    if (!formData.tokenAmountB || isNaN(amountB) || amountB <= 0) {
-      newErrors.tokenAmountB = "Amount must be greater than 0";
-    }
-
-    // Check if user has sufficient balance for token A
-    if (selectedTokenA && amountA > parseFloat(selectedTokenA.uiAmount)) {
-      newErrors.tokenAmountA = `Insufficient balance (available: ${selectedTokenA.uiAmount})`;
+    if (selectedAssetB?.type === "token") {
+      const parsedAmountB = parseFloat(amountB);
+      if (!amountB || isNaN(parsedAmountB) || parsedAmountB <= 0) {
+        newErrors.amountB = "Amount must be greater than 0";
+      }
     }
 
     setErrors(newErrors);
@@ -85,18 +87,22 @@ export function CreateOfferForm() {
     }
 
     try {
-      // Convert amounts to smallest unit using actual token decimals
-      const decimalsA = selectedTokenA?.decimals || 9;
-      const decimalsB = selectedTokenB?.decimals || 9;
-      const tokenAmountA = toTokenAmount(formData.tokenAmountA, decimalsA);
-      const tokenAmountB = toTokenAmount(formData.tokenAmountB, decimalsB);
+      // Convert amounts to smallest unit using actual decimals
+      const finalAmountA = selectedAssetA!.type === "nft" ? "1" : amountA;
+      const finalAmountB = selectedAssetB!.type === "nft" ? "1" : amountB;
+      
+      const decimalsA = selectedAssetA!.decimals || 0;
+      const decimalsB = selectedAssetB!.decimals || 0;
+      
+      const tokenAmountA = toTokenAmount(finalAmountA, decimalsA);
+      const tokenAmountB = toTokenAmount(finalAmountB, decimalsB);
 
       const result = await createOffer({
-        tokenMintA: formData.tokenMintA,
+        tokenMintA: selectedAssetA!.mint,
         tokenAmountA,
-        tokenMintB: formData.tokenMintB,
+        tokenMintB: selectedAssetB!.mint,
         tokenAmountB,
-        allowAlternatives: formData.allowAlternatives,
+        allowAlternatives,
       });
 
       toast.success("Offer created successfully!", {
@@ -121,86 +127,108 @@ export function CreateOfferForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Token A (Offering) */}
+              {/* Asset A (Offering) */}
               <div className="space-y-3">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <Coins className="h-4 w-4" />
-                  You Offer (Token A)
+                  You Offer (Asset A)
                 </label>
                 <div className="space-y-2">
-                  <TokenSelector
-                    value={formData.tokenMintA}
-                    onChange={(mint, token) => {
-                      setFormData({ ...formData, tokenMintA: mint });
-                      setSelectedTokenA(token || null);
-                      setErrors({ ...errors, tokenMintA: "" });
+                  <AssetSelector
+                    value={selectedAssetA || undefined}
+                    onChange={(asset) => {
+                      setSelectedAssetA(asset);
+                      // For NFTs, amount is always 1
+                      if (asset.type === "nft") {
+                        setAmountA("1");
+                      }
+                      setErrors({ ...errors, assetA: "" });
                     }}
-                    label="Select Token to Offer"
-                    excludeMint={formData.tokenMintB}
+                    label="Select Asset to Offer"
+                    excludeMint={selectedAssetB?.mint}
                   />
-                  {errors.tokenMintA && (
-                    <p className="text-xs text-red-500 mt-1">{errors.tokenMintA}</p>
+                  {errors.assetA && (
+                    <p className="text-xs text-red-500 mt-1">{errors.assetA}</p>
                   )}
-                  <div>
-                    <Input
-                      type="number"
-                      step="any"
-                      placeholder="Amount (e.g., 10.5)"
-                      value={formData.tokenAmountA}
-                      onChange={(e) => {
-                        setFormData({ ...formData, tokenAmountA: e.target.value });
-                        setErrors({ ...errors, tokenAmountA: "" });
-                      }}
-                      className={errors.tokenAmountA ? "border-red-500" : ""}
-                    />
-                    {errors.tokenAmountA && (
-                      <p className="text-xs text-red-500 mt-1">{errors.tokenAmountA}</p>
-                    )}
-                    {selectedTokenA && (
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Available: {selectedTokenA.uiAmount} {selectedTokenA.symbol}
-                      </p>
-                    )}
-                  </div>
+                  
+                  {/* Amount input for tokens only */}
+                  {selectedAssetA?.type === "token" && (
+                    <div>
+                      <Input
+                        type="number"
+                        step="any"
+                        placeholder="Amount (e.g., 10.5)"
+                        value={amountA}
+                        onChange={(e) => {
+                          setAmountA(e.target.value);
+                          setErrors({ ...errors, amountA: "" });
+                        }}
+                        className={errors.amountA ? "border-red-500" : ""}
+                      />
+                      {errors.amountA && (
+                        <p className="text-xs text-red-500 mt-1">{errors.amountA}</p>
+                      )}
+                      {selectedAssetA.data && "uiAmount" in selectedAssetA.data && (
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Available: {selectedAssetA.data.uiAmount} {selectedAssetA.data.symbol}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  
+                  {selectedAssetA?.type === "nft" && (
+                    <p className="text-xs text-muted-foreground">NFT swaps are always 1:1</p>
+                  )}
                 </div>
               </div>
 
-              {/* Token B (Requesting) */}
+              {/* Asset B (Requesting) */}
               <div className="space-y-3">
                 <label className="text-sm font-medium flex items-center gap-2">
                   <Coins className="h-4 w-4" />
-                  You Request (Token B)
+                  You Request (Asset B)
                 </label>
                 <div className="space-y-2">
-                  <TokenSelector
-                    value={formData.tokenMintB}
-                    onChange={(mint, token) => {
-                      setFormData({ ...formData, tokenMintB: mint });
-                      setSelectedTokenB(token || null);
-                      setErrors({ ...errors, tokenMintB: "" });
+                  <AssetSelector
+                    value={selectedAssetB || undefined}
+                    onChange={(asset) => {
+                      setSelectedAssetB(asset);
+                      // For NFTs, amount is always 1
+                      if (asset.type === "nft") {
+                        setAmountB("1");
+                      }
+                      setErrors({ ...errors, assetB: "" });
                     }}
-                    label="Select Token to Request"
-                    excludeMint={formData.tokenMintA}
+                    label="Select Asset to Request"
+                    excludeMint={selectedAssetA?.mint}
                   />
-                  {errors.tokenMintB && (
-                    <p className="text-xs text-red-500 mt-1">{errors.tokenMintB}</p>
+                  {errors.assetB && (
+                    <p className="text-xs text-red-500 mt-1">{errors.assetB}</p>
                   )}
-                  <div>
-                    <Input
-                      type="number"
-                      step="any"
-                      placeholder="Amount (e.g., 100)"
-                      value={formData.tokenAmountB}
-                      onChange={(e) => {
-                        setFormData({ ...formData, tokenAmountB: e.target.value });
-                        setErrors({ ...errors, tokenAmountB: "" });
-                      }}
-                      className={errors.tokenAmountB ? "border-red-500" : ""}
-                    />
-                    {errors.tokenAmountB && (
-                      <p className="text-xs text-red-500 mt-1">{errors.tokenAmountB}</p>
-                    )}
-                  </div>
+                  
+                  {/* Amount input for tokens only */}
+                  {selectedAssetB?.type === "token" && (
+                    <div>
+                      <Input
+                        type="number"
+                        step="any"
+                        placeholder="Amount (e.g., 100)"
+                        value={amountB}
+                        onChange={(e) => {
+                          setAmountB(e.target.value);
+                          setErrors({ ...errors, amountB: "" });
+                        }}
+                        className={errors.amountB ? "border-red-500" : ""}
+                      />
+                      {errors.amountB && (
+                        <p className="text-xs text-red-500 mt-1">{errors.amountB}</p>
+                      )}
+                    </div>
+                  )}
+                  
+                  {selectedAssetB?.type === "nft" && (
+                    <p className="text-xs text-muted-foreground">NFT swaps are always 1:1</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -210,10 +238,8 @@ export function CreateOfferForm() {
               <input
                 type="checkbox"
                 id="alternatives"
-                checked={formData.allowAlternatives}
-                onChange={(e) =>
-                  setFormData({ ...formData, allowAlternatives: e.target.checked })
-                }
+                checked={allowAlternatives}
+                onChange={(e) => setAllowAlternatives(e.target.checked)}
                 className="h-4 w-4 mt-0.5 rounded border-gray-300"
               />
               <div className="flex-1">
