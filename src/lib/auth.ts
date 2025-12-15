@@ -1,7 +1,8 @@
 import axios from "axios";
 import { PublicKey } from "@solana/web3.js";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+// Use Next.js API routes (no external API needed)
+const API_URL = "";
 
 // Configure axios to send cookies
 axios.defaults.withCredentials = true;

@@ -294,6 +294,10 @@
     "turbopack": {
       "root": "/Users/sanse/Code/github.com/SanseDev/fair-swap"
     },
+    "serverExternalPackages": [
+      "pg",
+      "knex"
+    ],
     "distDirRoot": ".next"
   },
   "appDir": "/Users/sanse/Code/github.com/SanseDev/fair-swap",

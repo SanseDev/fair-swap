@@ -3,7 +3,8 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Proposal } from "@/lib/types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+// Use Next.js API routes (no external API needed)
+const API_URL = "";
 
 interface UseProposalsOptions {
   offerId?: string;

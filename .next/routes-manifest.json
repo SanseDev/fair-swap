@@ -19,7 +19,72 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/api/offers/seller/[seller]",
+      "regex": "^/api/offers/seller/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPseller": "nxtPseller"
+      },
+      "namedRegex": "^/api/offers/seller/(?<nxtPseller>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/offers/[id]",
+      "regex": "^/api/offers/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/offers/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/proposals/buyer/[buyer]",
+      "regex": "^/api/proposals/buyer/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPbuyer": "nxtPbuyer"
+      },
+      "namedRegex": "^/api/proposals/buyer/(?<nxtPbuyer>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/proposals/offer/[offer_id]",
+      "regex": "^/api/proposals/offer/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPoffer_id": "nxtPoffer_id"
+      },
+      "namedRegex": "^/api/proposals/offer/(?<nxtPoffer_id>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/proposals/[id]",
+      "regex": "^/api/proposals/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/proposals/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/swaps/buyer/[buyer]",
+      "regex": "^/api/swaps/buyer/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPbuyer": "nxtPbuyer"
+      },
+      "namedRegex": "^/api/swaps/buyer/(?<nxtPbuyer>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/swaps/seller/[seller]",
+      "regex": "^/api/swaps/seller/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPseller": "nxtPseller"
+      },
+      "namedRegex": "^/api/swaps/seller/(?<nxtPseller>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/swaps/[id]",
+      "regex": "^/api/swaps/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/swaps/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -40,10 +105,76 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/auth/logout",
+      "regex": "^/api/auth/logout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/logout(?:/)?$"
+    },
+    {
+      "page": "/api/auth/me",
+      "regex": "^/api/auth/me(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/me(?:/)?$"
+    },
+    {
+      "page": "/api/auth/nonce",
+      "regex": "^/api/auth/nonce(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/nonce(?:/)?$"
+    },
+    {
+      "page": "/api/auth/verify",
+      "regex": "^/api/auth/verify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/verify(?:/)?$"
+    },
+    {
+      "page": "/api/offers",
+      "regex": "^/api/offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/offers(?:/)?$"
+    },
+    {
+      "page": "/api/offers/active",
+      "regex": "^/api/offers/active(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/offers/active(?:/)?$"
+    },
+    {
+      "page": "/api/proposals",
+      "regex": "^/api/proposals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/proposals(?:/)?$"
+    },
+    {
+      "page": "/api/proposals/pending",
+      "regex": "^/api/proposals/pending(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/proposals/pending(?:/)?$"
+    },
+    {
       "page": "/api/proxy-metadata",
       "regex": "^/api/proxy\\-metadata(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/proxy\\-metadata(?:/)?$"
+    },
+    {
+      "page": "/api/swaps",
+      "regex": "^/api/swaps(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/swaps(?:/)?$"
+    },
+    {
+      "page": "/api/swaps/recent",
+      "regex": "^/api/swaps/recent(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/swaps/recent(?:/)?$"
+    },
+    {
+      "page": "/api/swaps/stats",
+      "regex": "^/api/swaps/stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/swaps/stats(?:/)?$"
     },
     {
       "page": "/create-offer",

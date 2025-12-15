@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { Offer, Proposal, Swap, SwapStats } from './types';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
-
+// Use Next.js API routes (no external API needed)
 const api = axios.create({
-  baseURL: `${API_URL}/api`,
+  baseURL: '/api',
   withCredentials: true, // Send cookies with requests
 });
 
