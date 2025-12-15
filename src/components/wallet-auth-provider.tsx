@@ -78,6 +78,13 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
       // Request nonce from backend
       const { nonce, message } = await authApi.requestNonce(walletAddress);
 
+      // Check again if signMessage is still available (wallet might have disconnected)
+      if (!signMessage) {
+        console.log("[WalletAuth] Wallet disconnected during authentication");
+        setIsAuthenticating(false);
+        return;
+      }
+
       // Sign the message with wallet
       const messageBytes = new TextEncoder().encode(message);
       const signatureBytes = await signMessage(messageBytes);
@@ -178,7 +185,7 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
     }
 
     // Only trigger authentication if: wallet ready, no session, not already authenticating
-    if (!session && !isAuthenticated && !isAuthenticating) {
+    if (!session && !isAuthenticated && !isAuthenticating && publicKey && signMessage) {
       console.log('[WalletAuth] 🔐 No session found, triggering authentication (signature required)');
       authenticate();
     }

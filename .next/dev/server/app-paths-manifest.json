@@ -1,10 +1,1 @@
-{
-  "/api/auth/me/route": "app/api/auth/me/route.js",
-  "/api/offers/route": "app/api/offers/route.js",
-  "/api/proposals/offer/[offer_id]/route": "app/api/proposals/offer/[offer_id]/route.js",
-  "/api/proposals/route": "app/api/proposals/route.js",
-  "/api/swaps/route": "app/api/swaps/route.js",
-  "/api/swaps/stats/route": "app/api/swaps/stats/route.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/marketplace/page": "app/marketplace/page.js"
-}
+{}

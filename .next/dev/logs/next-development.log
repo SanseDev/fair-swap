@@ -1,12 +1,1 @@
-[00:00:00.646] Server  LOG      ✓ Ready in 480ms
-[00:06:32.283] Server  WARN    bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
-[00:06:32.524] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:32.714] Browser LOG     [WalletAuth] 🔍 Checking for existing session...
-[00:06:32.714] Browser LOG     [WalletAuth] ⏳ Still checking for existing session...
-[00:06:33.164] Browser LOG     [WalletAuth] ℹ️  No active session found (will authenticate on wallet connection)
-[00:06:33.164] Browser LOG     [WalletAuth] 🔄 Sync effect: {"currentWallet":"undefined...","hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false,"isAuthenticating":false,"sessionWallet":"undefined..."}
-[00:20:31.436] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:31.658] Browser LOG     [WalletAuth] 🔍 Checking for existing session...
-[00:20:31.658] Browser LOG     [WalletAuth] ⏳ Still checking for existing session...
-[00:20:31.658] Browser LOG     [WalletAuth] ℹ️  No active session found (will authenticate on wallet connection)
-[00:20:31.658] Browser LOG     [WalletAuth] 🔄 Sync effect: {"currentWallet":"undefined...","hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false,"isAuthenticating":false,"sessionWallet":"undefined..."}
+[00:00:01.266] Server  LOG      ✓ Ready in 818ms
