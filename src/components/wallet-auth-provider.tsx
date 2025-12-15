@@ -35,6 +35,8 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
   
   // Track if wallet was previously connected to distinguish disconnect from "not connected yet"
   const wasConnectedRef = useRef(false);
+  // Track if we're in the process of logging out to prevent authentication during disconnect
+  const isLoggingOutRef = useRef(false);
 
   // Check for existing session on mount (cookie-based)
   useEffect(() => {
@@ -61,6 +63,12 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const authenticate = useCallback(async () => {
+    // Don't authenticate if we're logging out
+    if (isLoggingOutRef.current) {
+      console.log("[WalletAuth] Skipping authentication - logout in progress");
+      return;
+    }
+
     if (!publicKey || !signMessage) {
       setError("Wallet not connected");
       return;
@@ -116,7 +124,16 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
           err.message?.includes("User cancelled") ||
           err.name === "WalletSignMessageError") {
         console.log("[WalletAuth] User rejected signature, disconnecting");
-        await disconnect();
+        try {
+          isLoggingOutRef.current = true;
+          await disconnect();
+        } catch (disconnectErr) {
+          console.error("[WalletAuth] Error during disconnect after rejection:", disconnectErr);
+        } finally {
+          setTimeout(() => {
+            isLoggingOutRef.current = false;
+          }, 100);
+        }
       } else {
         // For other errors, just show the error but keep wallet connected
         const errorMsg = err.response?.data?.error || err.message || "Authentication failed";
@@ -184,14 +201,17 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    // Only trigger authentication if: wallet ready, no session, not already authenticating
-    if (!session && !isAuthenticated && !isAuthenticating && publicKey && signMessage) {
+    // Only trigger authentication if: wallet ready, no session, not already authenticating, and not logging out
+    if (!session && !isAuthenticated && !isAuthenticating && publicKey && signMessage && !isLoggingOutRef.current) {
       console.log('[WalletAuth] 🔐 No session found, triggering authentication (signature required)');
       authenticate();
     }
   }, [publicKey, signMessage, session, isAuthenticated, isAuthenticating, isCheckingSession, authenticate]);
 
   const logout = useCallback(async () => {
+    console.log('[WalletAuth] 🚪 Logging out...');
+    isLoggingOutRef.current = true;
+    
     try {
       await authApi.logout();
     } catch (err) {
@@ -201,7 +221,18 @@ export function WalletAuthProvider({ children }: { children: ReactNode }) {
     setIsAuthenticated(false);
     setSession(null);
     setError(null);
-    await disconnect();
+    
+    try {
+      await disconnect();
+    } catch (err) {
+      console.error('[WalletAuth] Disconnect error:', err);
+    } finally {
+      // Reset the flag after a short delay to ensure all effects have processed
+      setTimeout(() => {
+        isLoggingOutRef.current = false;
+        console.log('[WalletAuth] ✅ Logout complete');
+      }, 100);
+    }
   }, [disconnect]);
 
   const openWalletModal = useCallback(() => {
