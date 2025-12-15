@@ -1,1 +1,0 @@
-{"version":3,"file":"007_recreate_auth_sessions_table.d.ts","sourceRoot":"","sources":["../../../backend-src/database/migrations/007_recreate_auth_sessions_table.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,MAAM,CAAC;AAE5B,wBAAsB,EAAE,CAAC,IAAI,EAAE,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC,CAYlD;AAED,wBAAsB,IAAI,CAAC,IAAI,EAAE,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC,CAEpD"}
