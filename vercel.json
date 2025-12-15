@@ -1,11 +1,5 @@
 {
   "buildCommand": "pnpm build:web",
-  "installCommand": "pnpm install",
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "SOLANA_RPC_URL": "@solana_rpc_url",
-    "PROGRAM_ID": "@program_id",
-    "JWT_SECRET": "@jwt_secret"
-  }
+  "installCommand": "pnpm install"
 }
 
