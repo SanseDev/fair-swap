@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently -n \"BACKEND,WEB\" -c \"blue,magenta\" \"pnpm dev:backend\" \"pnpm dev:web\"",
     "dev:backend": "tsx watch backend-src/index.ts",
+    "dev:backend:stable": "tsx backend-src/index.ts",
     "dev:web": "next dev",
     "build": "pnpm build:backend && pnpm build:web",
     "build:backend": "tsc -p tsconfig.backend.json",

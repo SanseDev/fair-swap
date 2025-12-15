@@ -28,6 +28,9 @@ import {
 } from "@/components/ui/select";
 import { useAcceptOffer } from "@/hooks/use-accept-offer";
 import { useToast } from "@/hooks/use-toast";
+import { useConnection } from "@solana/wallet-adapter-react";
+import { verifyOfferExists } from "@/lib/onchain-utils";
+import { useEffect } from "react";
 
 export function OfferList() {
   const [filters, setFilters] = useState({
@@ -37,13 +40,32 @@ export function OfferList() {
     asset_type: "all",
   });
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
+  const [validOffers, setValidOffers] = useState<Offer[]>([]);
   const { acceptOffer, isLoading: isAccepting } = useAcceptOffer();
   const { toast } = useToast();
+  const { connection } = useConnection();
 
   const { data: offers, isLoading, refetch } = useQuery({
     queryKey: ["offers", filters],
     queryFn: () => getOffers({ ...filters, status: 'active' }),
   });
+
+  // Filter out offers that no longer exist on-chain
+  useEffect(() => {
+    if (!offers) return;
+    
+    const checkOffers = async () => {
+      const checkedOffers = await Promise.all(
+        offers.map(async (offer) => {
+          const exists = await verifyOfferExists(connection, offer.seller, offer.offer_id);
+          return exists ? offer : null;
+        })
+      );
+      setValidOffers(checkedOffers.filter((o): o is Offer => o !== null));
+    };
+    
+    checkOffers();
+  }, [offers, connection]);
 
   const handleFilterChange = (key: string, value: string) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
@@ -133,14 +155,14 @@ export function OfferList() {
                   <TableCell><div className="h-8 w-full bg-muted/50 rounded animate-pulse" /></TableCell>
                 </TableRow>
               ))
-            ) : offers?.length === 0 ? (
+            ) : validOffers.length === 0 ? (
                <TableRow>
                  <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
                     No active offers found.
                  </TableCell>
                </TableRow>
             ) : (
-              offers?.map((offer) => (
+              validOffers.map((offer) => (
                 <TableRow 
                   key={offer.id} 
                   className="border-border/40 group cursor-pointer hover:bg-muted/5"

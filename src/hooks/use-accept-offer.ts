@@ -8,10 +8,12 @@ import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PROGRAM_ID, FAIR_SWAP_IDL } from "@/lib/program-config";
 import { getOrCreateAssociatedTokenAccount, getTokenBalance } from "@/lib/token-account-utils";
 import { Offer } from "@/lib/types";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function useAcceptOffer() {
   const { publicKey, signTransaction, signAllTransactions } = useWallet();
   const { connection } = useConnection();
+  const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -144,6 +146,10 @@ export function useAcceptOffer() {
         // Wait for confirmation
         await connection.confirmTransaction(tx, "confirmed");
 
+        // Invalidate queries to refresh data
+        queryClient.invalidateQueries({ queryKey: ["offers"] });
+        queryClient.invalidateQueries({ queryKey: ["swaps"] });
+
         setIsLoading(false);
         return {
           signature: tx,
@@ -171,7 +177,7 @@ export function useAcceptOffer() {
         throw new Error(errorMsg);
       }
     },
-    [publicKey, signTransaction, signAllTransactions, connection]
+    [publicKey, signTransaction, signAllTransactions, connection, queryClient]
   );
 
   return {
