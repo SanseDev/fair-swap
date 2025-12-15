@@ -82,6 +82,22 @@ export function useAcceptProposal() {
           PROGRAM_ID
         );
 
+        // Verify offer account exists on-chain
+        const offerAccount = await connection.getAccountInfo(offerPda);
+        if (!offerAccount) {
+          throw new Error(
+            "This offer no longer exists on-chain. It may have been cancelled or completed."
+          );
+        }
+
+        // Verify proposal account exists on-chain
+        const proposalAccount = await connection.getAccountInfo(proposalPda);
+        if (!proposalAccount) {
+          throw new Error(
+            "This proposal no longer exists on-chain. It may have been withdrawn or already accepted."
+          );
+        }
+
         // Get or create seller's receive account for proposed tokens
         const { address: sellerReceiveAccount, instruction: createSellerReceiveIx } = 
           await getOrCreateAssociatedTokenAccount(

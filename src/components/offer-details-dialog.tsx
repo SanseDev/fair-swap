@@ -20,6 +20,8 @@ import { ProposalForm } from "@/components/proposal-form";
 import { ProposalsList } from "@/components/proposals-list";
 import { useProposalsByOffer } from "@/hooks/use-proposals";
 import { Loader2, MessageSquare } from "lucide-react";
+import { OfferStatusBadge } from "@/components/offer-status-badge";
+import { useVerifyOffer } from "@/hooks/use-verify-offer";
 
 interface OfferDetailsDialogProps {
   offer: Offer | null;
@@ -38,6 +40,7 @@ export function OfferDetailsDialog({
 }: OfferDetailsDialogProps) {
   const { walletAddress, isConnected } = useWalletAuth();
   const [activeTab, setActiveTab] = useState<"details" | "proposals">("details");
+  const { isValid: isOfferValid, isChecking: isCheckingOffer } = useVerifyOffer(offer);
 
   const { data: proposals = [], isLoading: loadingProposals, refetch: refetchProposals } = useProposalsByOffer(
     offer?.offer_id || ""
@@ -53,7 +56,10 @@ export function OfferDetailsDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Offer Details</DialogTitle>
+          <DialogTitle className="flex items-center gap-2">
+            Offer Details
+            <OfferStatusBadge offer={offer} />
+          </DialogTitle>
           <DialogDescription>
             {isSeller
               ? "Manage your offer and review proposals"
@@ -116,20 +122,28 @@ export function OfferDetailsDialog({
             {/* Show proposal form for buyers if offer allows alternatives */}
             {canAccept && offer.allow_alternatives && (
               <div className="pt-4 border-t">
-                <div className="mb-4 p-3 bg-muted/50 rounded-lg text-sm">
-                  <p className="font-medium mb-1">💡 Two Options Available:</p>
-                  <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                    <li>Accept the seller's request with the exact assets they want</li>
-                    <li>Make your own proposal with different assets below</li>
-                  </ul>
-                </div>
-                <ProposalForm 
-                  offer={offer} 
-                  onSuccess={() => {
-                    refetchProposals();
-                    setActiveTab("proposals");
-                  }}
-                />
+                {isOfferValid === false ? (
+                  <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg text-sm text-destructive">
+                    ⚠️ This offer is no longer available on-chain. It may have been cancelled or completed.
+                  </div>
+                ) : (
+                  <>
+                    <div className="mb-4 p-3 bg-muted/50 rounded-lg text-sm">
+                      <p className="font-medium mb-1">💡 Two Options Available:</p>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        <li>Accept the seller's request with the exact assets they want</li>
+                        <li>Make your own proposal with different assets below</li>
+                      </ul>
+                    </div>
+                    <ProposalForm 
+                      offer={offer} 
+                      onSuccess={() => {
+                        refetchProposals();
+                        setActiveTab("proposals");
+                      }}
+                    />
+                  </>
+                )}
               </div>
             )}
           </TabsContent>
@@ -163,10 +177,10 @@ export function OfferDetailsDialog({
             <>
               <Button 
                 onClick={() => onAccept?.(offer)} 
-                disabled={isAccepting}
+                disabled={isAccepting || isCheckingOffer || isOfferValid === false}
                 className="flex-1"
               >
-                {isAccepting ? "Processing..." : "Accept Offer"}
+                {isAccepting ? "Processing..." : isCheckingOffer ? "Verifying..." : isOfferValid === false ? "Offer Not Available" : "Accept Offer"}
               </Button>
               {offer.allow_alternatives && activeTab === "proposals" && (
                 <Button 

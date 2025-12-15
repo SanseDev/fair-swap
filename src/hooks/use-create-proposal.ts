@@ -61,6 +61,21 @@ export function useCreateProposal() {
           PROGRAM_ID
         );
 
+        // Verify offer account exists on-chain
+        const offerAccount = await connection.getAccountInfo(offerPda);
+        if (!offerAccount) {
+          throw new Error(
+            "This offer no longer exists on-chain. It may have been cancelled or completed."
+          );
+        }
+
+        // Verify the account is owned by the program
+        if (!offerAccount.owner.equals(PROGRAM_ID)) {
+          throw new Error(
+            "Invalid offer account. The account is not owned by the Fair Swap program."
+          );
+        }
+
         // Derive the proposal PDA
         const [proposalPda] = PublicKey.findProgramAddressSync(
           [
