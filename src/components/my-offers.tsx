@@ -1,15 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getOffers } from "@/lib/api";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
 import { formatDistanceToNow } from "date-fns";
 import { getTokenLabel, formatTokenAmount } from "@/lib/token-utils";
 import { Badge } from "@/components/ui/badge";
-import { Store } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Store, MessageSquare } from "lucide-react";
+import { OfferDetailsDialog } from "@/components/offer-details-dialog";
+import { Offer } from "@/lib/types";
 
 export function MyOffers() {
   const { isConnected, walletAddress } = useWalletAuth();
+  const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
 
   const { data: offers, isLoading } = useQuery({
     queryKey: ["offers", "seller", walletAddress, "active"],
@@ -44,72 +49,91 @@ export function MyOffers() {
   }
 
   return (
-    <div className="space-y-3">
-      {offers.map((offer) => (
-        <div key={offer.id} className="p-4 rounded-lg border border-border/40 hover:bg-muted/20 transition-colors">
-          <div className="flex items-start justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                <Store className="h-4 w-4 text-primary" />
+    <>
+      <div className="space-y-3">
+        {offers.map((offer) => (
+          <div key={offer.id} className="p-4 rounded-lg border border-border/40 hover:bg-muted/20 transition-colors">
+            <div className="flex items-start justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Store className="h-4 w-4 text-primary" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium">Your Offer</span>
+                  <span className="text-xs text-muted-foreground">
+                    {formatDistanceToNow(new Date(offer.created_at))} ago
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-medium">Your Offer</span>
-                <span className="text-xs text-muted-foreground">
-                  {formatDistanceToNow(new Date(offer.created_at))} ago
-                </span>
-              </div>
-            </div>
-            <Badge variant="default">
-              Active
-            </Badge>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div className="flex flex-col space-y-1">
-              <span className="text-xs text-muted-foreground uppercase font-medium">
-                Selling
-              </span>
-              <div className="flex flex-col">
-                <span className="font-medium">
-                  {formatTokenAmount(offer.token_amount_a)}
-                </span>
-                <span className="text-xs text-muted-foreground font-mono truncate">
-                  {getTokenLabel(offer.token_mint_a)}
-                </span>
-              </div>
+              <Badge variant="default">
+                Active
+              </Badge>
             </div>
 
-            <div className="flex flex-col space-y-1">
-              <span className="text-xs text-muted-foreground uppercase font-medium">
-                For
-              </span>
-              <div className="flex flex-col">
-                <span className="font-medium">
-                  {formatTokenAmount(offer.token_amount_b)}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="flex flex-col space-y-1">
+                <span className="text-xs text-muted-foreground uppercase font-medium">
+                  Selling
                 </span>
-                <span className="text-xs text-muted-foreground font-mono truncate">
-                  {getTokenLabel(offer.token_mint_b)}
+                <div className="flex flex-col">
+                  <span className="font-medium">
+                    {formatTokenAmount(offer.token_amount_a)}
+                  </span>
+                  <span className="text-xs text-muted-foreground font-mono truncate">
+                    {getTokenLabel(offer.token_mint_a)}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col space-y-1">
+                <span className="text-xs text-muted-foreground uppercase font-medium">
+                  For
                 </span>
+                <div className="flex flex-col">
+                  <span className="font-medium">
+                    {formatTokenAmount(offer.token_amount_b)}
+                  </span>
+                  <span className="text-xs text-muted-foreground font-mono truncate">
+                    {getTokenLabel(offer.token_mint_b)}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="mt-3 pt-3 border-t border-border/40 flex items-center justify-between text-xs">
-            <Badge variant={offer.allow_alternatives ? "secondary" : "outline"} className="text-xs">
-              {offer.allow_alternatives ? "Negotiable" : "Fixed Price"}
-            </Badge>
-            <a
-              href={`https://explorer.solana.com/tx/${offer.signature}?cluster=devnet`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              View on Explorer →
-            </a>
+            <div className="mt-3 pt-3 border-t border-border/40 flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Badge variant={offer.allow_alternatives ? "secondary" : "outline"} className="text-xs">
+                  {offer.allow_alternatives ? "Negotiable" : "Fixed Price"}
+                </Badge>
+                <a
+                  href={`https://explorer.solana.com/tx/${offer.signature}?cluster=devnet`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline"
+                >
+                  Explorer →
+                </a>
+              </div>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => setSelectedOffer(offer)}
+                className="h-7 gap-1 text-xs"
+              >
+                <MessageSquare className="h-3 w-3" />
+                View Proposals
+              </Button>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+
+      <OfferDetailsDialog
+        offer={selectedOffer}
+        open={!!selectedOffer}
+        onOpenChange={(open) => !open && setSelectedOffer(null)}
+      />
+    </>
   );
 }
 

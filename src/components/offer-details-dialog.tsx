@@ -39,7 +39,10 @@ export function OfferDetailsDialog({
   isAccepting = false,
 }: OfferDetailsDialogProps) {
   const { walletAddress, isConnected } = useWalletAuth();
-  const [activeTab, setActiveTab] = useState<"details" | "proposals">("details");
+  const isSeller = isConnected && walletAddress === offer?.seller;
+  const [activeTab, setActiveTab] = useState<"details" | "proposals">(
+    isSeller ? "proposals" : "details"
+  );
   const { isValid: isOfferValid, isChecking: isCheckingOffer } = useVerifyOffer(offer);
 
   const { data: proposals = [], isLoading: loadingProposals, refetch: refetchProposals } = useProposalsByOffer(
@@ -47,8 +50,6 @@ export function OfferDetailsDialog({
   );
 
   if (!offer) return null;
-
-  const isSeller = isConnected && walletAddress === offer.seller;
   const canAccept = isConnected && !isSeller;
   const pendingProposals = proposals.filter(p => p.status === "pending");
 
