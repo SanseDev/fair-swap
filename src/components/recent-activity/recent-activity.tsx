@@ -43,22 +43,22 @@ export function RecentActivity() {
         {recentSwaps && recentSwaps.length > 0 ? (
           <div className="space-y-4">
             {recentSwaps.map((swap: Swap) => (
-              <div key={swap.id} className="flex items-center justify-between border-b border-border/40 pb-4 last:border-0 last:pb-0">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="font-mono text-xs text-muted-foreground">
+              <div key={swap.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border/40 pb-4 last:border-0 last:pb-0">
+                <div className="space-y-1 min-w-0">
+                  <div className="flex items-center gap-2 text-sm flex-wrap">
+                    <span className="font-mono text-xs text-muted-foreground truncate">
                       {swap.seller.slice(0, 4)}...{swap.seller.slice(-4)}
                     </span>
-                    <ArrowRightLeft className="w-3 h-3 text-muted-foreground" />
-                    <span className="font-mono text-xs text-muted-foreground">
+                    <ArrowRightLeft className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+                    <span className="font-mono text-xs text-muted-foreground truncate">
                       {swap.buyer.slice(0, 4)}...{swap.buyer.slice(-4)}
                     </span>
                   </div>
-                  <div className="text-xs font-medium">
+                  <div className="text-xs font-medium break-words">
                     Swapped {swap.token_a_amount} <span className="text-muted-foreground">{swap.token_a_mint.slice(0, 4)}...</span> for {swap.token_b_amount} <span className="text-muted-foreground">{swap.token_b_mint.slice(0, 4)}...</span>
                   </div>
                 </div>
-                <div className="text-xs text-muted-foreground whitespace-nowrap ml-4">
+                <div className="text-xs text-muted-foreground whitespace-nowrap">
                   {formatDistanceToNow(new Date(swap.executed_at), { addSuffix: true })}
                 </div>
               </div>
