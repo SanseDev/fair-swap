@@ -1,6 +1,7 @@
 export interface Offer {
   id: string;
   offer_id: string;
+  offer_pda?: string; // PDA address of the offer account on-chain
   seller: string;
   token_mint_a: string;
   token_amount_a: string;

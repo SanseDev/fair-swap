@@ -40,14 +40,17 @@ export class TransactionProcessor {
         return offerId.toString();
       }
 
-      // If account doesn't exist on chain (closed), try to find in DB
-      // This happens when offers are completed/cancelled
-      console.log('   ℹ️  Offer account not found on-chain, searching in DB...');
-      const offers = await this.offerRepo.findAll(1000); // Get more offers
+      // If account doesn't exist on chain (closed), try to find in DB by PDA
+      console.log('   ℹ️  Offer account not found on-chain, searching in DB by PDA...');
+      const offers = await this.offerRepo.findAll(1000);
+      const offerByPda = offers.find(o => o.offer_pda === offerPda);
       
-      // Try to match by PDA address if we stored it, or return null
-      // For now, we can't match without the PDA, so return null
-      console.log('   ⚠️  Cannot match offer from PDA alone, skipping proposal');
+      if (offerByPda) {
+        console.log(`   ✅ Found offer in DB by PDA: ${offerByPda.offer_id}`);
+        return offerByPda.offer_id;
+      }
+      
+      console.log('   ⚠️  Cannot find offer with this PDA in DB');
       return null;
       
     } catch (error) {
@@ -111,6 +114,7 @@ export class TransactionProcessor {
     
     const offerData = {
       offer_id: data.offer_id?.toString() || data.offerId?.toString(),
+      offer_pda: accounts.offer, // Store the PDA address
       seller: accounts.seller,
       token_mint_a: accounts.tokenMintA || accounts.token_mint_a,
       token_amount_a: (data.token_amount_a || data.tokenAmountA)?.toString(),
@@ -124,6 +128,7 @@ export class TransactionProcessor {
 
     console.log(`   💾 Saving offer to DB:`, {
       offer_id: offerData.offer_id,
+      offer_pda: offerData.offer_pda?.slice(0, 8),
       seller: offerData.seller?.slice(0, 8),
       signature: signature.slice(0, 8)
     });
