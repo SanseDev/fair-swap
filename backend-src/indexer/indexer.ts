@@ -16,7 +16,7 @@ export class FairSwapIndexer {
   constructor() {
     this.connection = new Connection(env.solana.rpcUrl, 'confirmed');
     this.parser = new InstructionParser(env.solana.programId, this.connection);
-    this.processor = new TransactionProcessor();
+    this.processor = new TransactionProcessor(this.connection, this.parser);
     this.stateRepo = new IndexerStateRepository();
     this.programId = new PublicKey(env.solana.programId);
   }

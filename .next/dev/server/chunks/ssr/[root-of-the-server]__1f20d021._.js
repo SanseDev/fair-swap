@@ -206,6 +206,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$coral$2d$xyz$2b$anchor$40$0$2e$32$2e$1_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$coral$2d$xyz$2f$anchor$2f$dist$2f$esm$2f$provider$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@coral-xyz+anchor@0.32.1_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@coral-xyz/anchor/dist/esm/provider.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$bn$2e$js$40$5$2e$2$2e$2$2f$node_modules$2f$bn$2e$js$2f$lib$2f$bn$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BN$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/bn.js@5.2.2/node_modules/bn.js/lib/bn.js [app-ssr] (ecmascript) <export default as BN>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+spl-token@0.4.14_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8_fde2c4609453858c55ec40f34930ca21/node_modules/@solana/spl-token/lib/esm/constants.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$instructions$2f$syncNative$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+spl-token@0.4.14_@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8_fde2c4609453858c55ec40f34930ca21/node_modules/@solana/spl-token/lib/esm/instructions/syncNative.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$program$2d$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/program-config.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/token-account-utils.ts [app-ssr] (ecmascript)");
 "use client";
@@ -266,8 +267,17 @@ function useCreateOffer() {
             }
             // Get or create token account
             const { address: sellerTokenAccount, instruction: createAtaIx, exists } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getOrCreateAssociatedTokenAccount"])(connection, tokenMintA, publicKey, publicKey);
-            // Check token balance
-            const balance = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTokenBalance"])(connection, tokenMintA, publicKey);
+            // Check token balance (handle native SOL vs SPL tokens)
+            const NATIVE_SOL_MINT = "So11111111111111111111111111111111111111112";
+            let balance;
+            if (tokenMintA.toBase58() === NATIVE_SOL_MINT) {
+                // For native SOL, check wallet balance directly
+                const solBalance = await connection.getBalance(publicKey);
+                balance = BigInt(solBalance);
+            } else {
+                // For SPL tokens, check token account balance
+                balance = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$token$2d$account$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTokenBalance"])(connection, tokenMintA, publicKey);
+            }
             if (balance === BigInt(0)) {
                 throw new Error(`You have 0 tokens in your account for ${tokenMintA.toBase58()}. Please add tokens to your wallet first.`);
             }
@@ -278,7 +288,24 @@ function useCreateOffer() {
                 const needed = Number(tokenAmountA.toString()) / 1e9;
                 throw new Error(`Insufficient balance. You have ${readable.toFixed(4)} tokens but need ${needed.toFixed(4)}`);
             }
-            // Build transaction - if token account needs to be created, add that instruction first
+            // Prepare pre-instructions for SOL wrapping if needed
+            const preInstructions = [];
+            // If token account doesn't exist, add instruction to create it
+            if (!exists && createAtaIx) {
+                preInstructions.push(createAtaIx);
+            }
+            // If offering native SOL, wrap it into wSOL token account
+            if (tokenMintA.toBase58() === NATIVE_SOL_MINT) {
+                // Transfer SOL to wSOL account
+                preInstructions.push(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SystemProgram"].transfer({
+                    fromPubkey: publicKey,
+                    toPubkey: sellerTokenAccount,
+                    lamports: Number(tokenAmountA.toString())
+                }));
+                // Sync native (converts SOL to wSOL)
+                preInstructions.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$spl$2d$token$40$0$2e$4$2e$14_$40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8_fde2c4609453858c55ec40f34930ca21$2f$node_modules$2f40$solana$2f$spl$2d$token$2f$lib$2f$esm$2f$instructions$2f$syncNative$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createSyncNativeInstruction"])(sellerTokenAccount));
+            }
+            // Build transaction
             const txBuilder = program.methods.initializeOffer(offerId, tokenAmountA, tokenMintB, tokenAmountB, params.allowAlternatives).accounts({
                 offer: offerPda,
                 vault: vaultPda,
@@ -289,11 +316,9 @@ function useCreateOffer() {
                 systemProgram: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SystemProgram"].programId,
                 rent: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SYSVAR_RENT_PUBKEY"]
             });
-            // If token account doesn't exist, add instruction to create it
-            if (!exists && createAtaIx) {
-                txBuilder.preInstructions([
-                    createAtaIx
-                ]);
+            // Add all pre-instructions if any
+            if (preInstructions.length > 0) {
+                txBuilder.preInstructions(preInstructions);
             }
             // Send transaction
             const tx = await txBuilder.rpc();

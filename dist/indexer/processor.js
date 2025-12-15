@@ -1,12 +1,37 @@
 import { OfferRepository, ProposalRepository, SwapRepository } from '../repositories/index.js';
+import { PublicKey } from '@solana/web3.js';
 export class TransactionProcessor {
     offerRepo;
     proposalRepo;
     swapRepo;
-    constructor() {
+    connection;
+    parser;
+    constructor(connection, parser) {
         this.offerRepo = new OfferRepository();
         this.proposalRepo = new ProposalRepository();
         this.swapRepo = new SwapRepository();
+        this.connection = connection;
+        this.parser = parser;
+    }
+    async fetchOfferAccount(offerPda) {
+        try {
+            const accountInfo = await this.connection.getAccountInfo(new PublicKey(offerPda));
+            if (!accountInfo || !accountInfo.data) {
+                return null;
+            }
+            // Manual deserialization - Anchor account structure:
+            // [8 bytes discriminator][8 bytes offer_id][32 bytes seller][...]
+            const data = accountInfo.data;
+            // Skip 8-byte discriminator
+            const offerIdBytes = data.slice(8, 16);
+            // Read u64 as little-endian
+            const offerId = offerIdBytes.readBigUInt64LE(0);
+            return offerId.toString();
+        }
+        catch (error) {
+            console.error('Failed to decode offer account:', error);
+            return null;
+        }
     }
     async processInstruction(instruction, signature, slot) {
         try {
@@ -84,42 +109,76 @@ export class TransactionProcessor {
     }
     async handleSubmitProposal(instruction, signature, slot) {
         const { data, accounts } = instruction;
+        // Fetch the offer account to get the actual offer_id
+        const offerId = await this.fetchOfferAccount(accounts.offer);
+        if (!offerId) {
+            console.error('Could not fetch offer account for proposal');
+            return;
+        }
+        // Anchor uses snake_case for instruction args
+        const proposalId = data.proposal_id;
+        const proposedAmount = data.proposed_amount;
+        if (!proposalId || !proposedAmount) {
+            console.error('Missing proposal data:', JSON.stringify(data));
+            return;
+        }
         await this.proposalRepo.create({
-            proposal_id: data.proposalId.toString(),
+            proposal_id: proposalId.toString(),
             buyer: accounts.buyer,
-            offer_id: accounts.offer,
+            offer_id: offerId,
             proposed_mint: accounts.proposedMint,
-            proposed_amount: data.proposedAmount.toString(),
+            proposed_amount: proposedAmount.toString(),
             status: 'pending',
             signature,
             slot,
         });
-        console.log(`✓ Indexed proposal submission: ${data.proposalId}`);
+        console.log(`✓ Indexed proposal submission: ${proposalId} for offer ${offerId}`);
     }
     async handleAcceptProposal(instruction, signature, slot) {
         const { accounts } = instruction;
-        const proposals = await this.proposalRepo.findByBuyer(accounts.buyer);
-        const proposal = proposals.find(p => p.offer_id === accounts.offer && p.status === 'pending');
-        if (proposal) {
-            await this.proposalRepo.updateStatus(proposal.id, 'accepted');
+        // Fetch the offer account to get the actual offer_id
+        const offerId = await this.fetchOfferAccount(accounts.offer);
+        if (!offerId) {
+            console.error('Could not fetch offer account for proposal acceptance');
+            return;
+        }
+        // Find the proposal by offer_id
+        const proposals = await this.proposalRepo.findByOfferId(offerId);
+        const proposal = proposals.find(p => p.buyer === accounts.buyer && p.status === 'pending');
+        if (!proposal) {
+            console.error(`No pending proposal found for offer ${offerId} from buyer ${accounts.buyer}`);
+            return;
+        }
+        // Update proposal status to accepted
+        await this.proposalRepo.updateStatus(proposal.id, 'accepted');
+        // Find the offer by numeric offer_id
+        const offers = await this.offerRepo.findAll();
+        const offer = offers.find(o => o.offer_id === offerId);
+        if (offer) {
             // Create swap record
-            const offer = await this.offerRepo.findBySellerAndOfferId(accounts.seller, accounts.offer);
-            if (offer) {
-                await this.swapRepo.create({
-                    offer_id: offer.offer_id,
-                    proposal_id: proposal.proposal_id,
-                    buyer: accounts.buyer,
-                    seller: accounts.seller,
-                    token_a_mint: offer.token_mint_a,
-                    token_a_amount: offer.token_amount_a,
-                    token_b_mint: proposal.proposed_mint,
-                    token_b_amount: proposal.proposed_amount,
-                    signature,
-                    slot,
-                });
-                await this.offerRepo.updateStatus(offer.id, 'completed');
-                console.log(`✓ Indexed proposal acceptance: ${proposal.proposal_id}`);
+            await this.swapRepo.create({
+                offer_id: offer.offer_id,
+                proposal_id: proposal.proposal_id,
+                buyer: accounts.buyer,
+                seller: accounts.seller,
+                token_a_mint: offer.token_mint_a,
+                token_a_amount: offer.token_amount_a,
+                token_b_mint: proposal.proposed_mint,
+                token_b_amount: proposal.proposed_amount,
+                signature,
+                slot,
+            });
+            // Mark offer as completed
+            await this.offerRepo.updateStatus(offer.id, 'completed');
+            // Mark all other pending proposals for this offer as withdrawn
+            const otherProposals = proposals.filter(p => p.id !== proposal.id && p.status === 'pending');
+            for (const otherProposal of otherProposals) {
+                await this.proposalRepo.updateStatus(otherProposal.id, 'withdrawn');
             }
+            console.log(`✓ Indexed proposal acceptance: ${proposal.proposal_id} - Offer ${offerId} completed`);
+        }
+        else {
+            console.error(`Offer ${offerId} not found in database`);
         }
     }
     async handleWithdrawProposal(instruction, signature, slot) {

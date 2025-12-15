@@ -2,9 +2,9 @@
 
 import { useCallback, useState } from "react";
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
-import { PublicKey, SystemProgram, SYSVAR_RENT_PUBKEY, Transaction } from "@solana/web3.js";
+import { PublicKey, SystemProgram, SYSVAR_RENT_PUBKEY, Transaction, TransactionInstruction } from "@solana/web3.js";
 import { Program, AnchorProvider, BN } from "@coral-xyz/anchor";
-import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress } from "@solana/spl-token";
+import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress, createSyncNativeInstruction, NATIVE_MINT } from "@solana/spl-token";
 import { PROGRAM_ID, FAIR_SWAP_IDL } from "@/lib/program-config";
 import { getOrCreateAssociatedTokenAccount, getTokenBalance } from "@/lib/token-account-utils";
 
@@ -89,8 +89,19 @@ export function useCreateOffer() {
             publicKey
           );
 
-        // Check token balance
-        const balance = await getTokenBalance(connection, tokenMintA, publicKey);
+        // Check token balance (handle native SOL vs SPL tokens)
+        const NATIVE_SOL_MINT = "So11111111111111111111111111111111111111112";
+        let balance: bigint;
+        
+        if (tokenMintA.toBase58() === NATIVE_SOL_MINT) {
+          // For native SOL, check wallet balance directly
+          const solBalance = await connection.getBalance(publicKey);
+          balance = BigInt(solBalance);
+        } else {
+          // For SPL tokens, check token account balance
+          balance = await getTokenBalance(connection, tokenMintA, publicKey);
+        }
+        
         if (balance === BigInt(0)) {
           throw new Error(
             `You have 0 tokens in your account for ${tokenMintA.toBase58()}. Please add tokens to your wallet first.`
@@ -107,7 +118,32 @@ export function useCreateOffer() {
           );
         }
 
-        // Build transaction - if token account needs to be created, add that instruction first
+        // Prepare pre-instructions for SOL wrapping if needed
+        const preInstructions: TransactionInstruction[] = [];
+        
+        // If token account doesn't exist, add instruction to create it
+        if (!exists && createAtaIx) {
+          preInstructions.push(createAtaIx);
+        }
+
+        // If offering native SOL, wrap it into wSOL token account
+        if (tokenMintA.toBase58() === NATIVE_SOL_MINT) {
+          // Transfer SOL to wSOL account
+          preInstructions.push(
+            SystemProgram.transfer({
+              fromPubkey: publicKey,
+              toPubkey: sellerTokenAccount,
+              lamports: Number(tokenAmountA.toString()),
+            })
+          );
+          
+          // Sync native (converts SOL to wSOL)
+          preInstructions.push(
+            createSyncNativeInstruction(sellerTokenAccount)
+          );
+        }
+
+        // Build transaction
         const txBuilder = program.methods
           .initializeOffer(
             offerId,
@@ -127,9 +163,9 @@ export function useCreateOffer() {
             rent: SYSVAR_RENT_PUBKEY,
           });
 
-        // If token account doesn't exist, add instruction to create it
-        if (!exists && createAtaIx) {
-          txBuilder.preInstructions([createAtaIx]);
+        // Add all pre-instructions if any
+        if (preInstructions.length > 0) {
+          txBuilder.preInstructions(preInstructions);
         }
 
         // Send transaction

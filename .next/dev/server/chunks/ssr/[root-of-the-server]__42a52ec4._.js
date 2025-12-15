@@ -426,11 +426,15 @@ async function fetchAssetMetadata(connection, mintAddress) {
         const mintPubkey = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PublicKey"](mintAddress);
         // Get mint info to determine decimals
         const mintInfo = await connection.getParsedAccountInfo(mintPubkey);
-        if (!mintInfo.value || !mintInfo.value.data || typeof mintInfo.value.data === "string") {
+        if (!mintInfo.value || !mintInfo.value.data) {
             throw new Error("Invalid mint account");
         }
-        const parsedData = mintInfo.value.data;
-        const decimals = parsedData.parsed?.info?.decimals || 0;
+        const accountData = mintInfo.value.data;
+        // Type guard: check if data is ParsedAccountData
+        if (Buffer.isBuffer(accountData) || typeof accountData === "string") {
+            throw new Error("Account data is not parsed");
+        }
+        const decimals = accountData.parsed?.info?.decimals || 0;
         const isNFT = decimals === 0;
         // Try to fetch Metaplex metadata
         const metadata = await fetchMetaplexMetadata(connection, mintPubkey);
@@ -444,9 +448,7 @@ async function fetchAssetMetadata(connection, mintAddress) {
                     if (response.ok) {
                         offChainData = await response.json();
                     }
-                } catch (err) {
-                    console.log("[useAssetMetadata] Failed to fetch off-chain metadata");
-                }
+                } catch (err) {}
             }
             return {
                 mint: mintAddress,

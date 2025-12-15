@@ -1,9 +1,13 @@
-import { ParsedInstruction } from './parser.js';
+import { ParsedInstruction, InstructionParser } from './parser.js';
+import { Connection } from '@solana/web3.js';
 export declare class TransactionProcessor {
     private offerRepo;
     private proposalRepo;
     private swapRepo;
-    constructor();
+    private connection;
+    private parser;
+    constructor(connection: Connection, parser: InstructionParser);
+    private fetchOfferAccount;
     processInstruction(instruction: ParsedInstruction, signature: string, slot: number): Promise<void>;
     private handleInitializeOffer;
     private handleCancelOffer;

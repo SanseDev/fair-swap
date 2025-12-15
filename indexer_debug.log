@@ -1,0 +1,12 @@
+
+> fair-swap@0.1.0 index:start /Users/sanse/Code/github.com/SanseDev/fair-swap
+> tsx backend-src/indexer/index.ts
+
+✓ Loaded IDL from: /Users/sanse/Code/github.com/SanseDev/fair-swap/target/idl/fair_swap.json
+🚀 Starting FairSwap Indexer...
+   Program ID: DMpk34ArT3Z8nXtZgQXftWhKNq5MAkMcieEFnUQW7oCU
+   RPC URL: https://api.devnet.solana.com
+   Last processed slot: 428316395
+
+Received SIGTERM, shutting down gracefully...
+🛑 Stopping FairSwap Indexer...
