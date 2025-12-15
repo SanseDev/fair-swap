@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import cookie from '@fastify/cookie';
 import { offerRoutes, proposalRoutes, swapRoutes, authRoutes } from './routes/index.js';
 import { env } from '../config/env.js';
-import { db } from '../config/database.js';
+import { supabase } from '../config/database.js';
 
 export async function createServer() {
   const fastify = Fastify({
@@ -21,7 +21,7 @@ export async function createServer() {
   await fastify.register(cookie);
 
   // Add database instance to fastify
-  fastify.decorate('knex', db);
+  fastify.decorate('supabase', supabase);
 
   // CORS with credentials
   const allowedOrigins = [

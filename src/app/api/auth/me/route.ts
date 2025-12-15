@@ -21,7 +21,9 @@ export async function GET(request: NextRequest) {
 
     return jsonResponse({
       walletAddress: session.wallet_address,
-      expiresAt: session.expires_at.toISOString(),
+      expiresAt: typeof session.expires_at === 'string' 
+        ? session.expires_at 
+        : session.expires_at.toISOString(),
     });
   } catch (error) {
     console.error('[Auth Me] Error:', error);

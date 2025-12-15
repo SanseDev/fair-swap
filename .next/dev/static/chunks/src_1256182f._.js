@@ -8,12 +8,12 @@ __turbopack_context__.s([
     "isValidSolanaAddress",
     ()=>isValidSolanaAddress
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$8_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$1_react$40$19$2e$2$2e$1_$5f$react$40$19$2e$2$2e$1$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.8_@babel+core@7.28.5_react-dom@19.2.1_react@19.2.1__react@19.2.1/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/axios@1.13.2/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f40$solana$2b$web3$2e$js$40$1$2e$98$2e$4_bufferutil$40$4$2e$0$2e$9_typescript$40$5$2e$9$2e$3_utf$2d$8$2d$validate$40$5$2e$0$2e$10$2f$node_modules$2f40$solana$2f$web3$2e$js$2f$lib$2f$index$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/@solana+web3.js@1.98.4_bufferutil@4.0.9_typescript@5.9.3_utf-8-validate@5.0.10/node_modules/@solana/web3.js/lib/index.browser.esm.js [app-client] (ecmascript)");
 ;
 ;
-const API_URL = ("TURBOPACK compile-time value", "http://localhost:3001") || "http://localhost:3001";
+// Use Next.js API routes (no external API needed)
+const API_URL = "";
 // Configure axios to send cookies
 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$axios$40$1$2e$13$2e$2$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].defaults.withCredentials = true;
 const authApi = {
@@ -97,6 +97,7 @@ function WalletAuthProvider({ children }) {
         "WalletAuthProvider.useEffect": ()=>{
             const checkSession = {
                 "WalletAuthProvider.useEffect.checkSession": async ()=>{
+                    console.log('[WalletAuth] 🔍 Checking for existing session...');
                     try {
                         const sessionData = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["authApi"].getSession();
                         console.log('[WalletAuth] ✅ Session found:', {
@@ -105,8 +106,10 @@ function WalletAuthProvider({ children }) {
                         });
                         setSession(sessionData);
                         setIsAuthenticated(true);
+                        // Mark that this wallet was connected to prevent clearing on auto-reconnect
+                        wasConnectedRef.current = true;
                     } catch (err) {
-                        console.log('[WalletAuth] No active session found');
+                        console.log('[WalletAuth] ℹ️  No active session found (will authenticate on wallet connection)');
                     } finally{
                         setIsCheckingSession(false);
                     }
@@ -170,21 +173,23 @@ function WalletAuthProvider({ children }) {
         "WalletAuthProvider.useEffect": ()=>{
             // Don't do anything until session check completes
             if (isCheckingSession) {
+                console.log('[WalletAuth] ⏳ Still checking for existing session...');
                 return;
             }
-            console.log('[WalletAuth] Sync effect:', {
+            console.log('[WalletAuth] 🔄 Sync effect:', {
                 hasPublicKey: !!publicKey,
                 hasSignMessage: !!signMessage,
                 isAuthenticated,
                 hasSession: !!session,
-                sessionWallet: session?.walletAddress,
-                walletAddress: publicKey?.toBase58()
+                sessionWallet: session?.walletAddress?.slice(0, 8) + '...',
+                currentWallet: publicKey?.toBase58().slice(0, 8) + '...',
+                isAuthenticating
             });
             if (!publicKey || !signMessage) {
                 // Wallet not ready yet or disconnected
                 if (!publicKey && wasConnectedRef.current && (isAuthenticated || session)) {
                     // Wallet was connected before and now it's gone - user disconnected
-                    console.log('[WalletAuth] Wallet disconnected by user, clearing state');
+                    console.log('[WalletAuth] 🔌 Wallet disconnected by user, clearing state');
                     setIsAuthenticated(false);
                     setSession(null);
                     setError(null);
@@ -199,25 +204,26 @@ function WalletAuthProvider({ children }) {
             const walletAddress = publicKey.toBase58();
             // If session exists but for different wallet, clear and re-auth
             if (session && session.walletAddress !== walletAddress) {
-                console.log('[WalletAuth] Wallet changed, clearing old session');
+                console.log('[WalletAuth] 🔄 Wallet changed, clearing old session');
                 setIsAuthenticated(false);
                 setSession(null);
                 setError(null);
+                // Will re-auth on next effect run
                 return;
             }
             // If session exists and matches wallet, we're authenticated - DON'T re-authenticate
             if (session && session.walletAddress === walletAddress) {
                 if (!isAuthenticated) {
-                    console.log('[WalletAuth] Session exists for wallet, setting authenticated');
+                    console.log('[WalletAuth] ✅ Session exists for wallet, marking as authenticated');
                     setIsAuthenticated(true);
                 } else {
-                    console.log('[WalletAuth] ✅ Session valid, already authenticated');
+                    console.log('[WalletAuth] ✅ Already authenticated with valid session');
                 }
                 return;
             }
             // Only trigger authentication if: wallet ready, no session, not already authenticating
             if (!session && !isAuthenticated && !isAuthenticating) {
-                console.log('[WalletAuth] 🔐 No session found, triggering authentication');
+                console.log('[WalletAuth] 🔐 No session found, triggering authentication (signature required)');
                 authenticate();
             }
         }
@@ -267,7 +273,7 @@ function WalletAuthProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/src/components/wallet-auth-provider.tsx",
-        lineNumber: 199,
+        lineNumber: 205,
         columnNumber: 5
     }, this);
 }

@@ -1,19 +1,24 @@
-import knex from 'knex';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Singleton DB connection for Next.js API routes
-let db: ReturnType<typeof knex> | null = null;
+// Singleton Supabase client for Next.js API routes
+let supabase: SupabaseClient | null = null;
 
-export function getDb() {
-  if (!db) {
-    db = knex({
-      client: 'pg',
-      connection: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/fairswap',
-      pool: {
-        min: 2,
-        max: 10,
+export function getSupabase() {
+  if (!supabase) {
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set');
+    }
+
+    supabase = createClient(supabaseUrl, supabaseKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
       },
     });
   }
-  return db;
+  return supabase;
 }
 

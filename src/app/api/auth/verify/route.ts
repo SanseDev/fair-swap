@@ -61,6 +61,9 @@ export async function POST(request: NextRequest) {
     // Delete used nonce
     await authRepo.deleteNonce(walletAddress);
 
+    // Clean up any existing sessions for this wallet (prevents multiple sessions)
+    await authRepo.deleteAllUserSessions(walletAddress);
+
     // Generate session token
     const sessionToken = nanoid(64);
     const sessionExpiresAt = new Date(Date.now() + SESSION_EXPIRY_MS);

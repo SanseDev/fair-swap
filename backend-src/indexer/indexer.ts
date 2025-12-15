@@ -28,12 +28,22 @@ export class FairSwapIndexer {
     
     this.isRunning = true;
     
-    // Initial sync from last processed slot
-    const lastProcessedSlot = await this.stateRepo.getLastProcessedSlot();
-    console.log(`   Last processed slot: ${lastProcessedSlot}`);
-    
-    // Start polling loop
-    await this.poll();
+    try {
+      // Initial sync from last processed slot
+      const lastProcessedSlot = await this.stateRepo.getLastProcessedSlot();
+      console.log(`   Last processed slot: ${lastProcessedSlot}`);
+      console.log('   ✅ Successfully connected to Supabase');
+      console.log('   👀 Watching for transactions...\n');
+      
+      // Start polling loop
+      await this.poll();
+    } catch (error) {
+      console.error('❌ Failed to start indexer:', error);
+      if (error instanceof Error) {
+        console.error(`   Error message: ${error.message}`);
+      }
+      throw error;
+    }
   }
 
   async stop(): Promise<void> {

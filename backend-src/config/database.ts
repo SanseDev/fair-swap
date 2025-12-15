@@ -1,18 +1,22 @@
-import knex from 'knex';
+import { createClient } from '@supabase/supabase-js';
 import { env } from './env.js';
 
-export const db = knex({
-  client: 'pg',
-  connection: env.database.url,
-  pool: {
-    min: 2,
-    max: 10,
-  },
-  migrations: {
-    directory: './backend-src/database/migrations',
-    extension: 'ts',
-  },
-});
+if (!env.supabase.url || !env.supabase.serviceRoleKey) {
+  throw new Error('SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set');
+}
+
+export const supabase = createClient(
+  env.supabase.url,
+  env.supabase.serviceRoleKey,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  }
+);
+
+export { supabase as db };
 
 
 

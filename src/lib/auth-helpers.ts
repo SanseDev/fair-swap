@@ -10,7 +10,7 @@ export function setSessionCookie(response: NextResponse, token: string, expiresA
   response.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'lax', // Changed from 'strict' to 'lax' to allow cookies on page refresh
     path: '/',
     expires: expiresAt,
   });

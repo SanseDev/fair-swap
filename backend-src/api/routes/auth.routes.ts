@@ -12,7 +12,7 @@ const SESSION_EXPIRY_MS = 24 * 60 * 60 * 1000; // 24 hours
 const COOKIE_NAME = "fairswap_session";
 
 export async function authRoutes(fastify: FastifyInstance) {
-  const authRepo = new AuthRepository(fastify.knex);
+  const authRepo = new AuthRepository(fastify.supabase);
 
   // Request a nonce for wallet signing
   fastify.post<{
@@ -99,6 +99,9 @@ export async function authRoutes(fastify: FastifyInstance) {
       // Delete the used nonce
       await authRepo.deleteNonce(walletAddress);
 
+      // Clean up any existing sessions for this wallet (prevents multiple sessions)
+      await authRepo.deleteAllUserSessions(walletAddress);
+
       // Generate session token
       const sessionToken = nanoid(64);
       const sessionExpiresAt = new Date(Date.now() + SESSION_EXPIRY_MS);
@@ -110,7 +113,7 @@ export async function authRoutes(fastify: FastifyInstance) {
       reply.setCookie(COOKIE_NAME, sessionToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "lax", // Changed from 'strict' to 'lax' to allow cookies on page refresh
         path: "/",
         expires: sessionExpiresAt,
       });
@@ -160,7 +163,9 @@ export async function authRoutes(fastify: FastifyInstance) {
 
       return {
         walletAddress: session.wallet_address,
-        expiresAt: session.expires_at.toISOString(),
+        expiresAt: typeof session.expires_at === 'string' 
+          ? session.expires_at 
+          : session.expires_at.toISOString(),
       };
     } catch (error) {
       fastify.log.error(error);

@@ -24,24 +24,34 @@ export class TransactionProcessor {
 
   private async fetchOfferAccount(offerPda: string): Promise<string | null> {
     try {
+      // Try to get from blockchain first
       const accountInfo = await this.connection.getAccountInfo(new PublicKey(offerPda));
-      if (!accountInfo || !accountInfo.data) {
-        return null;
+      if (accountInfo && accountInfo.data) {
+        // Manual deserialization - Anchor account structure:
+        // [8 bytes discriminator][8 bytes offer_id][32 bytes seller][...]
+        const data = accountInfo.data;
+        
+        // Skip 8-byte discriminator
+        const offerIdBytes = data.slice(8, 16);
+        
+        // Read u64 as little-endian
+        const offerId = offerIdBytes.readBigUInt64LE(0);
+        
+        return offerId.toString();
       }
 
-      // Manual deserialization - Anchor account structure:
-      // [8 bytes discriminator][8 bytes offer_id][32 bytes seller][...]
-      const data = accountInfo.data;
+      // If account doesn't exist on chain (closed), try to find in DB
+      // This happens when offers are completed/cancelled
+      console.log('   ℹ️  Offer account not found on-chain, searching in DB...');
+      const offers = await this.offerRepo.findAll(1000); // Get more offers
       
-      // Skip 8-byte discriminator
-      const offerIdBytes = data.slice(8, 16);
+      // Try to match by PDA address if we stored it, or return null
+      // For now, we can't match without the PDA, so return null
+      console.log('   ⚠️  Cannot match offer from PDA alone, skipping proposal');
+      return null;
       
-      // Read u64 as little-endian
-      const offerId = offerIdBytes.readBigUInt64LE(0);
-      
-      return offerId.toString();
     } catch (error) {
-      console.error('Failed to decode offer account:', error);
+      console.error('   ❌ Failed to fetch/decode offer account:', error);
       return null;
     }
   }
@@ -52,6 +62,8 @@ export class TransactionProcessor {
     slot: number
   ): Promise<void> {
     try {
+      console.log(`📝 Processing instruction: ${instruction.type} (slot: ${slot}, sig: ${signature.slice(0, 8)}...)`);
+      
       switch (instruction.type) {
         case 'initialize_offer':
           await this.handleInitializeOffer(instruction, signature, slot);
@@ -76,9 +88,16 @@ export class TransactionProcessor {
         case 'withdraw_proposal':
           await this.handleWithdrawProposal(instruction, signature, slot);
           break;
+        
+        default:
+          console.log(`⚠️ Unknown instruction type: ${instruction.type}`);
       }
     } catch (error) {
-      console.error(`Failed to process ${instruction.type}:`, error);
+      console.error(`❌ Failed to process ${instruction.type}:`, error);
+      if (error instanceof Error) {
+        console.error(`   Error message: ${error.message}`);
+        console.error(`   Stack: ${error.stack}`);
+      }
       throw error;
     }
   }
@@ -90,7 +109,7 @@ export class TransactionProcessor {
   ): Promise<void> {
     const { data, accounts } = instruction;
     
-    await this.offerRepo.create({
+    const offerData = {
       offer_id: data.offer_id?.toString() || data.offerId?.toString(),
       seller: accounts.seller,
       token_mint_a: accounts.tokenMintA || accounts.token_mint_a,
@@ -101,9 +120,21 @@ export class TransactionProcessor {
       status: 'active',
       signature,
       slot,
-    } as Partial<Offer>);
+    } as Partial<Offer>;
 
-    console.log(`✓ Indexed offer creation: ${data.offer_id || data.offerId}`);
+    console.log(`   💾 Saving offer to DB:`, {
+      offer_id: offerData.offer_id,
+      seller: offerData.seller?.slice(0, 8),
+      signature: signature.slice(0, 8)
+    });
+
+    try {
+      const created = await this.offerRepo.create(offerData);
+      console.log(`   ✅ Indexed offer creation: ${data.offer_id || data.offerId} (DB ID: ${created.id})`);
+    } catch (error) {
+      console.error(`   ❌ Failed to save offer to DB:`, error);
+      throw error;
+    }
   }
 
   private async handleCancelOffer(
@@ -131,11 +162,15 @@ export class TransactionProcessor {
   ): Promise<void> {
     const { accounts } = instruction;
     
+    console.log(`   🔍 Looking for active offer from seller: ${accounts.seller?.slice(0, 8)}...`);
+    
     // Find the offer
     const offers = await this.offerRepo.findAll();
     const offer = offers.find(o => o.seller === accounts.seller && o.status === 'active');
 
     if (offer) {
+      console.log(`   💾 Saving swap to DB for offer: ${offer.offer_id}`);
+      
       await this.swapRepo.create({
         offer_id: offer.offer_id,
         proposal_id: null,
@@ -150,7 +185,9 @@ export class TransactionProcessor {
       });
 
       await this.offerRepo.updateStatus(offer.id, 'completed');
-      console.log(`✓ Indexed swap execution: ${offer.offer_id}`);
+      console.log(`   ✅ Indexed swap execution: ${offer.offer_id}`);
+    } else {
+      console.log(`   ⚠️ No active offer found for seller: ${accounts.seller}`);
     }
   }
 
@@ -161,11 +198,19 @@ export class TransactionProcessor {
   ): Promise<void> {
     const { data, accounts } = instruction;
     
-    // Fetch the offer account to get the actual offer_id
-    const offerId = await this.fetchOfferAccount(accounts.offer);
+    console.log(`   🔍 Looking for offer in DB by PDA: ${accounts.offer.slice(0, 8)}...`);
     
+    // Try to fetch the offer account from blockchain
+    let offerId = await this.fetchOfferAccount(accounts.offer);
+    
+    // If not found on-chain, try to find in DB by seller
     if (!offerId) {
-      console.error('Could not fetch offer account for proposal');
+      console.log('   🔍 Trying to find active offer from seller in DB...');
+      const offers = await this.offerRepo.findAll(1000);
+      
+      // We don't have a direct mapping, so we'll skip this proposal
+      // In a production system, you'd want to store the PDA address with each offer
+      console.log('   ⚠️  Skipping proposal - offer account not available (likely closed)');
       return;
     }
 
@@ -174,9 +219,11 @@ export class TransactionProcessor {
     const proposedAmount = data.proposed_amount;
     
     if (!proposalId || !proposedAmount) {
-      console.error('Missing proposal data:', JSON.stringify(data));
+      console.error('   ❌ Missing proposal data:', JSON.stringify(data));
       return;
     }
+
+    console.log(`   💾 Saving proposal to DB: proposal_id=${proposalId}, offer_id=${offerId}`);
 
     await this.proposalRepo.create({
       proposal_id: proposalId.toString(),
@@ -189,7 +236,7 @@ export class TransactionProcessor {
       slot,
     } as Partial<Proposal>);
 
-    console.log(`✓ Indexed proposal submission: ${proposalId} for offer ${offerId}`);
+    console.log(`   ✅ Indexed proposal submission: ${proposalId} for offer ${offerId}`);
   }
 
   private async handleAcceptProposal(
@@ -199,23 +246,29 @@ export class TransactionProcessor {
   ): Promise<void> {
     const { accounts } = instruction;
     
-    // Fetch the offer account to get the actual offer_id
-    const offerId = await this.fetchOfferAccount(accounts.offer);
+    console.log(`   🔍 Looking for offer for proposal acceptance...`);
+    
+    // Try to fetch the offer account from blockchain
+    let offerId = await this.fetchOfferAccount(accounts.offer);
     
     if (!offerId) {
-      console.error('Could not fetch offer account for proposal acceptance');
+      console.log('   ⚠️  Skipping proposal acceptance - offer account not available (likely closed)');
       return;
     }
 
+    console.log(`   🔍 Looking for pending proposal for offer ${offerId}`);
+    
     // Find the proposal by offer_id
     const proposals = await this.proposalRepo.findByOfferId(offerId);
     const proposal = proposals.find(p => p.buyer === accounts.buyer && p.status === 'pending');
 
     if (!proposal) {
-      console.error(`No pending proposal found for offer ${offerId} from buyer ${accounts.buyer}`);
+      console.error(`   ❌ No pending proposal found for offer ${offerId} from buyer ${accounts.buyer}`);
       return;
     }
 
+    console.log(`   💾 Updating proposal status and creating swap record...`);
+    
     // Update proposal status to accepted
     await this.proposalRepo.updateStatus(proposal.id, 'accepted');
 
@@ -247,9 +300,9 @@ export class TransactionProcessor {
         await this.proposalRepo.updateStatus(otherProposal.id, 'withdrawn');
       }
       
-      console.log(`✓ Indexed proposal acceptance: ${proposal.proposal_id} - Offer ${offerId} completed`);
+      console.log(`   ✅ Indexed proposal acceptance: ${proposal.proposal_id} - Offer ${offerId} completed`);
     } else {
-      console.error(`Offer ${offerId} not found in database`);
+      console.error(`   ❌ Offer ${offerId} not found in database`);
     }
   }
 

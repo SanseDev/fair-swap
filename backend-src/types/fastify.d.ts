@@ -1,8 +1,8 @@
-import { Knex } from 'knex';
+import { SupabaseClient } from '@supabase/supabase-js';
 
 declare module 'fastify' {
   interface FastifyInstance {
-    knex: Knex;
+    supabase: SupabaseClient;
   }
 }
 

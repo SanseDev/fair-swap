@@ -8,8 +8,10 @@ const __dirname = dirname(__filename);
 config({ path: resolve(__dirname, '../../.env') });
 
 export const env = {
-  database: {
-    url: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5433/fair_swap',
+  supabase: {
+    url: process.env.SUPABASE_URL || '',
+    anonKey: process.env.SUPABASE_ANON_KEY || '',
+    serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
   },
   solana: {
     rpcUrl: process.env.SOLANA_RPC_URL || 'http://127.0.0.1:8899',

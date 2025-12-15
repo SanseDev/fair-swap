@@ -7,15 +7,36 @@ export class ProposalRepository extends BaseRepository<Proposal> {
   }
 
   async findByBuyer(buyer: string, limit = 100): Promise<Proposal[]> {
-    return this.query().where({ buyer }).limit(limit).orderBy('created_at', 'desc');
+    const { data, error } = await this.query
+      .select('*')
+      .eq('buyer', buyer)
+      .order('created_at', { ascending: false })
+      .limit(limit);
+    
+    if (error) throw error;
+    return (data || []) as Proposal[];
   }
 
   async findByOfferId(offerId: string, limit = 100): Promise<Proposal[]> {
-    return this.query().where({ offer_id: offerId }).limit(limit).orderBy('created_at', 'desc');
+    const { data, error } = await this.query
+      .select('*')
+      .eq('offer_id', offerId)
+      .order('created_at', { ascending: false })
+      .limit(limit);
+    
+    if (error) throw error;
+    return (data || []) as Proposal[];
   }
 
   async findByStatus(status: Proposal['status'], limit = 100): Promise<Proposal[]> {
-    return this.query().where({ status }).limit(limit).orderBy('created_at', 'desc');
+    const { data, error } = await this.query
+      .select('*')
+      .eq('status', status)
+      .order('created_at', { ascending: false })
+      .limit(limit);
+    
+    if (error) throw error;
+    return (data || []) as Proposal[];
   }
 
   async updateStatus(id: string, status: Proposal['status']): Promise<Proposal | null> {
@@ -23,13 +44,16 @@ export class ProposalRepository extends BaseRepository<Proposal> {
   }
 
   async findPendingProposals(offerId?: string): Promise<Proposal[]> {
-    const query = this.query().where({ status: 'pending' });
+    let query = this.query.select('*').eq('status', 'pending');
     
     if (offerId) {
-      query.where({ offer_id: offerId });
+      query = query.eq('offer_id', offerId);
     }
     
-    return query.orderBy('created_at', 'desc');
+    const { data, error } = await query.order('created_at', { ascending: false });
+    
+    if (error) throw error;
+    return (data || []) as Proposal[];
   }
 }
 

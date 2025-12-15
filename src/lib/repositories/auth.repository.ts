@@ -1,5 +1,5 @@
-import { Knex } from "knex";
-import { getDb } from '../db';
+import { SupabaseClient } from '@supabase/supabase-js';
+import { getSupabase } from '../db';
 
 export interface AuthNonce {
   wallet_address: string;
@@ -17,10 +17,10 @@ export interface AuthSession {
 }
 
 export class AuthRepository {
-  private db: Knex;
+  private supabase: SupabaseClient;
 
-  constructor(db?: Knex) {
-    this.db = db || getDb();
+  constructor(supabaseClient?: SupabaseClient) {
+    this.supabase = supabaseClient || getSupabase();
   }
 
   // Nonce methods
@@ -29,32 +29,49 @@ export class AuthRepository {
     nonce: string,
     expiresAt: Date
   ): Promise<void> {
-    await this.db("auth_nonces")
-      .insert({
+    const { error } = await this.supabase
+      .from('auth_nonces')
+      .upsert({
         wallet_address: walletAddress,
         nonce,
-        expires_at: expiresAt,
-      })
-      .onConflict("wallet_address")
-      .merge(["nonce", "expires_at"]);
+        expires_at: expiresAt.toISOString(),
+      }, {
+        onConflict: 'wallet_address',
+      });
+    
+    if (error) throw error;
   }
 
   async getNonce(walletAddress: string): Promise<AuthNonce | undefined> {
-    return this.db("auth_nonces")
-      .where({ wallet_address: walletAddress })
-      .first();
+    const { data, error } = await this.supabase
+      .from('auth_nonces')
+      .select('*')
+      .eq('wallet_address', walletAddress)
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') return undefined;
+      throw error;
+    }
+    return data as AuthNonce;
   }
 
   async deleteNonce(walletAddress: string): Promise<void> {
-    await this.db("auth_nonces")
-      .where({ wallet_address: walletAddress })
-      .delete();
+    const { error } = await this.supabase
+      .from('auth_nonces')
+      .delete()
+      .eq('wallet_address', walletAddress);
+    
+    if (error) throw error;
   }
 
   async cleanupExpiredNonces(): Promise<void> {
-    await this.db("auth_nonces")
-      .where("expires_at", "<", new Date())
-      .delete();
+    const { error } = await this.supabase
+      .from('auth_nonces')
+      .delete()
+      .lt('expires_at', new Date().toISOString());
+    
+    if (error) throw error;
   }
 
   // Session methods
@@ -63,39 +80,60 @@ export class AuthRepository {
     sessionToken: string,
     expiresAt: Date
   ): Promise<AuthSession> {
-    const [session] = await this.db("auth_sessions")
+    const { data, error } = await this.supabase
+      .from('auth_sessions')
       .insert({
         wallet_address: walletAddress,
         session_token: sessionToken,
-        expires_at: expiresAt,
+        expires_at: expiresAt.toISOString(),
       })
-      .returning("*");
-    return session;
+      .select()
+      .single();
+    
+    if (error) throw error;
+    return data as AuthSession;
   }
 
   async getSessionByToken(sessionToken: string): Promise<AuthSession | undefined> {
-    return this.db("auth_sessions")
-      .where({ session_token: sessionToken })
-      .where("expires_at", ">", new Date())
-      .first();
+    const { data, error } = await this.supabase
+      .from('auth_sessions')
+      .select('*')
+      .eq('session_token', sessionToken)
+      .gt('expires_at', new Date().toISOString())
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') return undefined;
+      throw error;
+    }
+    return data as AuthSession;
   }
 
   async deleteSession(sessionToken: string): Promise<void> {
-    await this.db("auth_sessions")
-      .where({ session_token: sessionToken })
-      .delete();
+    const { error } = await this.supabase
+      .from('auth_sessions')
+      .delete()
+      .eq('session_token', sessionToken);
+    
+    if (error) throw error;
   }
 
   async deleteAllUserSessions(walletAddress: string): Promise<void> {
-    await this.db("auth_sessions")
-      .where({ wallet_address: walletAddress })
-      .delete();
+    const { error } = await this.supabase
+      .from('auth_sessions')
+      .delete()
+      .eq('wallet_address', walletAddress);
+    
+    if (error) throw error;
   }
 
   async cleanupExpiredSessions(): Promise<void> {
-    await this.db("auth_sessions")
-      .where("expires_at", "<", new Date())
-      .delete();
+    const { error } = await this.supabase
+      .from('auth_sessions')
+      .delete()
+      .lt('expires_at', new Date().toISOString());
+    
+    if (error) throw error;
   }
 }
 
