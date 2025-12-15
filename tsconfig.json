@@ -11,8 +11,8 @@
     "strict": false,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -34,8 +34,8 @@
     "src/**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "tests/**/*.ts",
-    "target/types/**/*.ts"
+    "target/idl/*.json",
+    "target/types/*.ts"
   ],
   "exclude": [
     "node_modules",

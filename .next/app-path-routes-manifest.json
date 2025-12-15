@@ -1,6 +1,7 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/api/proxy-metadata/route": "/api/proxy-metadata",
   "/create-offer/page": "/create-offer",
   "/dashboard/page": "/dashboard",
   "/favicon.ico/route": "/favicon.ico",

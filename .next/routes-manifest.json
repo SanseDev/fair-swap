@@ -40,6 +40,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/proxy-metadata",
+      "regex": "^/api/proxy\\-metadata(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/proxy\\-metadata(?:/)?$"
+    },
+    {
       "page": "/create-offer",
       "regex": "^/create\\-offer(?:/)?$",
       "routeKeys": {},
