@@ -18,7 +18,8 @@ export const env = {
     programId: process.env.PROGRAM_ID || 'GUijjz5VNLUkPSw9KKvH5ntUNoJuSDbWQDXZSrQgx9fW',
   },
   api: {
-    port: parseInt(process.env.API_PORT || '3001', 10),
+    // Railway uses PORT, local dev uses API_PORT
+    port: parseInt(process.env.PORT || process.env.API_PORT || '3001', 10),
   },
 } as const;
 
