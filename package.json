@@ -9,7 +9,7 @@
     "dev:backend:stable": "tsx backend-src/index.ts",
     "dev:web": "next dev",
     "build": "pnpm build:backend && pnpm build:web",
-    "build:backend": "tsc -p tsconfig.backend.json",
+    "build:backend": "tsc -p tsconfig.backend.json && cp backend-src/fair_swap_idl.json dist/fair_swap_idl.json",
     "build:web": "next build",
     "start": "concurrently -n \"BACKEND,WEB\" -c \"blue,magenta\" \"pnpm start:backend\" \"pnpm start:web\"",
     "start:backend": "node dist/index.js",
