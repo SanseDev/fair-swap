@@ -283,15 +283,67 @@ Mainnet:
 anchor deploy --provider.cluster mainnet-beta
 ```
 
-### Backend & Frontend
+### Backend (Railway)
 
-Recommended: [Vercel](https://vercel.com) for Next.js + [Railway](https://railway.app) for backend
+**Prerequisites:**
+- Railway account
+- Railway CLI: `npm i -g @railway/cli`
 
-Environment variables required:
-- `DATABASE_URL`
-- `SOLANA_RPC_URL`
-- `SOLANA_PROGRAM_ID`
-- `JWT_SECRET`
+**Deploy Steps:**
+
+1. Login to Railway:
+```bash
+railway login
+```
+
+2. Create new project:
+```bash
+railway init
+```
+
+3. Add Postgres:
+```bash
+railway add postgres
+```
+
+4. Set environment variables:
+```bash
+railway variables set SOLANA_RPC_URL=https://api.devnet.solana.com
+railway variables set SOLANA_PROGRAM_ID=your_program_id
+railway variables set JWT_SECRET=your_jwt_secret
+```
+
+5. Deploy (uses Dockerfile):
+```bash
+railway up
+```
+
+**Notes:**
+- Railway auto-assigns `PORT` environment variable (handled in `env.ts`)
+- Postgres connection via `DATABASE_URL` (auto-injected by Railway)
+- Multi-stage Docker build optimizes image size
+- Backend runs on assigned port, frontend on 3000
+
+### Frontend (Vercel)
+
+**Deploy:**
+```bash
+vercel --prod
+```
+
+**Environment Variables:**
+- `NEXT_PUBLIC_API_URL` - Railway backend URL
+- `NEXT_PUBLIC_SOLANA_NETWORK` - devnet/mainnet-beta
+- `NEXT_PUBLIC_PROGRAM_ID` - Deployed program ID
+
+### Docker Deployment (Alternative)
+
+Run both services with Docker Compose:
+```bash
+docker-compose up -d
+```
+
+Environment variables in `.env` or `docker-compose.yml`
 
 ## Contributing
 
