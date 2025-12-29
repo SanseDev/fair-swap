@@ -26,3 +26,4 @@ CREATE POLICY "Public read proposals" ON proposals FOR SELECT USING (true);
 -- swaps: lecture publique, tout le reste via backend
 CREATE POLICY "Public read swaps" ON swaps FOR SELECT USING (true);
 
+

@@ -42,3 +42,4 @@ export function OfferStatusBadge({ offer }: OfferStatusBadgeProps) {
   return null;
 }
 
+
