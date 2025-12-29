@@ -2,15 +2,16 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, Coins } from "lucide-react";
+import { Loader2, ArrowRightLeft, Info } from "lucide-react";
 import { useCreateOffer } from "@/hooks/use-create-offer";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
 import { AssetSelector, SelectedAsset } from "@/components/asset-selector";
 import { toast } from "sonner";
 import { toTokenAmount } from "@/lib/token-utils";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 export function CreateOfferForm() {
   const router = useRouter();
@@ -119,174 +120,163 @@ export function CreateOfferForm() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Create New Offer</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Asset A (Offering) */}
-              <div className="space-y-3">
-                <label className="text-sm font-medium flex items-center gap-2">
-                  <Coins className="h-4 w-4" />
-                  You Offer (Asset A)
-                </label>
-                <div className="space-y-2">
-                  <AssetSelector
-                    value={selectedAssetA || undefined}
-                    onChange={(asset) => {
-                      setSelectedAssetA(asset);
-                      // For NFTs, amount is always 1
-                      if (asset.type === "nft") {
-                        setAmountA("1");
-                      }
-                      setErrors({ ...errors, assetA: "" });
-                    }}
-                    label="Select Asset to Offer"
-                    excludeMint={selectedAssetB?.mint}
-                  />
-                  {errors.assetA && (
-                    <p className="text-xs text-red-500 mt-1">{errors.assetA}</p>
-                  )}
-                  
-                  {/* Amount input for tokens only */}
-                  {selectedAssetA?.type === "token" && (
-                    <div>
-                      <Input
-                        type="number"
-                        step="any"
-                        placeholder="Amount (e.g., 10.5)"
-                        value={amountA}
-                        onChange={(e) => {
-                          setAmountA(e.target.value);
-                          setErrors({ ...errors, amountA: "" });
-                        }}
-                        className={errors.amountA ? "border-red-500" : ""}
-                      />
-                      {errors.amountA && (
-                        <p className="text-xs text-red-500 mt-1">{errors.amountA}</p>
-                      )}
-                      {selectedAssetA.data && "uiAmount" in selectedAssetA.data && (
-                        <p className="text-xs text-muted-foreground mt-1">
-                          Available: {selectedAssetA.data.uiAmount} {selectedAssetA.data.symbol}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                  
-                  {selectedAssetA?.type === "nft" && (
-                    <p className="text-xs text-muted-foreground">NFT swaps are always 1:1</p>
-                  )}
-                </div>
-              </div>
+    <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+        {/* Connection Line (Desktop) */}
+        <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className="bg-background border border-border/50 rounded-full p-2 shadow-xl">
+             <ArrowRightLeft className="h-5 w-5 text-muted-foreground" />
+          </div>
+        </div>
 
-              {/* Asset B (Requesting) */}
-              <div className="space-y-3">
-                <label className="text-sm font-medium flex items-center gap-2">
-                  <Coins className="h-4 w-4" />
-                  You Request (Asset B)
-                </label>
-                <div className="space-y-2">
-                  <AssetSelector
-                    value={selectedAssetB || undefined}
-                    onChange={(asset) => {
-                      setSelectedAssetB(asset);
-                      // For NFTs, amount is always 1
-                      if (asset.type === "nft") {
-                        setAmountB("1");
-                      }
-                      setErrors({ ...errors, assetB: "" });
-                    }}
-                    label="Select Asset to Request"
-                    excludeMint={selectedAssetA?.mint}
-                  />
-                  {errors.assetB && (
-                    <p className="text-xs text-red-500 mt-1">{errors.assetB}</p>
-                  )}
-                  
-                  {/* Amount input for tokens only */}
-                  {selectedAssetB?.type === "token" && (
-                    <div>
-                      <Input
-                        type="number"
-                        step="any"
-                        placeholder="Amount (e.g., 100)"
-                        value={amountB}
-                        onChange={(e) => {
-                          setAmountB(e.target.value);
-                          setErrors({ ...errors, amountB: "" });
-                        }}
-                        className={errors.amountB ? "border-red-500" : ""}
-                      />
-                      {errors.amountB && (
-                        <p className="text-xs text-red-500 mt-1">{errors.amountB}</p>
-                      )}
-                    </div>
-                  )}
-                  
-                  {selectedAssetB?.type === "nft" && (
-                    <p className="text-xs text-muted-foreground">NFT swaps are always 1:1</p>
-                  )}
-                </div>
-              </div>
+        {/* Asset A (Offering) */}
+        <div className="space-y-4 rounded-xl border border-border/40 bg-muted/20 p-6">
+            <div className="space-y-1">
+                <h3 className="text-lg font-medium">You Offer</h3>
+                <p className="text-sm text-muted-foreground">Select the asset you want to trade</p>
             </div>
 
-            {/* Alternative Proposals Option */}
-            <div className="flex items-start space-x-3 p-4 rounded-lg bg-muted/50">
-              <input
-                type="checkbox"
-                id="alternatives"
+            <div className="space-y-4">
+                <div className="space-y-2">
+                    <Label>Asset</Label>
+                    <AssetSelector
+                        value={selectedAssetA || undefined}
+                        onChange={(asset) => {
+                            setSelectedAssetA(asset);
+                            if (asset.type === "nft") setAmountA("1");
+                            setErrors({ ...errors, assetA: "" });
+                        }}
+                        label="Select Asset"
+                        excludeMint={selectedAssetB?.mint}
+                    />
+                    {errors.assetA && <p className="text-xs text-red-500">{errors.assetA}</p>}
+                </div>
+
+                {selectedAssetA?.type === "token" && (
+                <div className="space-y-2">
+                    <div className="flex justify-between">
+                        <Label>Amount</Label>
+                        {selectedAssetA.data && "uiAmount" in selectedAssetA.data && (
+                            <span className="text-xs text-muted-foreground cursor-pointer hover:text-primary transition-colors" onClick={() => setAmountA(selectedAssetA.data.uiAmount)}>
+                                Balance: {selectedAssetA.data.uiAmount}
+                            </span>
+                        )}
+                    </div>
+                    <div className="relative">
+                        <Input
+                            type="number"
+                            step="any"
+                            placeholder="0.00"
+                            value={amountA}
+                            onChange={(e) => {
+                                setAmountA(e.target.value);
+                                setErrors({ ...errors, amountA: "" });
+                            }}
+                            className={`pr-16 text-lg font-mono ${errors.amountA ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                        />
+                         <div className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground font-medium pointer-events-none">
+                            {selectedAssetA.data.symbol || "TOK"}
+                         </div>
+                    </div>
+                    {errors.amountA && <p className="text-xs text-red-500">{errors.amountA}</p>}
+                </div>
+                )}
+            </div>
+        </div>
+
+        {/* Asset B (Requesting) */}
+        <div className="space-y-4 rounded-xl border border-border/40 bg-muted/20 p-6">
+            <div className="space-y-1">
+                <h3 className="text-lg font-medium">You Receive</h3>
+                <p className="text-sm text-muted-foreground">Select the asset you want in return</p>
+            </div>
+
+            <div className="space-y-4">
+                 <div className="space-y-2">
+                    <Label>Asset</Label>
+                    <AssetSelector
+                        value={selectedAssetB || undefined}
+                        onChange={(asset) => {
+                            setSelectedAssetB(asset);
+                            if (asset.type === "nft") setAmountB("1");
+                            setErrors({ ...errors, assetB: "" });
+                        }}
+                        label="Select Asset"
+                        excludeMint={selectedAssetA?.mint}
+                    />
+                    {errors.assetB && <p className="text-xs text-red-500">{errors.assetB}</p>}
+                </div>
+
+                {selectedAssetB?.type === "token" && (
+                <div className="space-y-2">
+                    <Label>Amount</Label>
+                    <div className="relative">
+                        <Input
+                            type="number"
+                            step="any"
+                            placeholder="0.00"
+                            value={amountB}
+                            onChange={(e) => {
+                                setAmountB(e.target.value);
+                                setErrors({ ...errors, amountB: "" });
+                            }}
+                            className={`pr-16 text-lg font-mono ${errors.amountB ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                        />
+                         <div className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground font-medium pointer-events-none">
+                            {selectedAssetB.data.symbol || "TOK"}
+                         </div>
+                    </div>
+                    {errors.amountB && <p className="text-xs text-red-500">{errors.amountB}</p>}
+                </div>
+                )}
+            </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 rounded-xl border border-border/40 bg-linear-to-r from-blue-500/5 to-purple-500/5">
+        <div className="flex items-start gap-4">
+            <div className="p-2 rounded-full bg-background border border-border/50">
+                <Info className="w-5 h-5 text-primary" />
+            </div>
+            <div className="space-y-1">
+                <h4 className="font-medium">Negotiation Options</h4>
+                <p className="text-sm text-muted-foreground">Allow buyers to propose different assets than what you requested.</p>
+            </div>
+        </div>
+        <div className="flex items-center gap-3">
+             <Label htmlFor="allow-alternatives" className="cursor-pointer">Allow Proposals</Label>
+             <Switch 
+                id="allow-alternatives"
                 checked={allowAlternatives}
-                onChange={(e) => setAllowAlternatives(e.target.checked)}
-                className="h-4 w-4 mt-0.5 rounded border-gray-300"
-              />
-              <div className="flex-1">
-                <label
-                  htmlFor="alternatives"
-                  className="text-sm font-medium cursor-pointer"
-                >
-                  Allow alternative proposals
-                </label>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Buyers can propose different tokens than what you requested
-                </p>
-              </div>
-            </div>
+                onCheckedChange={setAllowAlternatives}
+             />
+        </div>
+      </div>
 
-            {/* Info Box */}
-            <div className="p-4 rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900">
-              <p className="text-sm text-blue-900 dark:text-blue-100">
-                <CheckCircle className="h-4 w-4 inline mr-2" />
-                Your offered tokens will be locked in a secure vault on-chain until the
-                offer is accepted or cancelled.
-              </p>
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="flex justify-end gap-4">
-            <Button
-              variant="outline"
-              type="button"
-              onClick={() => router.back()}
-              disabled={isLoading}
-            >
-              Cancel
-            </Button>
-            <Button type="submit" disabled={isLoading || !isConnected}>
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {!isConnected
-                ? "Connect Wallet"
-                : isLoading
-                ? "Creating..."
-                : "Create Offer"}
-            </Button>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+      <div className="flex justify-end gap-4 pt-4 border-t border-border/40">
+        <Button
+          variant="ghost"
+          type="button"
+          onClick={() => router.back()}
+          disabled={isLoading}
+          className="hover:bg-muted"
+        >
+          Cancel
+        </Button>
+        <Button 
+            type="submit" 
+            disabled={isLoading || !isConnected} 
+            size="lg"
+            className="px-8 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+        >
+          {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {!isConnected
+            ? "Connect Wallet to Create"
+            : isLoading
+            ? "Creating..."
+            : "Create Offer"}
+        </Button>
+      </div>
+    </form>
   );
 }
-
