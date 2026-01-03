@@ -27,3 +27,4 @@ async function resetIndexerSlot() {
 
 resetIndexerSlot().then(() => process.exit(0)).catch(console.error);
 
+
