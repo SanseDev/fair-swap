@@ -6,7 +6,7 @@ import { PublicKey, SystemProgram, SYSVAR_RENT_PUBKEY, Transaction, TransactionI
 import { Program, AnchorProvider, BN } from "@coral-xyz/anchor";
 import { TOKEN_PROGRAM_ID, getAssociatedTokenAddress, createSyncNativeInstruction, NATIVE_MINT } from "@solana/spl-token";
 import { PROGRAM_ID, FAIR_SWAP_IDL } from "@/lib/program-config";
-import { getOrCreateAssociatedTokenAccount, getTokenBalance } from "@/lib/token-account-utils";
+import { getOrCreateAssociatedTokenAccount, getTokenBalance, getTokenDecimals } from "@/lib/token-account-utils";
 
 export interface CreateOfferParams {
   tokenMintA: string;
@@ -111,8 +111,11 @@ export function useCreateOffer() {
         // Convert BN to BigInt for comparison
         const amountNeeded = BigInt(tokenAmountA.toString());
         if (balance < amountNeeded) {
-          const readable = Number(balance) / 1e9;
-          const needed = Number(tokenAmountA.toString()) / 1e9;
+          // Get actual token decimals for accurate display
+          const decimals = await getTokenDecimals(connection, tokenMintA);
+          const divisor = Math.pow(10, decimals);
+          const readable = Number(balance) / divisor;
+          const needed = Number(tokenAmountA.toString()) / divisor;
           throw new Error(
             `Insufficient balance. You have ${readable.toFixed(4)} tokens but need ${needed.toFixed(4)}`
           );

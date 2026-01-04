@@ -2,7 +2,8 @@ import { Connection, PublicKey } from "@solana/web3.js";
 import { 
   getAssociatedTokenAddress, 
   createAssociatedTokenAccountInstruction,
-  getAccount
+  getAccount,
+  getMint
 } from "@solana/spl-token";
 
 export async function checkTokenAccountExists(
@@ -53,6 +54,19 @@ export async function getTokenBalance(
     return account.amount;
   } catch {
     return BigInt(0);
+  }
+}
+
+export async function getTokenDecimals(
+  connection: Connection,
+  mint: PublicKey
+): Promise<number> {
+  try {
+    const mintInfo = await getMint(connection, mint);
+    return mintInfo.decimals;
+  } catch {
+    // Default to 9 decimals (SOL standard) if we can't fetch
+    return 9;
   }
 }
 

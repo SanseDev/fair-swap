@@ -6,7 +6,7 @@ import { PublicKey, SystemProgram, SYSVAR_RENT_PUBKEY } from "@solana/web3.js";
 import { Program, AnchorProvider, BN } from "@coral-xyz/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { PROGRAM_ID, FAIR_SWAP_IDL } from "@/lib/program-config";
-import { getOrCreateAssociatedTokenAccount, getTokenBalance } from "@/lib/token-account-utils";
+import { getOrCreateAssociatedTokenAccount, getTokenBalance, getTokenDecimals } from "@/lib/token-account-utils";
 import { Offer } from "@/lib/types";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -107,8 +107,11 @@ export function useCreateProposal() {
         const amountNeeded = BigInt(proposedAmount.toString());
         
         if (buyerBalance < amountNeeded) {
-          const readable = Number(buyerBalance) / 1e9;
-          const needed = Number(proposedAmount.toString()) / 1e9;
+          // Get actual token decimals for accurate display
+          const decimals = await getTokenDecimals(connection, proposedMint);
+          const divisor = Math.pow(10, decimals);
+          const readable = Number(buyerBalance) / divisor;
+          const needed = Number(proposedAmount.toString()) / divisor;
           throw new Error(
             `Insufficient balance. You have ${readable.toFixed(4)} tokens but need ${needed.toFixed(4)}`
           );
