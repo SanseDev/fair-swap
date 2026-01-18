@@ -87,3 +87,4 @@ echo "   3. Start the indexer: pnpm index:start"
 echo "   4. Watch the logs for transaction processing"
 echo ""
 
+

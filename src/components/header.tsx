@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useWalletAuth } from "@/hooks/use-wallet-auth";
 import { Button } from "@/components/ui/button";
-import { Wallet, LogOut, Check, AlertCircle } from "lucide-react";
+import { Wallet, LogOut, Loader2, AlertCircle, LayoutDashboard, ShoppingBag, PlusCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export function Header() {
   const pathname = usePathname();
   const {
     isConnected,
-    isAuthenticated,
     isAuthenticating,
     walletAddress,
     error,
@@ -25,93 +26,114 @@ export function Header() {
   };
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/marketplace", label: "Marketplace" },
-    { href: "/dashboard", label: "Dashboard" },
+    { href: "/marketplace", label: "Marketplace", icon: ShoppingBag },
+    { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/create-offer", label: "Create Offer", icon: PlusCircle },
   ];
 
   return (
-    <header className="mb-8 flex items-center justify-between backdrop-blur-sm bg-background/50 p-4 rounded-xl border border-border/50">
-      <div className="flex items-center gap-8">
-        <Link href="/">
-          <h1 className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 cursor-pointer hover:opacity-80 transition-opacity">
-            FairSwap
-          </h1>
-        </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === link.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-      <div className="flex items-center gap-3">
-        {error && (
-          <div className="flex items-center gap-2 text-red-400 text-sm">
-            <AlertCircle className="w-4 h-4" />
-            <span>{error}</span>
-          </div>
-        )}
-
-        {!isConnected ? (
-          <Button
-            onClick={openWalletModal}
-            variant="default"
-            className="flex items-center gap-2"
-          >
-            <Wallet className="w-4 h-4" />
-            Connect Wallet
-          </Button>
-        ) : isAuthenticating ? (
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
-              <div className="w-4 h-4 border-2 border-yellow-500/20 border-t-yellow-500 rounded-full animate-spin" />
-              <span className="text-sm font-medium text-yellow-400">
-                Authenticating...
-              </span>
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative h-10 w-10 transition-transform group-hover:scale-105">
+              <Image 
+                src="/fairswap.png" 
+                alt="FairSwap Logo" 
+                fill 
+                className="object-contain rounded-full"
+                priority
+              />
             </div>
-            <Button
-              onClick={logout}
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-2"
-            >
-              <LogOut className="w-4 h-4" />
-              Cancel
-            </Button>
-          </div>
-        ) : (
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-green-500/10 border border-green-500/20">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-medium text-green-400">
-                {walletAddress && formatAddress(walletAddress)}
-              </span>
+            <h1 className="text-xl font-bold tracking-tight text-foreground/90">
+              FairSwap
+            </h1>
+          </Link>
+          
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2",
+                    isActive
+                      ? "text-foreground bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                  )}
+                >
+                  <Icon className={cn("w-4 h-4", isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground")} />
+                  {link.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute inset-0 rounded-lg bg-primary/5 -z-10"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </Link>
+              )
+            })}
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-3">
+          {error && (
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-xs font-medium animate-in fade-in slide-in-from-right-4">
+              <AlertCircle className="w-3.5 h-3.5" />
+              <span>{error}</span>
             </div>
+          )}
+
+          {!isConnected ? (
             <Button
-              onClick={logout}
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-2"
+              onClick={openWalletModal}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow transition-all rounded-full px-6"
             >
-              <LogOut className="w-4 h-4" />
-              Disconnect
+              <Wallet className="w-4 h-4 mr-2" />
+              Connect Wallet
             </Button>
-          </div>
-        )}
+          ) : isAuthenticating ? (
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 backdrop-blur-sm">
+                <Loader2 className="w-3.5 h-3.5 text-yellow-500 animate-spin" />
+                <span className="text-sm font-medium text-yellow-500">
+                  Verifying...
+                </span>
+              </div>
+              <Button
+                onClick={logout}
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9 rounded-full hover:bg-muted"
+              >
+                <LogOut className="w-4 h-4" />
+              </Button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm group hover:border-primary/30 transition-colors">
+                <div className="w-2 h-2 rounded-full bg-green-500/80 shadow-[0_0_8px_rgba(34,197,94,0.3)]" />
+                <span className="text-sm font-medium text-foreground/90 font-mono">
+                  {walletAddress && formatAddress(walletAddress)}
+                </span>
+              </div>
+              <Button
+                onClick={logout}
+                variant="outline"
+                size="icon"
+                className="h-10 w-10 rounded-full border-border/50 bg-background/50 hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 transition-colors"
+                title="Disconnect"
+              >
+                <LogOut className="w-4 h-4" />
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
 }
-

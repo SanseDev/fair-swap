@@ -39,3 +39,4 @@ export function useVerifyOffer(offer: Offer | null) {
   return { isValid, isChecking };
 }
 
+

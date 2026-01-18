@@ -27,3 +27,4 @@ async function checkAllOffers() {
 
 checkAllOffers().then(() => process.exit(0)).catch(console.error);
 
+

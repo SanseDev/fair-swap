@@ -16,3 +16,4 @@ async function checkProposals() {
 
 checkProposals().then(() => process.exit(0)).catch(console.error);
 
+

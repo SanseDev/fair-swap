@@ -26,7 +26,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="text-center space-y-8 py-12">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-white to-primary/60 bg-clip-text text-transparent">
               Fair Swap Protocol
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">

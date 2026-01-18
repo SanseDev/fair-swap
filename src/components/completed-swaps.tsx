@@ -66,3 +66,4 @@ export function CompletedSwaps({ buyer, seller, limit = 10 }: CompletedSwapsProp
   );
 }
 
+

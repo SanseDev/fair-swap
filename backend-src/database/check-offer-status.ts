@@ -17,3 +17,4 @@ async function checkOfferStatus() {
 
 checkOfferStatus().then(() => process.exit(0)).catch(console.error);
 
+
