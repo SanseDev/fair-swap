@@ -15,3 +15,4 @@ async function fixOfferStatus() {
 
 fixOfferStatus().then(() => process.exit(0)).catch(console.error);
 
+

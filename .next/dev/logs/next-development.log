@@ -1,1 +1,13 @@
-[00:00:01.266] Server  LOG      ✓ Ready in 818ms
+[00:00:01.069] Server  LOG      ✓ Ready in 872ms
+[00:00:09.208] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:09.549] Browser WARN    Phantom was registered as a Standard Wallet. The Wallet Adapter for Phantom can be removed from your app.
+[00:00:09.549] Browser WARN    Solflare was registered as a Standard Wallet. The Wallet Adapter for Solflare can be removed from your app.
+[00:00:09.549] Browser LOG     [WalletAuth] 🔍 Checking for existing session...
+[00:00:09.549] Browser LOG     [WalletAuth] ⏳ Still checking for existing session...
+[00:00:09.549] Browser WARN    Image with src "/fairswap.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:10.622] Browser LOG     [WalletAuth] ✅ Session found: {"expires":"2025-12-30T12:09:10.346+00:00","wallet":"T31SBBB9..."}
+[00:00:10.622] Browser LOG     [WalletAuth] 🔄 Sync effect: {"currentWallet":"undefined...","hasPublicKey":false,"hasSession":true,"hasSignMessage":false,"isAuthenticated":true,"isAuthenticating":false,"sessionWallet":"T31SBBB9..."}
+[00:00:10.622] Browser LOG     [WalletAuth] 🔌 Wallet disconnected by user, clearing state
+[00:00:10.622] Browser LOG     [WalletAuth] 🔄 Sync effect: {"currentWallet":"undefined...","hasPublicKey":false,"hasSession":false,"hasSignMessage":false,"isAuthenticated":false,"isAuthenticating":false,"sessionWallet":"undefined..."}
+[00:01:38.512] Server  LOG      ✓ Compiled in 1010ms
+[00:04:38.324] Server  LOG      ✓ Compiled in 354ms
